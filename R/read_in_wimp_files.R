@@ -1,9 +1,8 @@
 #' take raw mb csv files to matrix
 #' @param path.tofile A file path
-#' @param coveragenumber A number
-#' @return matrix of mb genes at a specific coverage
+#' @return matrix of mb genes
 #' @examples
-#' read_in_mb_file("~/Desktop/my.files/", 80)
+#' read_in_mb_file("~/Desktop/my.files/")
 
 read_in_wimp_files <- function(path.to.files){
   parsed_files <- list.files(path = path.to.files)
