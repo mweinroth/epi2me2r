@@ -1,3 +1,10 @@
+#' take raw AMR csv files to matrix
+#' @param path.tofile A file path
+#' @param coveragenumber A number
+#' @return matrix of AMR genes at a specific coverage
+#' @examples
+#' read_in_amr_file("~/Desktop/my.files/", 80)
+
 read_in_amr_file <- function(path.to.files, coveragenumber){
   parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
