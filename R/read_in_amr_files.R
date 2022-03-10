@@ -5,7 +5,7 @@
 #' @examples
 #' read_in_amr_file("~/Desktop/my.files/", 80)
 
-read_in_amr_file <- function(path.to.files, coveragenumber){
+read_in_amr_files <- function(path.to.files, coveragenumber){
   parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
