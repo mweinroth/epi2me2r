@@ -1,11 +1,10 @@
 Package: epi2me2r
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Takes epi2me output and makes it into R usable files.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Maggie Weinroth
+Maintainer: The package maintainer <maggie.weinroth@usda.gov>
+Description: Currenlty, takes WIMP and AMRA data, reads and cleans it prepares it for downstream analysis. 
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
