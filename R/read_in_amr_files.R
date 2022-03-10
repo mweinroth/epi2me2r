@@ -1,14 +1,14 @@
-read_in_amr_file <- function(path, coveragenumber){
-  parsed_files <- list.files(path = path)
+read_in_amr_file <- function(path.to.files, coveragenumber){
+  parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
   file_name <- paste0(parsed_files[i])
-  amr.dataframe <- fread(paste0(path,file_name))
+  amr.dataframe <- fread(paste0(path.to.files,file_name))
   amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
 
   for(i in 1:length(parsed_files)){
     file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path,file_name))
+    amr.dataframe <- fread(paste0(path.to.files,file_name))
     amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
     if(i == 1){
       amr.rawdata <- amr.dataframe
