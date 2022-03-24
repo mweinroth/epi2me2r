@@ -4,6 +4,7 @@
 #' @examples
 #' read_in_mb_file("~/Desktop/my.files/")
 #' @import data.table
+#' @export
 
 read_in_wimp_files <- function(path.to.files){
   parsed_files <- list.files(path = path.to.files)
