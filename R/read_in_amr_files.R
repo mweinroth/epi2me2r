@@ -30,11 +30,11 @@ read_in_amr_files <- function(path.to.files, coveragenumber){
                                           sampleID=do.call(paste, c(.SD, sep="_"))),
                                       .SDcols= csvname:barcode]
   amr.rawdata.reduced <- cbind(sampleidinfo, amr.rawdata.reduced)
-  amr.rawdata.reduced[, c('1','2', '3', '4', 'CARDontology') :=
+  amr.rawdata.reduced[, c('1','2', '3', '4', 'CVTERMID') :=
                         do.call(Map, c(f = c, strsplit(URL, '/'))) ]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, coverage, CARDontology)]
+  amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, coverage, CVTERMID)]
   amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[coverage %between% c(coveragenumber, 100)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, CARDontology)]
-  mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset, CARDontology ~ sampleID))
+  amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, CVTERMID)]
+  mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset, CVTERMID ~ sampleID))
   mydt_wide
 }
