@@ -4,6 +4,7 @@
 #' @return matrix of AMR genes at a specific coverage
 #' @examples
 #' read_in_amr_file("~/Desktop/my.files/", 80)
+#' @import data.table
 
 read_in_amr_files <- function(path.to.files, coveragenumber){
   parsed_files <- list.files(path = path.to.files)

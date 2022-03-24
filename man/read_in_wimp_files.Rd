@@ -10,7 +10,7 @@ read_in_wimp_files(path.to.files)
 \item{path.tofile}{A file path}
 }
 \value{
-matrix of mb genes
+matrix of mb genes at a specific coverage
 }
 \description{
 take raw mb csv files to matrix
