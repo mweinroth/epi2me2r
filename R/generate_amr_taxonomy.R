@@ -1,6 +1,6 @@
 #' Generates a taxonomy file for AMR court table
 #' @name generate_amr_taxonomy
-#' @param amr.count.table count of AMR genes with CVTERMID in the first row adn samples on columns
+#' @param amr.count.table count of AMR genes with CVTERMID in the first row and samples on columns
 #' @param verbose true or false to keep all columns of AMR gene information or not
 #' @return data table of taxonomy of AMR genes in count table
 #' @examples
