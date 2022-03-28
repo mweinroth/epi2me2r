@@ -7,6 +7,8 @@
 #' @import data.table
 #' @export
 
+data(CARD_taxonomy, envir=environment())
+
 read_in_amr_files <- function(path.to.files, coveragenumber){
   parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
@@ -36,5 +38,5 @@ read_in_amr_files <- function(path.to.files, coveragenumber){
   amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[coverage %between% c(coveragenumber, 100)]
   amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, CVTERMID)]
   mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset, CVTERMID ~ sampleID))
-  mydt_wide
+
 }
