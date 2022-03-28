@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_amr_taxonomy.R
 \name{generate_amr_taxonomy}
 \alias{generate_amr_taxonomy}
-\title{take raw AMR csv files to matrix}
+\title{Generates a taxonomy file for AMR court table}
 \arguments{
 \item{amr.count.table}{count of AMR genes with CVTERMID in the first row adn samples on columns}
 
@@ -12,7 +12,7 @@
 data table of taxonomy of AMR genes in count table
 }
 \description{
-take raw AMR csv files to matrix
+Generates a taxonomy file for AMR court table
 }
 \examples{
 \dontrun{
