@@ -3,20 +3,19 @@
 \name{read_in_amr_files}
 \alias{read_in_amr_files}
 \title{take raw AMR csv files to matrix}
-\usage{
-read_in_amr_files(path.to.files, coveragenumber)
-}
 \arguments{
-\item{coveragenumber}{A number}
+\item{path.to.file}{A file path to AMR raw data csv}
 
-\item{path.tofile}{A file path}
+\item{coveragenumber}{Minimum percentage of a gene that must be covered 0 to 99}
+
+\item{keepSNP}{true or false to keep AMR gene conferred by one SNP change}
 }
 \value{
-matrix of AMR genes at a specific coverage
+matrix of AMR genes at a specific coverage with or without SNP associated
 }
 \description{
 take raw AMR csv files to matrix
 }
 \examples{
-read_in_amr_file("~/Desktop/my.files/", 80)
+read_in_amr_file(path.to.file = "~/Desktop/my.files/", coveragenumber = 80, keepSNP = FALSE)
 }

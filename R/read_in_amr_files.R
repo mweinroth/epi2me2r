@@ -1,15 +1,18 @@
 #' take raw AMR csv files to matrix
-#' @param path.tofile A file path
-#' @param coveragenumber A number
-#' @return matrix of AMR genes at a specific coverage
+#' @name read_in_amr_files
+#' @param path.to.file A file path to AMR raw data csv
+#' @param coveragenumber Minimum percentage of a gene that must be covered 0 to 99
+#' @param keepSNP true or false to keep AMR gene conferred by one SNP change
+#' @return matrix of AMR genes at a specific coverage with or without SNP associated
 #' @examples
-#' read_in_amr_file("~/Desktop/my.files/", 80)
+#' read_in_amr_file(path.to.file = "~/Desktop/my.files/", coveragenumber = 80, keepSNP = FALSE)
 #' @import data.table
 #' @export
 
+
 data(CARD_taxonomy, envir=environment())
 
-read_in_amr_files <- function(path.to.files, coveragenumber){
+read_in_amr_files <- function(path.to.files, coveragenumber, keepSNP){
   parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
@@ -38,5 +41,18 @@ read_in_amr_files <- function(path.to.files, coveragenumber){
   amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[coverage %between% c(coveragenumber, 100)]
   amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, CVTERMID)]
   mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset, CVTERMID ~ sampleID))
-
+  {
+    if (keepSNP == TRUE) {
+      print(mydt_wide)
+    } else if (keepSNP == FALSE) {
+      mydt_wide$CVTERMID <- as.numeric(mydt_wide$CVTERMID)
+      CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
+      merged.data <- merge(x = mydt_wide, y = CARD_taxonomy, by = "CVTERMID", all.x = TRUE)
+      nosnpdata <- merged.data[mutationassociated == "no"]
+      count_nosnpdata <- nosnpdata[, !c("ARO Accession", "CARDversion", "Model Sequence ID", "Model ID",
+                                        "Model Name", "ARO Name", "Protein Accession", "DNA Accession",
+                                        "AMR Gene Family", "Drug Class", "Resistance Mechanism", "mutationassociated")]
+      print(count_nosnpdata)
+    }
+  }
 }
