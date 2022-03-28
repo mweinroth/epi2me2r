@@ -16,5 +16,7 @@ matrix of mb genes at a specific coverage
 take raw mb csv files to matrix
 }
 \examples{
-read_in_mb_file("~/Desktop/my.files/")
+\dontrun{
+read_in_mb_file(path.to.files="~/Desktop/my.files")
+}
 }

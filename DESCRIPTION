@@ -11,5 +11,6 @@ RoxygenNote: 7.1.2
 Imports: data.table
 Suggests: 
     rmarkdown,
-    knitr
+    knitr,
+    reshape2
 VignetteBuilder: knitr

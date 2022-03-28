@@ -2,7 +2,9 @@
 #' @param path.tofile A file path
 #' @return matrix of mb genes at a specific coverage
 #' @examples
-#' read_in_mb_file("~/Desktop/my.files/")
+#' \dontrun{
+#' read_in_mb_file(path.to.files="~/Desktop/my.files")
+#' }
 #' @import data.table
 #' @export
 

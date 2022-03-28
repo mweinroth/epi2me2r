@@ -17,5 +17,7 @@ matrix of AMR genes at a specific coverage with or without SNP associated
 take raw AMR csv files to matrix
 }
 \examples{
-read_in_amr_file(path.to.file = "~/Desktop/my.files/", coveragenumber = 80, keepSNP = FALSE)
+\dontrun{
+read_in_amr_files(path.to.file = "~/Desktop/my.files/", coveragenumber = 80, keepSNP = FALSE)
+}
 }
