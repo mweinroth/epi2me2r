@@ -13,5 +13,7 @@ Imports: data.table,
 Suggests: 
     rmarkdown,
     knitr,
-    reshape2
+    reshape2,
+    phyloseq,
+    metagenomeSeq
 VignetteBuilder: knitr

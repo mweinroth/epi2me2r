@@ -4,7 +4,7 @@
 \alias{generate_amr_taxonomy}
 \title{Generates a taxonomy file for AMR court table}
 \arguments{
-\item{amr.count.table}{count of AMR genes with CVTERMID in the first row adn samples on columns}
+\item{amr.count.table}{count of AMR genes with CVTERMID in the first row and samples on columns}
 
 \item{verbose}{true or false to keep all columns of AMR gene information or not}
 }
