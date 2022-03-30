@@ -15,8 +15,8 @@ epi2me2r can currently be downloaded from github:
 ```
 install.packages("devtools") 
 library(devtools) 
-install_github("mweinroth/epi2me2") 
-library(epi2me2)
+install_github("mweinroth/epi2me2r") 
+library(epi2me2r)
 ```
 
 ## Inputs
