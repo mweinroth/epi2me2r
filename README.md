@@ -37,4 +37,4 @@ The second file you will need is a metadata file describing the type of samples 
 - **filename** is the EPI2ME csv name your file was given, an example is "arma_288715" note the csv extension is removed. 
 - **barcode** is that barcode your library was constructed with. If you did not barcode fill this column with "none". If you did youse barcodes, spell the first word and make all barcodes to digits (i.e. "barcode04" or "barcode10"). 
 These columns should be the first two in your metadata csv with the both in lowercase. 
-![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/epi2me.download.report.jpg)
+![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/amr-metadata.jpg)
