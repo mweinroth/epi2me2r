@@ -17,6 +17,10 @@
 
 data(CARD_taxonomy, envir=environment())
 
+
+
+data(CARD_taxonomy, envir=environment())
+
 amr_raw_to_phyloseq <- function(path.to.files, metadata, coveragenumber = 80, keepSNP = FALSE){
   #first count table
   parsed_files <- list.files(path = path.to.files)
@@ -79,12 +83,12 @@ amr_raw_to_phyloseq <- function(path.to.files, metadata, coveragenumber = 80, ke
 
   #put it together
   OTU = otu_table(amr_count_table, taxa_are_rows = TRUE)
-  TAX = tax_table(as.data.frame(taxa_short))
+  TAX = tax_table(as.matrix(taxa_short))
   META = sample_data(metadata)
   phyloseq(OTU, TAX)
 
 }
 
-phyloseq_object <- amr_raw_to_phyloseq(path.to.files = "raw-amr/", metadata = metadata)
+#phyloseq_object <- amr_raw_to_phyloseq(path.to.files = "raw-amr/", metadata = metadata)
 
-metadata <- read_csv("meta-amr.csv")
+#metadata <- read_csv("meta-amr.csv")
