@@ -1,19 +1,81 @@
 ---
 title: "epi2me2r vignette"
 output: rmarkdown::html_vignette
+author: Maggie Weinroth
 vignette: >
   %\VignetteIndexEntry{epi2me2r vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
 ```{r setup}
 library(epi2me2r)
 ```
+
+
+epi2me2r is meant to full a fully automated methods to take raw csv of AMRA and
+WIMP output from the EPI2ME pipeline from [Oxford Nanopore](https://nanoporetech.com/) 
+to quickly convert it into common R package formats, namely [phyloseq](https://joey711.github.io/phyloseq/)
+and [metagenomeSeq](https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html). 
+
+There are three main types of functions in epi2me2r:
+
+- **fully automated**: these functions take minimal input (usually just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
+    - `raw_amr_to_phyloseq`
+    - `raw_amr_to_metagenomseq`
+    - `raw_wimp_to_phyloseq`
+    - `raw_wimp_to_metagenomeseq`
+        
+- **step-by-step**: If you are looking for just a portion of the data you can these functions to generation only what you need:
+    - `read_in_amr_files`
+    - `read_in_wimp_files`
+    - `generate_amr_taxonomy`
+    - `generate_wimp_taxonomy`
+
+- **other**: these functions are useful but outside of scope of the main functions are reside here. `amr_read_taxonomy`  
+
+
+## preperation of metadata file
+
+Prior to starting, making sure the metadata file is formatted appropriately and in the correct format will ensure your data is imported correctly. You can use one metadata file for both your AMR and WIMP samples or seperate. Both options are shown below. 
+
+#### Combo metadata file
+
+This file has **4** required columns that must been entered as seen below:
+
+- `amr_filename` : the original amr file name without the csv extension
+- `amr_barcodes` : the barcodes of each same (note if you did not barcode any of your samples enter *none* in all of the cells). **In the AMR workflow, barcodes are listed as "barcode" and a two digit number, no barcodes are entered as"none"**
+- `wimp_filename` : the original amr file name without the csv extension
+- `wimp_barcodes` : the barcodes of each same (note if you did not barcode any of your samples enter *NA* in all of the cells). **In the AMR workflow, barcodes are listed as "BC" and a two digit number, no barcodes are entered as"NA"**
+- `additionally information` after these four required columns, you may include any additional metadata that is import, such as treatment type, sample numbers, etc.
+
+An example of a combo meatadata file:
+
+```{r metadata combo example, message = FALSE, warning= FALSE}
+metadata <- read.csv("../data/example_metadata.csv")
+head(metadata)
+```
+
+## Full Automated data read in
+
+For both AMR and WIMP data, the raw csv's downloaded from the EPI2ME2R website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARM data you will need **two** directories one for each set of data. 
+
+### AMR data
+
+#### amr_raw_to_phyloseq
+
+The read in for AMR data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
+
+- `path.to.file` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
+- `metadata` *required*: metadata following format above as a data.frame
+- `coveragenumber` *optional* the total length of the gene that must be present for it to be included in the count table, the deafult is 80% and this argument takes any number from 1 to 99. 
+- `keepSNP` *optional* if gene that are considered resistance only with a SNP mutation. Default is `FALSE` (does not include tehse genes) but can be changed to `TRUE` to include these genes. 
+
+
+```{r amr phylo run}
+# ps.amr.object <- amr_raw_to_phyloseq(path.to.files = "data/amr_raw/", 
+#                                      metadata = metadata,
+#                                      coveragenumber = 80,
+#                                      keepSNP = FALSE)
+```
+

@@ -1,0 +1,5 @@
+amr_filename,wimp_filename,amr_barcode,wimp_barcode,SampleName,treatment
+arma_226094,226094_1777,barcode07,BC07,animal1,antibioticA
+arma_226094,226094_1777,barcode12,BC12,animal6,antibioticB
+arma_226580,226580_1777,NA,none,animal7,antibioticB
+arma_226581,226581_1777,NA,none,animal8,antibioticB
