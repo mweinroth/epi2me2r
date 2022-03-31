@@ -4,23 +4,24 @@
 \alias{amr_raw_to_phyloseq}
 \title{Raw AMR files plus metadata to phyloseq object}
 \arguments{
-\item{x}{Data.}
+\item{path.to.files}{path to data of raw csv files from AMRA CARD analysis}
 
-\item{y}{More data.}
+\item{metdata}{data.table of metadata with "filename" and "barcode"  columns required}
 
-\item{amr.count.table}{count of AMR genes with CVTERMID in the first row and samples on columns}
+\item{coveragenumber}{Minimum percentage of a gene that must be covered 0 to 99, default = 80}
 
-\item{verbose}{true or false to keep all columns of AMR gene information or not}
+\item{keepSNP}{true or false to keep AMR gene conferred by one SNP change, default = FALSE}
 }
 \value{
-data table of taxonomy of AMR genes in count table
+phyloseq object for downstream analysis
 }
 \description{
 given directory and metadata make phyloseq object \pkg{\link{phyloseq}} package required.
 }
 \examples{
 \dontrun{
-generate_amr_taxonomy(amr.count.table = amr.count.table, verbose = FALSE)
+amr_raw_to_phyloseq(amr.count.table = path/to/amr.count.table,
+metadata = metadata, coveragenumber = 80, keepSNP = FALSE)
 }
 }
 \seealso{
