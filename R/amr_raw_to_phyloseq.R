@@ -21,7 +21,7 @@
 
 data(CARD_taxonomy, envir=environment())
 
-amr_raw_to_phyloseq <- function(path.to.files, metadata, coveragenumber = 80, keepSNP = FALSE){
+amr_raw_to_phyloseq <- function(path.to.files, metadata, coveragenumber=80, keepSNP=FALSE){
   #first count table
   parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)

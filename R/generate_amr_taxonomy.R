@@ -12,7 +12,7 @@
 
 data(CARD_taxonomy, envir=environment())
 
-generate_amr_taxonomy <- function(amr.count.table, verbose = FALSE){
+generate_amr_taxonomy <- function(amr.count.table, verbose=FALSE){
   amr.CVTERMID.list <- amr.count.table[,1]
   amr.CVTERMID.list$CVTERMID <- as.numeric(amr.CVTERMID.list$CVTERMID)
   CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)

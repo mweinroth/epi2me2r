@@ -14,7 +14,7 @@
 
 data(CARD_taxonomy, envir=environment())
 
-read_in_amr_files <- function(path.to.files, coveragenumber, keepSNP){
+read_in_amr_files <- function(path.to.files, coveragenumber=80, keepSNP=FALSE){
   parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
