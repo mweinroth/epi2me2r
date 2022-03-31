@@ -9,6 +9,7 @@
 #' @export
 
 read_in_wimp_files <- function(path.to.files){
+  message(paste("Reading in raw files from", path.to.files))
   parsed_files <- list.files(path = path.to.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
