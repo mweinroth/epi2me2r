@@ -41,7 +41,7 @@ read_in_amr_files <- function(path.to.files, coveragenumber=80, keepSNP=FALSE){
                         do.call(Map, c(f = c, strsplit(URL, '/'))) ]
   amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, coverage, CVTERMID)]
   amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[coverage %between% c(coveragenumber, 100)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, CVTERMID)]
+  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[, list(sampleID, CVTERMID)]
   mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset, CVTERMID ~ sampleID))
   {
     if (keepSNP == TRUE) {

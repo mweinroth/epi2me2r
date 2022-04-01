@@ -49,7 +49,7 @@ amr_raw_to_phyloseq <- function(path.to.files, metadata, coveragenumber=80, keep
                         do.call(Map, c(f = c, strsplit(URL, '/'))) ]
   amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, coverage, CVTERMID)]
   amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[coverage %between% c(coveragenumber, 100)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID, CVTERMID)]
+  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[, list(sampleID, CVTERMID)]
   mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset, CVTERMID ~ sampleID))
   {
     if (keepSNP == TRUE) {
