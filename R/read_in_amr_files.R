@@ -51,10 +51,10 @@ read_in_amr_files <- function(path.to.files, coveragenumber=80, keepSNP=FALSE){
       CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
       merged.data <- merge(x = mydt_wide, y = CARD_taxonomy, by = "CVTERMID", all.x = TRUE)
       nosnpdata <- merged.data[mutationassociated == "no"]
-      count_nosnpdata <- nosnpdata[, !c("ARO Accession", "CARDversion", "Model Sequence ID", "Model ID",
+      mydt_wide <- nosnpdata[, !c("ARO Accession", "CARDversion", "Model Sequence ID", "Model ID",
                                         "Model Name", "ARO Name", "Protein Accession", "DNA Accession",
                                         "AMR Gene Family", "Drug Class", "Resistance Mechanism", "mutationassociated")]
-      print(count_nosnpdata)
+      mydt_wide
     }
   }
 }

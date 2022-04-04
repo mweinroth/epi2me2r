@@ -2,6 +2,7 @@
 
 export(amr_raw_to_metagenomeseq)
 export(amr_raw_to_phyloseq)
+export(amr_read_taxonomy)
 export(generate_amr_taxonomy)
 export(generate_wimp_taxonomy)
 export(read_in_amr_files)
