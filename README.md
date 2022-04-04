@@ -1,8 +1,9 @@
 # epi2me2r
 
-epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://epi2me.nanoporetech.com/) and facilitate the easy import of these documents into R for downstream analysis. Currently, raw data from WIMP and AMR CARD can be used. 
+epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://epi2me.nanoporetech.com/) and facilitate the easy import of these documents into R for downstream analysis either into a [phyloseq](https://bioconductor.org/packages/release/bioc/html/phyloseq.html) or [metgenomeSeq](https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html) object or coutn tables and taxonomy for other packages. Currently, raw data from WIMP and AMR CARD can be used as imputs. 
 
 ## Contents
+- [Overview](#Overview)
 - [Installation](#Installation)
 - [Inputs](#Inputs)
 - [Usage](#usage)
@@ -10,6 +11,23 @@ epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://
 - [Additional Information](#Additional)
 - [Contact](#Contact)
 
+# Overview
+
+There are three main types of functions in epi2me2r:
+
+- **fully automated**: these functions take minimal input (usually just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
+    - `raw_amr_to_phyloseq`
+    - `raw_amr_to_metagenomseq`
+    - `raw_wimp_to_phyloseq`
+    - `raw_wimp_to_metagenomeseq`
+        
+- **step-by-step**: If you are looking for just a portion of the data you can these functions to generation only what you need:
+    - `read_in_amr_files`
+    - `read_in_wimp_files`
+    - `generate_amr_taxonomy`
+    - `generate_wimp_taxonomy`
+
+- **other**: An additional function we created but does not fit into the main workflows is `amr_read_taxonomy`. This function reads in both AMR and WIMP raw data and adds the taxonomic infromation to the AMR gene if available.  
 
 ## Installation
 epi2me2r can currently be downloaded from github:
