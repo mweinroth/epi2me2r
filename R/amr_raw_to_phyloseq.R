@@ -1,7 +1,7 @@
 ##' Raw AMR files plus metadata to phyloseq object
 ##'@name amr_raw_to_phyloseq
 ##' @description given directory and metadata make phyloseq object \pkg{\link{phyloseq}} package required.
-##' @param path.to.files path to data of raw csv files from AMRA CARD analysis
+##' @param path.to.amr.files path to data of raw csv files from AMRA CARD analysis
 ##' @param metdata data.table of metadata with "filename" and "barcode"  columns required
 #' @param coveragenumber Minimum percentage of a gene that must be covered 0 to 99, default = 80
 #' @param keepSNP true or false to keep AMR gene conferred by one SNP change, default = FALSE
@@ -9,7 +9,7 @@
 #' @return phyloseq object for downstream analysis
 #' @examples
 #' \dontrun{
-#' amr_raw_to_phyloseq(amr.count.table = path/to/amr.count.table,
+#' amr_raw_to_phyloseq(path.to.amr.files = path/to/amr.count.table,
 #' metadata = metadata, coveragenumber = 80, keepSNP = FALSE)
 #' }
 #' @import data.table
@@ -21,18 +21,18 @@
 
 data(CARD_taxonomy, envir=environment())
 
-amr_raw_to_phyloseq <- function(path.to.files, metadata, coveragenumber=80, keepSNP=FALSE){
+amr_raw_to_phyloseq <- function(path.to.amr.files, metadata, coveragenumber=80, keepSNP=FALSE){
   #first count table
-  parsed_files <- list.files(path = path.to.files)
+  parsed_files <- list.files(path = path.to.amr.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
   file_name <- paste0(parsed_files[i])
-  amr.dataframe <- fread(paste0(path.to.files,file_name))
+  amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
   amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
 
   for(i in 1:length(parsed_files)){
     file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path.to.files,file_name))
+    amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
     amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
     if(i == 1){
       amr.rawdata <- amr.dataframe

@@ -1,6 +1,6 @@
 #' Generates a taxonomy file for WIMP court table using taxonomizr
 #' @name generate_wimp_taxonomy
-#' @param wimp.count.table count of WIMP genes with taxID in the first row adn samples on columns
+#' @param wimp.count.table count of WIMP genes with taxID in the first row and samples on columns
 #' @return data table of taxonomy of WIMP genes in count table
 #' @examples
 #' \dontrun{

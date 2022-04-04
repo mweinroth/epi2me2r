@@ -3,22 +3,22 @@
 #' @return matrix of mb genes at a specific coverage
 #' @examples
 #' \dontrun{
-#' read_in_mb_file(path.to.files="~/Desktop/my.files")
+#' read_in_mb_file(path.to.wimp.files="~/Desktop/my.files")
 #' }
 #' @import data.table
 #' @export
 
-read_in_wimp_files <- function(path.to.files){
-  message(paste("Reading in raw files from", path.to.files))
-  parsed_files <- list.files(path = path.to.files)
+read_in_wimp_files <- function(path.to.wimp.files){
+  message(paste("Reading in raw files from", path.to.wimp.files))
+  parsed_files <- list.files(path = path.to.wimp.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
   file_name <- paste0(parsed_files[i])
-  mb.dataframe <- fread(paste0(path.to.files,file_name))
+  mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
   mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
   for(i in 1:length(parsed_files)){
     file_name <- paste0(parsed_files[i])
-    mb.dataframe <- fread(paste0(path.to.files,file_name))
+    mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
     mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
     if(i == 1){
       mb.rawdata <- mb.dataframe

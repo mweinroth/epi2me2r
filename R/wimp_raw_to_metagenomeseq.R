@@ -1,15 +1,15 @@
 ##' Raw WIMP files plus metadata to metagenomeseq object
 ##'@name wimp_raw_to_metagenomeseq
 ##' @description given wimp directory and metadata make phyloseq object \pkg{\link{metagenomeSeq}} package required.
-##' @param path.to.files path to data of raw csv files from WIMP analysis
+##' @param path.to.wimp.files path to data of raw csv files from WIMP analysis
 ##' @param metdata dataframe of metadata with "filename" and "barcode"  columns required
 #' @param keep.unclassified true or false to keep reads that do not classify below phylum, default = FALSE
-#' @param keep.human true or false to keep reads that classifed to human default = FALSE
+#' @param keep.human true or false to keep reads that classified to human default = FALSE
 ##' @seealso \pkg{\link{metagenomeSeq}}
 #' @return metagenomeseq object for downstream analysis with WIMP data
 #' @examples
 #' \dontrun{
-#' wimp_raw_to_metagenomeseq(path.to.files= path/to/wimpfiles,
+#' wimp_raw_to_metagenomeseq(path.to.wimp.files= path/to/wimpfiles,
 #' metadata = metadata, keep.unclassifed=FALSE, keep.human=FALSE)
 #' }
 #' @import data.table
@@ -21,18 +21,18 @@
 #' @export
 
 
-wimp_raw_to_metagenomeseq <- function(path.to.files, metadata, keep.unclassifed=FALSE, keep.human=FALSE){
+wimp_raw_to_metagenomeseq <- function(path.to.wimp.files, metadata, keep.unclassifed=FALSE, keep.human=FALSE){
   #read in raw files
-  message(paste("Reading in raw files from", path.to.files))
-  parsed_files <- list.files(path = path.to.files)
+  message(paste("Reading in raw files from", path.to.wimp.files))
+  parsed_files <- list.files(path = path.to.wimp.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
   i <- 1
   file_name <- paste0(parsed_files[i])
-  mb.dataframe <- fread(paste0(path.to.files,file_name))
+  mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
   mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
   for(i in 1:length(parsed_files)){
     file_name <- paste0(parsed_files[i])
-    mb.dataframe <- fread(paste0(path.to.files,file_name))
+    mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
     mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
     if(i == 1){
       mb.rawdata <- mb.dataframe
