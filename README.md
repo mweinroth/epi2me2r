@@ -33,8 +33,14 @@ Raw data will be downloaded as a csv file with a separate file from each run. If
 You will use this directory location as later when you import your samples. 
 
 ### metadata
-The second file you will need is a metadata file describing the type of samples you have, such as sample names. This file may also contain other important information about your samples such as treatments. There are only two required columns: _filename_ and _barcode_. 
-- **filename** is the EPI2ME csv name your file was given, an example is "arma_288715" note the csv extension is removed. 
-- **barcode** is that barcode your library was constructed with. If you did not barcode fill this column with "none". If you did youse barcodes, spell the first word and make all barcodes to digits (i.e. "barcode04" or "barcode10"). 
-These columns should be the first two in your metadata csv with the both in lowercase. 
+The second file you will need is a metadata file describing the type of samples you have, such as sample names. This file may also contain other important information about your samples such as treatments. There are four required columns if you are running both a WIMP and AMR analysis:
+
+This file has **4** required columns that must been entered as seen below:
+
+- `amr_filename` : the original amr file name without the csv extension
+- `amr_barcodes` : the barcodes of each same (note if you did not barcode any of your samples enter *none* in all of the cells). **In the AMR workflow, barcodes are listed as "barcode" and a two digit number, no barcodes are entered as"none"**
+- `wimp_filename` : the original amr file name without the csv extension
+- `wimp_barcodes` : the barcodes of each same (note if you did not barcode any of your samples enter *NA* in all of the cells). **In the AMR workflow, barcodes are listed as "BC" and a two digit number, no barcodes are entered as"NA"**
+- `additionally information` after these four required columns, you may include any additional metadata that is import, such as treatment type, sample numbers, etc.
+
 ![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/metadata.jpg)
