@@ -75,7 +75,6 @@ This file has **4** required columns that must been entered as seen below:
 - `additionally information` after these four required columns, you may include any additional metadata that is import, such as treatment type, sample numbers, etc.
 
 ![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/metadata.jpg)
-![image](https://user-images.githubusercontent.com/79921254/163031792-8928559f-49c3-4f60-acf5-38598d1d2c50.png)
 
 
 ## Usage
