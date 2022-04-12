@@ -1,6 +1,6 @@
 # epi2me2r
 
-epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://epi2me.nanoporetech.com/) and facilitate the easy import of these documents into R for downstream analysis either into a [phyloseq](https://bioconductor.org/packages/release/bioc/html/phyloseq.html) or [metgenomeSeq](https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html) object or coutn tables and taxonomy for other packages. Currently, raw data from WIMP and AMR CARD can be used as imputs. 
+epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://epi2me.nanoporetech.com/) and facilitate the easy import of these documents into R for downstream analysis either into a [phyloseq](https://bioconductor.org/packages/release/bioc/html/phyloseq.html) or [metgenomeSeq](https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html) object or count tables and taxonomy for other packages. Currently, raw data from WIMP and AMR CARD can be used as imputs. 
 
 ## Contents
 - [Overview](#Overview)
