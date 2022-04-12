@@ -7,8 +7,7 @@ epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://
 - [Installation](#Installation)
 - [Inputs](#Inputs)
 - [Usage](#usage)
-- [Output](#output)
-- [Additional Information](#Additional)
+- [Options Explained](#Options)
 - [Contact](#Contact)
 
 # Overview
@@ -58,14 +57,11 @@ library(epi2me2r)
 To use epi2me2r you will need your **raw data** and a **metadata file**. 
 
 ### raw data 
-Raw data files are downloaded from the EPI2ME report:
-![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/epi2me.download.report.jpg?raw=true)
-
-Raw data will be downloaded as a csv file with a separate file from each run. If you have barcodes your samples, multiple samples will be contained in one csv file; if not each sample will have its own file. **DO NOT** change the names of the files you have downloaded as the file name will have the type of analysis and run number in it (i.e. arma_288715.csv). 
+Raw data files are downloaded from the EPI2ME report either in the WIMP or AMR CARD tab (Each sample will have 2 different files if you conducted both an AMR and WIMP analysis). Raw data will be downloaded as a csv file with a separate file from each run. If you have barcodes your samples, multiple samples will be contained in one csv file; if not each sample will have its own file. **DO NOT** change the names of the files you have downloaded as the file name will have the type of analysis and run number in it (i.e. arma_288715.csv [_AMR_] or 226094_1777.csv [_WIMP_]). 
 
 **_Place all raw data files of the same analysis type in the directory with only those files in it_**
 
-You will use this directory location as later when you import your samples. 
+You will use this directory location when you import your samples. 
 
 ### metadata
 The second file you will need is a metadata file describing the type of samples you have, such as sample names. This file may also contain other important information about your samples such as treatments. There are four required columns if you are running both a WIMP and AMR analysis:
@@ -80,3 +76,16 @@ This file has **4** required columns that must been entered as seen below:
 
 ![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/metadata.jpg)
 ![image](https://user-images.githubusercontent.com/79921254/163031792-8928559f-49c3-4f60-acf5-38598d1d2c50.png)
+
+
+## Usage
+
+Usage is detailed in the basic vignette
+
+## Options Explained
+
+Some of the fucntions have additional options that are set to a default setting put can be changed. 
+
+# Contact
+
+Any questions or comments can be directed to Maggie Weinroth: maggie.weinroth@usda.gov
