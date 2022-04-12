@@ -5,16 +5,16 @@
 \title{Raw WIMP files plus metadata to metagenomeseq object}
 \usage{
 wimp_raw_to_metagenomeseq(
-  path.to.files,
+  path.to.wimp.files,
   metadata,
   keep.unclassifed = FALSE,
   keep.human = FALSE
 )
 }
 \arguments{
-\item{path.to.files}{path to data of raw csv files from WIMP analysis}
+\item{path.to.wimp.files}{path to data of raw csv files from WIMP analysis}
 
-\item{keep.human}{true or false to keep reads that classifed to human default = FALSE}
+\item{keep.human}{true or false to keep reads that classified to human default = FALSE}
 
 \item{metdata}{dataframe of metadata with "filename" and "barcode"  columns required}
 
@@ -28,7 +28,7 @@ given wimp directory and metadata make phyloseq object \pkg{\link{metagenomeSeq}
 }
 \examples{
 \dontrun{
-wimp_raw_to_metagenomeseq(path.to.files= path/to/wimpfiles,
+wimp_raw_to_metagenomeseq(path.to.wimp.files= path/to/wimpfiles,
 metadata = metadata, keep.unclassifed=FALSE, keep.human=FALSE)
 }
 }

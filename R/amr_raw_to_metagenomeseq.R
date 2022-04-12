@@ -23,7 +23,7 @@
 
 data(CARD_taxonomy, envir=environment())
 
-amr_raw_to_phyloseq <- function(path.to.amr.files, metadata, coveragenumber=80, keepSNP=FALSE){
+amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata, coveragenumber=80, keepSNP=FALSE){
   #first count table
   parsed_files <- list.files(path = path.to.amr.files)
   Sample_IDs <- sub(".csv", "", parsed_files)

@@ -4,7 +4,7 @@
 \alias{read_in_wimp_files}
 \title{take raw mb csv files to matrix}
 \usage{
-read_in_wimp_files(path.to.files)
+read_in_wimp_files(path.to.wimp.files)
 }
 \arguments{
 \item{path.tofile}{A file path}
@@ -17,6 +17,6 @@ take raw mb csv files to matrix
 }
 \examples{
 \dontrun{
-read_in_mb_file(path.to.files="~/Desktop/my.files")
+read_in_mb_file(path.to.wimp.files="~/Desktop/my.files")
 }
 }

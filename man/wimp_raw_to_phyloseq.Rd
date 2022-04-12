@@ -5,14 +5,14 @@
 \title{Raw WIMP files plus metadata to phyloseq object}
 \usage{
 wimp_raw_to_phyloseq(
-  path.to.files,
+  path.to.wimp.files,
   metadata,
   keep.unclassifed = FALSE,
   keep.human = FALSE
 )
 }
 \arguments{
-\item{path.to.files}{path to data of raw csv files from WIMP analysis}
+\item{path.to.wimp.files}{path to data of raw csv files from WIMP analysis}
 
 \item{keep.human}{true or false to keep reads that classifed to human default = FALSE}
 
@@ -28,7 +28,7 @@ given wimp directory and metadata make phyloseq object \pkg{\link{phyloseq}} pac
 }
 \examples{
 \dontrun{
-wimp_raw_to_phyloseq(path.to.files= path/to/wimpfiles,
+wimp_raw_to_phyloseq(path.to.wimp.files= path/to/wimpfiles,
 metadata = metadata, keep.unclassifed=FALSE, keep.human=FALSE)
 }
 }

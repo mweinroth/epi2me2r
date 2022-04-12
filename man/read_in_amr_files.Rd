@@ -4,7 +4,7 @@
 \alias{read_in_amr_files}
 \title{take raw AMR csv files to matrix}
 \arguments{
-\item{path.to.file}{A file path to AMR raw data csv}
+\item{path.to.amr.files}{A file path to AMR raw data csv}
 
 \item{coveragenumber}{Minimum percentage of a gene that must be covered 0 to 99}
 
@@ -18,6 +18,6 @@ take raw AMR csv files to matrix
 }
 \examples{
 \dontrun{
-read_in_amr_files(path.to.file = "~/Desktop/my.files/", coveragenumber = 80, keepSNP = FALSE)
+read_in_amr_files(path.to.amr.files = "~/Desktop/my.files/", coveragenumber = 80, keepSNP = FALSE)
 }
 }

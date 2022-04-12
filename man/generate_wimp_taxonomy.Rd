@@ -7,7 +7,7 @@
 generate_wimp_taxonomy(wimp.count.table)
 }
 \arguments{
-\item{wimp.count.table}{count of WIMP genes with taxID in the first row adn samples on columns}
+\item{wimp.count.table}{count of WIMP genes with taxID in the first row and samples on columns}
 }
 \value{
 data table of taxonomy of WIMP genes in count table

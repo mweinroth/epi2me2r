@@ -4,7 +4,7 @@
 \alias{amr_raw_to_metagenomeseq}
 \title{Raw AMR files plus metadata to phyloseq object}
 \arguments{
-\item{path.to.files}{path to data of raw csv files from AMRA CARD analysis}
+\item{path.to.amr.files}{path to data of raw csv files from AMRA CARD analysis}
 
 \item{metdata}{data.table of metadata with "filename" and "barcode"  columns required}
 
@@ -20,7 +20,7 @@ given directory and metadata make phyloseq object \pkg{\link{metagenomeSeq}} pac
 }
 \examples{
 \dontrun{
-amr_raw_to_phyloseq(amr.count.table = path/to/amr.count.table,
+amr_raw_to_phyloseq(path.to.amr.files = path/to/amr.count.table,
 metadata = metadata, coveragenumber = 80, keepSNP = FALSE)
 }
 }
