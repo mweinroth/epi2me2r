@@ -7,8 +7,8 @@ epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://
 - [Installation](#Installation)
 - [Inputs](#Inputs)
 - [Usage](#usage)
-- [Options Explained](#Options Explained)
-- [Known Issues](#Known Issues)
+- [Options](#Options)
+- [Issues](#Issues)
 - [Contact](#Contact)
 
 # Overview
@@ -84,11 +84,11 @@ An example csv is avalible [here](https://github.com/mweinroth/epi2me2r/blob/mas
 
 Usage is detailed in the basic vignette
 
-## Options Explained
+## Options 
 
 Some of the fucntions have additional options that are set to a default setting put can be changed. 
 
-## Known Issues
+## Issues
 
 metadata barcodes between versions of epi2me
 
