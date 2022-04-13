@@ -57,7 +57,8 @@ wimp_raw_to_metagenomeseq <- function(path.to.wimp.files, metadata, keep.unclass
   #metadata[] <- lapply(metadata, function(y) gsub("BC", "barcode", y))
   mb.metadata <- metadata
   mb.metadata$sampleID <- paste(mb.metadata$wimp_filename, mb.metadata$wimp_barcode, sep = "_")
-  sampleID_names <- mb.metadata[,"sampleID"]
+  sampleID_names <- as.data.frame(mb.metadata$sampleID)
+  colnames(sampleID_names) <- "sampleID"
   mb_count_table.t <- as.data.table(t(as.matrix(wimp_count_table, rownames = "taxID")),
                                     keep.rownames = "sampleID")
   dropped_mis_barcode.t <- merge(x = sampleID_names, mb_count_table.t,

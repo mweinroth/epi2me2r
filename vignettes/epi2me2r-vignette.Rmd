@@ -8,7 +8,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup}
+```{r setup, warning= FALSE}
 library(epi2me2r)
 ```
 
@@ -66,16 +66,58 @@ For both AMR and WIMP data, the raw csv's downloaded from the epi2mw website nee
 
 The read in for AMR data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
 
-- `path.to.file` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
+- `path.to.amr.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
 - `metadata` *required*: metadata following format above as a data.frame
-- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. 
+- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. Default is `80`.
 - `keepSNP` *optional* : if gene that are considered resistance only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
 
 
-```{r amr, eval = FALSE}
-ps.amr.object <- amr_raw_to_phyloseq(path.to.files = "~/User/Documents/my_amr_files", 
-                                      metadata = epi2me.metadata,
-                                      coveragenumber = 80,
-                                      keepSNP = FALSE)
+```{r amr phylo}
+ps.amr.object <- amr_raw_to_phyloseq(path.to.amr.files = "../data/example_amr_data/",
+                                     metadata = epi2me.metadata,
+                                     coveragenumber = 80, 
+                                     keepSNP = FALSE)
 ```
 
+#### amr_raw_to_metagenomeseq
+
+The same parameters for importing to metagenomseq are used as those that were used above in the `amr_raw_to_phyloseq` function:
+
+```{r amr mgs}
+mgs.amr.object <- amr_raw_to_metagenomeseq(path.to.amr.files = "../data/example_amr_data/",
+                                     metadata = epi2me.metadata,
+                                     coveragenumber = 80, 
+                                     keepSNP = FALSE)
+mgs.amr.object
+```
+
+
+### WIMP
+
+#### wimp_raw_to_phyloseq
+
+The read in for WIMP data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
+
+- `path.to.wimp.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
+- `metadata` *required*: metadata following format above as a data.frame
+- `keep.unclassifed` *optional* : keep genes that do not classify or do not classify beyond a superkingdom. Default is `FALSE` (does not include these reads) but can be changed to `TRUE` to include these reads 
+- `keep.human` *optional* : Keep reads associated with homo sapien (for microbiome usually considered a contaminant) Default is `FALSE` (does not include human associated reads) but can be changed to `TRUE` to include these reads. 
+
+```{r wimp phylo}
+ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../data/example_amr_data/",
+                                     metadata = epi2me.metadata,
+                                     keep.unclassifed = FALSE, 
+                                     keep.human = FALSE)
+```                                     
+
+#### wimp_raw_to_metagenomeseq
+
+Like the functions for AMR, the same parameters for importing to metagenomseq are used as those that were used above in the `wimp_raw_to_phyloseq` function:
+
+```{r wimp mgs}
+mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../data/example_amr_data/",
+                                     metadata = epi2me.metadata,
+                                     keep.unclassifed = FALSE, 
+                                     keep.human = FALSE)
+mgs.wimp.object
+```
