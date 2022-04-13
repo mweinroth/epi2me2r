@@ -74,6 +74,8 @@ This file has **4** required columns that must been entered as seen below:
 - `wimp_barcodes` : the barcodes of each same (note if you did not barcode any of your samples enter *NA* in all of the cells). **In the AMR workflow, barcodes are listed as "BC" and a two digit number, no barcodes are entered as "NA"**
 - `additionally information` after these four required columns, you may include any additional metadata that is import, such as treatment type, sample numbers, etc.
 
+An example csv is avalible [here](https://github.com/mweinroth/epi2me2r/blob/master/data/example_metadata.csv)
+
 ![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/metadata-example.jpg)
 
 
