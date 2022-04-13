@@ -8,6 +8,7 @@ epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://
 - [Inputs](#Inputs)
 - [Usage](#usage)
 - [Options Explained](#Options)
+- [Known Issues](#Issues)
 - [Contact](#Contact)
 
 # Overview
@@ -86,6 +87,10 @@ Usage is detailed in the basic vignette
 ## Options Explained
 
 Some of the fucntions have additional options that are set to a default setting put can be changed. 
+
+## Known Issues
+
+metadata barcodes between versions of epi2me
 
 # Contact
 
