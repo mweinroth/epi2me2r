@@ -7,8 +7,8 @@ epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://
 - [Installation](#Installation)
 - [Inputs](#Inputs)
 - [Usage](#usage)
-- [Options Explained](#Options)
-- [Known Issues](#Issues)
+- [Options Explained](#Options Explained)
+- [Known Issues](#Known Issues)
 - [Contact](#Contact)
 
 # Overview
