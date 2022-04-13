@@ -10,6 +10,7 @@ epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://
 - [Options](#Options)
 - [Issues](#Issues)
 - [Contact](#Contact)
+- [Citation](#Citation)
 
 # Overview
 
@@ -95,3 +96,7 @@ metadata barcodes between versions of epi2me
 # Contact
 
 Any questions or comments can be directed to Maggie Weinroth: maggie.weinroth@usda.gov
+
+# Citation
+
+.
