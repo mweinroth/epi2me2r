@@ -66,8 +66,9 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata, coveragenumber=80, 
     }
   }
   #remove mis-barcoded samples
-  metadata$sampleID <- paste(metadata$filename, metadata$barcode, sep = "_")
-  sampleID_names <- metadata[,"sampleID"]
+  metadata$sampleID <- paste(metadata$arma_filename, metadata$amra_barcode, sep = "_")
+  sampleID_names <- as.data.frame(metadata$sampleID)
+  colnames(sampleID_names) <- "sampleID"
   amr_count_table.t <- as.data.table(t(as.matrix(amr_count_table, rownames = "CVTERMID")), keep.rownames = "sampleID")
   dropped_mis_barcode.t <- merge(x = sampleID_names, amr_count_table.t,by = "sampleID", all.x = TRUE)
   #entire section because I could not get the df to be numeric in the count data
