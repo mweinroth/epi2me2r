@@ -74,7 +74,7 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata, keep.unclassifed=
   mb.taxonIDneeded <- as.data.frame(row.names(mb_table_numeric))
   setnames(mb.taxonIDneeded, "row.names(mb_table_numeric)", "taxID")
   mb.taxonIDneeded <- as.numeric(mb.taxonIDneeded$taxID)
-  message("Now downloading and putting together the NCBI databasem this might take a while...")
+  message("Now downloading and putting together the NCBI database this might take a while...")
   prepareDatabase(getAccessions=FALSE, indexTaxa=TRUE)
   message("Assigning all taxID in count matix to fill taxonomy, you might want to take a break.")
   full.taxon.wimp <- getTaxonomy(mb.taxonIDneeded,'nameNode.sqlite')
@@ -84,7 +84,7 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata, keep.unclassifed=
   mb.dt <- as.data.table(mb_table_numeric, keep.rownames = "taxID")
   mb.dt$taxID <- as.numeric(mb.dt$taxID)
   merged.wimp.data <- merge(x = mb.dt, y = full.taxon.wimp.dt, by = "taxID", all.x = TRUE)
-  message("done with taxa assignemnts, it should nto be to much longer.")
+  message("done with taxa assignemnts, it should not be to much longer.")
   {
     #get rid of unclassifed
     if (keep.unclassifed == TRUE) {

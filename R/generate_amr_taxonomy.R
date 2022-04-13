@@ -21,8 +21,8 @@ generate_amr_taxonomy <- function(amr.count.table, verbose=FALSE){
     taxa_long <- merged.data[, c("CVTERMID", "ARO Accession", "CARDversion", "Model Sequence ID", "Model ID",
                                  "Model Name", "ARO Name", "Protein Accession", "DNA Accession",
                                  "AMR Gene Family", "Drug Class", "Resistance Mechanism", "mutationassociated")]
-    print(taxa_long)}
+    taxa_long}
   else if(verbose == FALSE) {
     taxa_short <- merged.data[, c("CVTERMID","Drug Class", "AMR Gene Family", "Resistance Mechanism", "ARO Name")]
-    print(taxa_short)}
+    taxa_short}
 }
