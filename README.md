@@ -78,7 +78,7 @@ This file has **4** required columns that must been entered as seen below:
 
 An example csv is avalible [here](https://github.com/mweinroth/epi2me2r/blob/master/data/example_metadata.csv)
 
-![](https://github.com/mweinroth/epi2me2r/blob/master/screenshots.for.github/metadata-example.jpg)
+![](https://github.com/mweinroth/epi2me2r/blob/master/inst/metadata-example.jpg)
 
 
 ### Usage
