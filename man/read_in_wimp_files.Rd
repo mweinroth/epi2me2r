@@ -7,7 +7,7 @@
 read_in_wimp_files(path.to.wimp.files)
 }
 \arguments{
-\item{path.to.wimp.file}{A file path}
+\item{path.to.wimp.files}{A file path}
 }
 \value{
 matrix of mb genes at a specific coverage

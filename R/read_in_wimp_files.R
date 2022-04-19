@@ -1,5 +1,5 @@
 #' take raw mb csv files to matrix
-#' @param path.to.wimp.file A file path
+#' @param path.to.wimp.files A file path
 #' @return matrix of mb genes at a specific coverage
 #' @examples
 #' \dontrun{

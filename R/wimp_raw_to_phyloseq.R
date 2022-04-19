@@ -4,7 +4,7 @@
 ##' \pkg{\link{phyloseq}} package required.
 ##' @param path.to.wimp.files path to data of raw csv files from WIMP
 ##' analysis
-##' @param metdata dataframe of metadata with "filename" and "barcode"
+##' @param metadata dataframe of metadata with "filename" and "barcode"
 ##'  columns required
 #' @param keep.unclassified true or false to keep reads that do not
 #' classify below phylum, default = FALSE

@@ -1,11 +1,10 @@
 citHeader("To cite epi2me2r in publications use:")
 
 citEntry(
-  entry    = "epi2me2r",
-  title    = "epi2me2r R package",
-  author   = "Maggie Weinroth",
-  url      = "https://github.com/mweinroth/epi2me2r",
-  textVersion = paste(
-
+  title        = "epi2me2r",
+  author       = "Weinroth, Margaret D.",
+  howpublished = "https://github.com/mweinroth/epi2me2r",
+  year         = 2022,
+  note         = "none"
   )
-)
+

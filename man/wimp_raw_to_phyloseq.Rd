@@ -15,14 +15,14 @@ wimp_raw_to_phyloseq(
 \item{path.to.wimp.files}{path to data of raw csv files from WIMP
 analysis}
 
+\item{metadata}{dataframe of metadata with "filename" and "barcode"
+columns required}
+
 \item{keep.unclassified}{true or false to keep reads that do not
 classify below phylum, default = FALSE}
 
 \item{keep.human}{true or false to keep reads that classifed to
 human default = FALSE}
-
-\item{metdata}{dataframe of metadata with "filename" and "barcode"
-columns required}
 }
 \value{
 phyloseq object for downstream analysis with WIMP data

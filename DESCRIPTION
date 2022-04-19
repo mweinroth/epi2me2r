@@ -2,8 +2,10 @@ Package: epi2me2r
 Type: Package
 Title: Takes epi2me output and makes it into R usable files
 Version: 0.1.0
-Authors@R: person("Maggie", "Weinroth", , "maggie.weinroth@usda.gov", role = c("aut", "cre"))
-Description: Currenlty, takes WIMP and AMRA data, reads and cleans it prepares it for downstream analysis. 
+Authors@R: person("Maggie", "Weinroth", , "maggie.weinroth@usda.gov", 
+role = c("aut", "cre"))
+Description: Currenlty, takes WIMP and AMRA data, reads and cleans it prepares 
+    it for downstream analysis. 
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
@@ -12,12 +14,12 @@ BugReports: https://github.com/mweinroth/epi2me2r/issues
 Imports: data.table,
     taxonomizr, 
     phyloseq, 
-    Biobase
+    Biobase,
+    metagenomeSeq
 Suggests: 
     rmarkdown,
     knitr,
     reshape2,
-    metagenomeSeq,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
