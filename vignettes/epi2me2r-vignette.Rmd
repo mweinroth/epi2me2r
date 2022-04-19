@@ -96,6 +96,8 @@ mgs.amr.object
 
 #### wimp_raw_to_phyloseq
 
+WIMP files used the same idea as the AMR files but use the package [taxonomizr](https://github.com/sherrillmix/taxonomizr) to help add taxonomic hierarchical information. 
+
 The read in for WIMP data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
 
 - `path.to.wimp.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
@@ -104,7 +106,7 @@ The read in for WIMP data requires a directory and a metadata file. The director
 - `keep.human` *optional* : Keep reads associated with homo sapien (for microbiome usually considered a contaminant) Default is `FALSE` (does not include human associated reads) but can be changed to `TRUE` to include these reads. 
 
 ```{r wimp phylo, eval = FALSE}
-ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../data/example_amr_data/",
+ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../data/example_wimp_data/",
                                      metadata = epi2me.metadata,
                                      keep.unclassifed = FALSE, 
                                      keep.human = FALSE)
@@ -115,7 +117,7 @@ ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../data/example_amr
 Like the functions for AMR, the same parameters for importing to metagenomseq are used as those that were used above in the `wimp_raw_to_phyloseq` function:
 
 ```{r wimp mgs, eval = FALSE}
-mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../data/example_amr_data/",
+mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../data/example_wimp_data/",
                                      metadata = epi2me.metadata,
                                      keep.unclassifed = FALSE, 
                                      keep.human = FALSE)

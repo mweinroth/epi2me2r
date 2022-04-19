@@ -13,6 +13,7 @@
 #' metadata = metadata, keep.unclassifed=FALSE, keep.human=FALSE)
 #' }
 #' @import data.table
+#' @import taxonomizr
 #' @importFrom  phyloseq phyloseq
 #' @importFrom  phyloseq otu_table
 #' @importFrom phyloseq tax_table
