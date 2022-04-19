@@ -30,14 +30,19 @@ read_in_wimp_files <- function(path.to.wimp.files){
   total.reads <- nrow(mb.rawdata)
   mb.classified <- mb.rawdata[mb.rawdata$exit_status == "Classified",]
   classified.reads <- nrow(mb.classified)
-  percentage.classifed <- round((classified.reads/total.reads*100), digits = 2)
-  message(paste("The percentage of classifed reads was", percentage.classifed))
+  percentage.classifed <- round((classified.reads/total.reads*100),
+                                digits = 2)
+  message(paste("The percentage of classifed reads was",
+                percentage.classifed))
   mb.rawdata.reduced <- mb.rawdata[, list(csvname, barcode, taxID)]
-  sampleidinfo <- mb.rawdata.reduced[, .(sampleID=mb.rawdata.reduced[["sampleID"]],
-                                         sampleID=do.call(paste, c(.SD, sep="_"))),
+  sampleidinfo <- mb.rawdata.reduced[, .(sampleID=
+                                           mb.rawdata.reduced[["sampleID"]],
+                                         sampleID=
+                                           do.call(paste, c(.SD, sep="_"))),
                                      .SDcols= csvname:barcode]
   mb.rawdata.reduced <- cbind(sampleidinfo, mb.rawdata.reduced)
   mb.rawdata.reduced.subset <- mb.rawdata.reduced[, list(sampleID, taxID)]
-  mydt_wide <- suppressMessages(dcast(mb.rawdata.reduced.subset, taxID ~ sampleID))
+  mydt_wide <- suppressMessages(dcast(mb.rawdata.reduced.subset,
+                                      taxID ~ sampleID))
   mydt_wide
 }
