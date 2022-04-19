@@ -52,7 +52,7 @@ This file has **4** required columns that must been entered as seen below:
 An example of a combo metadata file:
 
 ```{r metadata combo example, message = FALSE, warning= FALSE}
-epi2me.metadata <- read.csv("../data/example_metadata.csv")
+epi2me.metadata <- read.csv("../inst/example_metadata.csv")
 head(epi2me.metadata)
 ```
 
@@ -73,7 +73,7 @@ The read in for AMR data requires a directory and a metadata file. The directory
 
 
 ```{r amr phylo}
-ps.amr.object <- amr_raw_to_phyloseq(path.to.amr.files = "../data/example_amr_data/",
+ps.amr.object <- amr_raw_to_phyloseq(path.to.amr.files = "../inst/example_amr_data/",
                                      metadata = epi2me.metadata,
                                      coveragenumber = 80, 
                                      keepSNP = FALSE)
@@ -84,7 +84,7 @@ ps.amr.object <- amr_raw_to_phyloseq(path.to.amr.files = "../data/example_amr_da
 The same parameters for importing to metagenomseq are used as those that were used above in the `amr_raw_to_phyloseq` function:
 
 ```{r amr mgs}
-mgs.amr.object <- amr_raw_to_metagenomeseq(path.to.amr.files = "../data/example_amr_data/",
+mgs.amr.object <- amr_raw_to_metagenomeseq(path.to.amr.files = "../inst/example_amr_data/",
                                      metadata = epi2me.metadata,
                                      coveragenumber = 80, 
                                      keepSNP = FALSE)
@@ -106,7 +106,7 @@ The read in for WIMP data requires a directory and a metadata file. The director
 - `keep.human` *optional* : Keep reads associated with homo sapien (for microbiome usually considered a contaminant) Default is `FALSE` (does not include human associated reads) but can be changed to `TRUE` to include these reads. 
 
 ```{r wimp phylo, eval = FALSE}
-ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../data/example_wimp_data/",
+ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../inst/example_wimp_data/",
                                      metadata = epi2me.metadata,
                                      keep.unclassifed = FALSE, 
                                      keep.human = FALSE)
@@ -117,7 +117,7 @@ ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../data/example_wim
 Like the functions for AMR, the same parameters for importing to metagenomseq are used as those that were used above in the `wimp_raw_to_phyloseq` function:
 
 ```{r wimp mgs, eval = FALSE}
-mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../data/example_wimp_data/",
+mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../inst/example_wimp_data/",
                                      metadata = epi2me.metadata,
                                      keep.unclassifed = FALSE, 
                                      keep.human = FALSE)
@@ -139,7 +139,7 @@ This takes the directory the AMR csv files are in and creates a count matrix tha
 - `keepSNP` *optional* : if gene that are considered resistance only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
 
 ```{r amr read in}
-amr.count.table <- read_in_amr_files(path.to.amr.files = "../data/example_amr_data/",
+amr.count.table <- read_in_amr_files(path.to.amr.files = "../inst/example_amr_data/",
                                      coveragenumber = 80, 
                                      keepSNP = FALSE)
 head(amr.count.table)
@@ -167,7 +167,7 @@ This takes the directory the WIMP csv files are in and creates a count matrix th
 - `path.to.wimp.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
 
 ```{r wimp read in}
-wimp.count.table <- read_in_wimp_files(path.to.wimp.files = "../data/example_wimp_data/")
+wimp.count.table <- read_in_wimp_files(path.to.wimp.files = "../inst/example_wimp_data/")
 head(wimp.count.table)
 ```
 
