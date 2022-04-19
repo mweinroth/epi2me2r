@@ -7,7 +7,6 @@ epi2me2r is designed to take CSV output from Oxford Nanopore's [EPI2ME](https://
 - [Installation](#Installation)
 - [Inputs](#Inputs)
 - [Usage](#usage)
-- [Options](#Options)
 - [Issues](#Issues)
 - [Contact](#Contact)
 - [Citation](#Citation)
@@ -205,10 +204,6 @@ This function assigns phylogenetic taxonomic hierarchical information with the h
 ```{r wimp tax, eval=F}
 wimp.taxonomy <- generate_wimp_taxonomy(wimp.count.table = wimp.count.table)
 ```
-
-## Options 
-
-Some of the fucntions have additional options that are set to a default setting put can be changed. 
 
 ## Issues
 
