@@ -1,15 +1,10 @@
 citHeader("To cite epi2me2r in publications use:")
 
 citEntry(
-  entry    = "Article",
-  title    = ,
-  author   = ,
-  journal  = ,
-  year     = ,
-  volume   = ,
-  number   = ,
-  pages    = ,
-  url      = ,
+  entry    = "epi2me2r",
+  title    = "epi2me2r R package",
+  author   = "Maggie Weinroth",
+  url      = "https://github.com/mweinroth/epi2me2r",
   textVersion = paste(
 
   )

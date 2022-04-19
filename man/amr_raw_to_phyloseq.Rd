@@ -4,19 +4,24 @@
 \alias{amr_raw_to_phyloseq}
 \title{Raw AMR files plus metadata to phyloseq object}
 \arguments{
-\item{path.to.amr.files}{path to data of raw csv files from AMRA CARD analysis}
+\item{path.to.amr.files}{path to data of raw csv files from AMRA
+CARD analysis}
 
-\item{metdata}{data.table of metadata with "filename" and "barcode"  columns required}
+\item{metdata}{data.table of metadata with "filename" and "barcode"
+columns required}
 
-\item{coveragenumber}{Minimum percentage of a gene that must be covered 0 to 99, default = 80}
+\item{coveragenumber}{Minimum percentage of a gene that must be covered
+0 to 99, default = 80}
 
-\item{keepSNP}{true or false to keep AMR gene conferred by one SNP change, default = FALSE}
+\item{keepSNP}{true or false to keep AMR gene conferred by one SNP
+change, default = FALSE}
 }
 \value{
 phyloseq object for downstream analysis
 }
 \description{
-given directory and metadata make phyloseq object \pkg{\link{phyloseq}} package required.
+given directory and metadata make phyloseq object
+\pkg{\link{phyloseq}} package required.
 }
 \examples{
 \dontrun{

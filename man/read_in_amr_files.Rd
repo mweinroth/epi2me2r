@@ -6,18 +6,22 @@
 \arguments{
 \item{path.to.amr.files}{A file path to AMR raw data csv}
 
-\item{coveragenumber}{Minimum percentage of a gene that must be covered 0 to 99}
+\item{coveragenumber}{Minimum percentage of a gene that must
+be covered 0 to 99}
 
-\item{keepSNP}{true or false to keep AMR gene conferred by one SNP change}
+\item{keepSNP}{true or false to keep AMR gene conferred by
+one SNP change}
 }
 \value{
-matrix of AMR genes at a specific coverage with or without SNP associated
+matrix of AMR genes at a specific coverage with or
+without SNP associated
 }
 \description{
 take raw AMR csv files to matrix
 }
 \examples{
 \dontrun{
-read_in_amr_files(path.to.amr.files = "~/Desktop/my.files/", coveragenumber = 80, keepSNP = FALSE)
+read_in_amr_files(path.to.amr.files = "~/Desktop/my.files/",
+coveragenumber = 80, keepSNP = FALSE)
 }
 }

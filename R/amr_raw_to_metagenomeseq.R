@@ -24,6 +24,7 @@
 #' @importFrom  phyloseq sample_data
 #' @importFrom phyloseq phyloseq_to_metagenomeSeq
 #' @importFrom Biobase AnnotatedDataFrame
+#' @import metagenomeSeq
 #' @export
 
 data(CARD_taxonomy, envir=environment())

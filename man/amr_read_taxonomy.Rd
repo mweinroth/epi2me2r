@@ -8,13 +8,15 @@
 
 \item{path.to.amr.files}{path to data of raw csv files from AMRA analysis}
 
-\item{coveragenumber}{Minimum percentage of a gene that must be covered 0 to 99, default = 80}
+\item{coveragenumber}{Minimum percentage of a gene that must be
+covered 0 to 99, default = 80}
 }
 \value{
 data frame with double classified reads
 }
 \description{
-given raw data for AMR and WIMP, provides full AMR and toxon info for those reads that assign to both
+given raw data for AMR and WIMP, provides full AMR and
+toxon info for those reads that assign to both
 }
 \examples{
 \dontrun{

@@ -4,3 +4,6 @@
 \name{epi2me2r}
 \alias{epi2me2r}
 \title{epi2me2r.}
+\description{
+data for CARD db
+}

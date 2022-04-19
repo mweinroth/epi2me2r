@@ -7,24 +7,29 @@
 wimp_raw_to_phyloseq(
   path.to.wimp.files,
   metadata,
-  keep.unclassifed = FALSE,
+  keep.unclassified = FALSE,
   keep.human = FALSE
 )
 }
 \arguments{
-\item{path.to.wimp.files}{path to data of raw csv files from WIMP analysis}
+\item{path.to.wimp.files}{path to data of raw csv files from WIMP
+analysis}
 
-\item{keep.human}{true or false to keep reads that classifed to human default = FALSE}
+\item{keep.unclassified}{true or false to keep reads that do not
+classify below phylum, default = FALSE}
 
-\item{metdata}{dataframe of metadata with "filename" and "barcode"  columns required}
+\item{keep.human}{true or false to keep reads that classifed to
+human default = FALSE}
 
-\item{keep.unclassified}{true or false to keep reads that do not classify below phylum, default = FALSE}
+\item{metdata}{dataframe of metadata with "filename" and "barcode"
+columns required}
 }
 \value{
 phyloseq object for downstream analysis with WIMP data
 }
 \description{
-given wimp directory and metadata make phyloseq object \pkg{\link{phyloseq}} package required.
+given wimp directory and metadata make phyloseq object
+\pkg{\link{phyloseq}} package required.
 }
 \examples{
 \dontrun{

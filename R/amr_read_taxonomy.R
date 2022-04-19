@@ -13,6 +13,7 @@
 #' path.to.amr.files = path/to/amr.count.table, coveragenumber = 80)
 #' }
 #' @import data.table
+#' @import stats
 #' @export
 
 data(CARD_taxonomy, envir=environment())

@@ -20,7 +20,8 @@ The variables are as follows:
 \details{
 \itemize{
   \item ARO Accession. ARO Accession (3000005--3005385)
-  \item CARDversion. If the data came from 3.1.4 or 1.1.3 (3.1.3, hand-added1.1.3)
+  \item CARDversion. If the data came from 3.1.4 or 1.1.3
+  (3.1.3, hand-added1.1.3)
   \item CVTERMID CV TERM ID (36014--43745)
   \item Model Sequence ID. Model Sequence ID
   \item Model ID.

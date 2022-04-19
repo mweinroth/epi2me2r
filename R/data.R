@@ -1,6 +1,7 @@
 #' epi2me2r.
 #'
 #' @name epi2me2r
+#' @description data for CARD db
 #' @docType package
 NULL
 

@@ -4,7 +4,7 @@
 ##' object \pkg{\link{metagenomeSeq}} package required.
 ##' @param path.to.wimp.files path to data of raw csv files from
 ##' WIMP analysis
-##' @param metdata dataframe of metadata with "filename" and "barcode"
+##' @param metadata dataframe of metadata with "filename" and "barcode"
 ##' columns required
 #' @param keep.unclassified true or false to keep reads that do not
 #' classify below phylum, default = FALSE
@@ -24,11 +24,12 @@
 #' @importFrom phyloseq tax_table
 #' @importFrom  phyloseq sample_data
 #' @importFrom Biobase AnnotatedDataFrame
+#' @import metagenomeSeq
 #' @export
 
 
 wimp_raw_to_metagenomeseq <- function(path.to.wimp.files, metadata,
-                                      keep.unclassifed=FALSE,
+                                      keep.unclassified=FALSE,
                                       keep.human=FALSE){
   #read in raw files
   message(paste("Reading in raw files from", path.to.wimp.files))
@@ -107,9 +108,9 @@ wimp_raw_to_metagenomeseq <- function(path.to.wimp.files, metadata,
   message("done with taxa assignemnts, it should not be to much longer.")
   {
     #get rid of unclassifed
-    if (keep.unclassifed == TRUE) {
+    if (keep.unclassified == TRUE) {
       wimp.data.unclass.flag <- merged.wimp.data
-    } else if (keep.unclassifed == FALSE) {
+    } else if (keep.unclassified == FALSE) {
       wimp.data.unclass.flag <- merged.wimp.data[phylum != "NA"]
     }
   }

@@ -27,7 +27,7 @@
 
 
 wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
-                                 keep.unclassifed=FALSE, keep.human=FALSE){
+                                 keep.unclassified=FALSE, keep.human=FALSE){
   #read in raw files
   message(paste("Reading in raw files from", path.to.wimp.files))
   parsed_files <- list.files(path = path.to.wimp.files)
@@ -105,9 +105,9 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
   message("done with taxa assignemnts, it should not be to much longer.")
   {
     #get rid of unclassifed
-    if (keep.unclassifed == TRUE) {
+    if (keep.unclassified == TRUE) {
       wimp.data.unclass.flag <- merged.wimp.data
-    } else if (keep.unclassifed == FALSE) {
+    } else if (keep.unclassified == FALSE) {
       wimp.data.unclass.flag <- merged.wimp.data[phylum != "NA"]
     }
   }
