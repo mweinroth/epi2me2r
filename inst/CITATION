@@ -1,10 +1,11 @@
 citHeader("To cite epi2me2r in publications use:")
 
-citEntry(
+citEntry(entry = "Misc",
   title        = "epi2me2r",
   author       = "Weinroth, Margaret D.",
   howpublished = "https://github.com/mweinroth/epi2me2r",
   year         = 2022,
-  note         = "none"
+  note         = "none",
+  textVersion  = "none"
   )
 
