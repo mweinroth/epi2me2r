@@ -30,7 +30,13 @@
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/mweinroth/epi2me2r/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -38,7 +44,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>take raw AMR csv files to matrix</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/mweinroth/epi2me2r/blob/HEAD/R/read_in_amr_files.R" class="external-link"><code>R/read_in_amr_files.R</code></a></small>
       <div class="d-none name"><code>read_in_amr_files.Rd</code></div>
     </div>
 
@@ -52,19 +58,23 @@
     <dl><dt>path.to.amr.files</dt>
 <dd><p>A file path to AMR raw data csv</p></dd>
 <dt>coveragenumber</dt>
-<dd><p>Minimum percentage of a gene that must be covered 0 to 99</p></dd>
+<dd><p>Minimum percentage of a gene that must
+be covered 0 to 99</p></dd>
 <dt>keepSNP</dt>
-<dd><p>true or false to keep AMR gene conferred by one SNP change</p></dd>
+<dd><p>true or false to keep AMR gene conferred by
+one SNP change</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>matrix of AMR genes at a specific coverage with or without SNP associated</p>
+    <p>matrix of AMR genes at a specific coverage with or
+without SNP associated</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">read_in_amr_files</span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="st">"~/Desktop/my.files/"</span>, coveragenumber <span class="op">=</span> <span class="fl">80</span>, keepSNP <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">read_in_amr_files</span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="st">"~/Desktop/my.files/"</span>,</span>
+<span class="r-in">coveragenumber <span class="op">=</span> <span class="fl">80</span>, keepSNP <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 </code></pre></div>
     </div>
