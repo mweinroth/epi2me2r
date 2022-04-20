@@ -91,7 +91,7 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
     setnames(mb.rawdata.reduced.subset, "readid", "read_id")
   }
   #read in
-  amrfiles <- read_in_amr_readid(path.to.amr.directory = path.to.amr.files,
+  amr.file <- read_in_amr_readid(path.to.amr.directory = path.to.amr.files,
                                  coveragepercentage=coveragenumber)
   wimp.file <- read_in_wimp_files(path.to.wimp.directory = path.to.wimp.files)
 
