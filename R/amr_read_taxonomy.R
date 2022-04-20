@@ -19,18 +19,18 @@
 data(CARD_taxonomy, envir=environment())
 
 amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
-                              coveragenumber, keepSNP){
-  read_in_amr_files <- function(path.to.amr.files, coveragenumber=80){
-    parsed_files <- list.files(path = path.to.amr.files)
+                              coveragenumber=80){
+  read_in_amr_readid <- function(path.to.amr.directory, coveragepercentage=80){
+    parsed_files <- list.files(path = path.to.amr.directory)
     Sample_IDs <- sub(".csv", "", parsed_files)
     i <- 1
     file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
+    amr.dataframe <- fread(paste0(path.to.amr.directory,file_name))
     amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
 
     for(i in 1:length(parsed_files)){
       file_name <- paste0(parsed_files[i])
-      amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
+      amr.dataframe <- fread(paste0(path.to.amr.directory,file_name))
       amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
       if(i == 1){
         amr.rawdata <- amr.dataframe
@@ -53,23 +53,23 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
                                                              CVTERMID,
                                                              read_id)]
     amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[
-      coverage %between% c(coveragenumber, 100)]
+      coverage %between% c(coveragepercentage, 100)]
     amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[,
                                                              list(read_id,
                                                                   sampleID,
                                                                   CVTERMID)]
   }
-  read_in_wimp_files <- function(path.to.wimp.files){
-    message(paste("Reading in raw files from", path.to.wimp.files))
-    parsed_files <- list.files(path = path.to.wimp.files)
+  read_in_wimp_files <- function(path.to.wimp.directory){
+    message(paste("Reading in raw files from", path.to.wimp.directory))
+    parsed_files <- list.files(path = path.to.wimp.directory)
     Sample_IDs <- sub(".csv", "", parsed_files)
     i <- 1
     file_name <- paste0(parsed_files[i])
-    mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
+    mb.dataframe <- fread(paste0(path.to.wimp.directory,file_name))
     mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
     for(i in 1:length(parsed_files)){
       file_name <- paste0(parsed_files[i])
-      mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
+      mb.dataframe <- fread(paste0(path.to.wimp.directory,file_name))
       mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
       if(i == 1){
         mb.rawdata <- mb.dataframe
@@ -77,7 +77,6 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
         mb.rawdata <- rbind(mb.rawdata, mb.dataframe)
       }
     }
-
     total.reads <- nrow(mb.rawdata)
     mb.classified <- mb.rawdata[mb.rawdata$exit_status == "Classified",]
     classified.reads <- nrow(mb.classified)
@@ -91,8 +90,13 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
     mb.rawdata.reduced.subset <- mb.rawdata.reduced[, list(readid, taxID)]
     setnames(mb.rawdata.reduced.subset, "readid", "read_id")
   }
+  #read in
+  amrfiles <- read_in_amr_readid(path.to.amr.directory = path.to.amr.files,
+                                 coveragepercentage=coveragenumber)
+  wimp.file <- read_in_wimp_files(path.to.wimp.directory = path.to.wimp.files)
 
-  combo_wimp_amr <- merge(x = try_read_id, y = wimpfiles,
+  combo_wimp_amr <- merge(x = amr.file,
+                          y = wimp.file,
                           by = "read_id", all.x = TRUE)
   combo_classifed_only <- na.omit(combo_wimp_amr)
   #print out info
