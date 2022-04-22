@@ -8,7 +8,7 @@
 ##'  columns required
 #' @param coveragenumber Minimum percentage of a gene that must be
 #'  covered. Range from 0 to 99, default = 80
-#' @param keepSNP true or false to keep AMR gene conferred by one SNP
+#' @param keepSNP TRUE or FALSE: whether to keep AMR gene conferred by one SNP
 #' change, default = FALSE
 ##' @seealso \pkg{\link{metagenomeSeq}}
 #' @return metagenomeSeq object for downstream analysis
