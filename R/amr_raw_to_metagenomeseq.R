@@ -1,14 +1,14 @@
 ##' Raw AMR files plus metadata to phyloseq object
 ##'@name amr_raw_to_metagenomeseq
-##' @description given directory and metadata make phyloseq object
+##' @description Given directory and metadata, make phyloseq object.
 ##' \pkg{\link{metagenomeSeq}} package required.
 ##' @param path.to.amr.files path to data of raw csv files from AMRA
 ##' CARD analysis
-##' @param metdata data.table of metadata with "filename" and "barcode"
+##' @param metadata data.table of metadata with "filename" and "barcode"
 ##'  columns required
 #' @param coveragenumber Minimum percentage of a gene that must be
-#' covered 0 to 99, default = 80
-#' @param keepSNP true or false to keep AMR gene conferred by one SNP
+#'  covered. Range from 0 to 99, default = 80
+#' @param keepSNP TRUE or FALSE: whether to keep AMR gene conferred by one SNP
 #' change, default = FALSE
 ##' @seealso \pkg{\link{metagenomeSeq}}
 #' @return metagenomeSeq object for downstream analysis
@@ -31,24 +31,29 @@ data(CARD_taxonomy, envir=environment())
 
 amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata,
                                      coveragenumber=80, keepSNP=FALSE){
+
+  # Checks for valid input. Fails with error if any are not met.
+  stopifnot(coveragenumber >= 0 & coveragenumber <= 99)
+  stopifnot(is.logical(keepSNP))
+  stopifnot(dir.exists(path.to.amr.files))
+  stopifnot(is.data.frame(metadata))
+
+  if (any(!c('filename', 'barcode') %in% names(metadata))) {
+    stop('Error: metadata does not have columns named "filename" and "barcode".')
+  }
+
   #first count table
   parsed_files <- list.files(path = path.to.amr.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
-  i <- 1
-  file_name <- paste0(parsed_files[i])
-  amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
-  amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
 
-  for(i in 1:length(parsed_files)){
+  amr.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
-    amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
-    if(i == 1){
-      amr.rawdata <- amr.dataframe
-    } else {
-      amr.rawdata <- rbind(amr.rawdata, amr.dataframe)
-    }
-  }
+    amr.dataframe <- fread(paste0(path.to.amr.files, file_name))
+    cbind(amr.dataframe, csvname = Sample_IDs[i])
+  })
+
+  amr.rawdata <- do.call(rbind, amr.rawdata)
+
   amr.rawdata.reduced <- amr.rawdata[, list(csvname, barcode,
                                             coverage, URL)]
   sampleidinfo <- amr.rawdata.reduced[, .(sampleID=
@@ -59,14 +64,9 @@ amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata,
   amr.rawdata.reduced <- cbind(sampleidinfo, amr.rawdata.reduced)
   amr.rawdata.reduced[, c('1','2', '3', '4', 'CVTERMID') :=
                         do.call(Map, c(f = c, strsplit(URL, '/'))) ]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced[, list(sampleID,
-                                                           coverage,
-                                                           CVTERMID)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[coverage %between%
-                                                             c(coveragenumber,
-                                                               100)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[, list(sampleID,
-                                                                  CVTERMID)]
+  amr.rawdata.reduced.subset <-
+    amr.rawdata.reduced[coverage %between% c(coveragenumber, 100),
+                        list(sampleID, CVTERMID)]
   mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset,
                                       CVTERMID ~ sampleID))
   {
