@@ -8,24 +8,26 @@
 #' @import data.table
 #' @export
 
-read_in_wimp_files <- function(path.to.wimp.files){
+read_in_wimp_files <- function(path.to.wimp.files) {
+
+  # Check inputs for validity
+  stopifnot(dir.exists(path.to.wimp.files))
+
+  if(!format %in% c('wide', 'long')) {
+    stop('format should be either "wide" or "long"')
+  }
+
   message(paste("Reading in raw files from", path.to.wimp.files))
   parsed_files <- list.files(path = path.to.wimp.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
-  i <- 1
-  file_name <- paste0(parsed_files[i])
-  mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
-  mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
-  for(i in 1:length(parsed_files)){
+
+  mb.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
     mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
-    mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
-    if(i == 1){
-      mb.rawdata <- mb.dataframe
-    } else {
-      mb.rawdata <- rbind(mb.rawdata, mb.dataframe)
-    }
-  }
+    cbind(mb.dataframe, csvname = Sample_IDs[i])
+  })
+
+  mb.rawdata <- do.call(rbind, mb.rawdata)
 
   total.reads <- nrow(mb.rawdata)
   mb.classified <- mb.rawdata[mb.rawdata$exit_status == "Classified",]
@@ -43,6 +45,7 @@ read_in_wimp_files <- function(path.to.wimp.files){
   mb.rawdata.reduced <- cbind(sampleidinfo, mb.rawdata.reduced)
   mb.rawdata.reduced.subset <- mb.rawdata.reduced[, list(sampleID, taxID)]
   mydt_wide <- suppressMessages(dcast(mb.rawdata.reduced.subset,
-                                      taxID ~ sampleID))
-  mydt_wide
+                                        taxID ~ sampleID))
+  return(mydt_wide)
+
 }

@@ -19,24 +19,24 @@
 data(CARD_taxonomy, envir=environment())
 
 read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
-                              keepSNP=FALSE){
+                              keepSNP=FALSE) {
+
+  # Checks for valid input. Fails with error if any are not met.
+  stopifnot(coveragenumber >= 0 & coveragenumber <= 99)
+  stopifnot(is.logical(keepSNP))
+  stopifnot(dir.exists(path.to.amr.files))
+
   parsed_files <- list.files(path = path.to.amr.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
-  i <- 1
-  file_name <- paste0(parsed_files[i])
-  amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
-  amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
 
-  for(i in 1:length(parsed_files)){
+  amr.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
-    amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
-    if(i == 1){
-      amr.rawdata <- amr.dataframe
-    } else {
-      amr.rawdata <- rbind(amr.rawdata, amr.dataframe)
-    }
-  }
+    amr.dataframe <- fread(paste0(path.to.amr.files, file_name))
+    cbind(amr.dataframe, csvname = Sample_IDs[i])
+  })
+
+  amr.rawdata <- do.call(rbind, amr.rawdata)
+
   amr.rawdata.reduced <- amr.rawdata[, list(csvname, barcode,
                                             coverage, URL)]
   sampleidinfo <- amr.rawdata.reduced[, .(sampleID=
@@ -47,31 +47,26 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
   amr.rawdata.reduced <- cbind(sampleidinfo, amr.rawdata.reduced)
   amr.rawdata.reduced[, c('1','2', '3', '4', 'CVTERMID') :=
                         do.call(Map, c(f = c, strsplit(URL, '/'))) ]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced[,
-                                                    list(sampleID, coverage, CVTERMID)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[
-    coverage %between% c(coveragenumber, 100)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[,
-                                                           list(sampleID,
-                                                                CVTERMID)]
+  amr.rawdata.reduced.subset <-
+    amr.rawdata.reduced[coverage %between% c(coveragenumber, 100),
+                        list(sampleID, CVTERMID)]
   mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset,
                                       CVTERMID ~ sampleID))
-  {
-    if (keepSNP == TRUE) {
-      print(mydt_wide)
-    } else if (keepSNP == FALSE) {
-      mydt_wide$CVTERMID <- as.numeric(mydt_wide$CVTERMID)
-      CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
-      merged.data <- merge(x = mydt_wide, y = CARD_taxonomy,
-                           by = "CVTERMID", all.x = TRUE)
-      nosnpdata <- merged.data[mutationassociated == "no"]
-      mydt_wide <- nosnpdata[, !c("ARO Accession",
-                                  "CARDversion", "Model Sequence ID", "Model ID",
-                                        "Model Name", "ARO Name",
-                                  "Protein Accession", "DNA Accession",
-                                        "AMR Gene Family", "Drug Class",
-                                  "Resistance Mechanism", "mutationassociated")]
-      mydt_wide
-    }
+
+  if (keepSNP) {
+    mydt_wide
+  } else {
+    mydt_wide$CVTERMID <- as.numeric(mydt_wide$CVTERMID)
+    CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
+    merged.data <- merge(x = mydt_wide, y = CARD_taxonomy,
+                         by = "CVTERMID", all.x = TRUE)
+    nosnpdata <- merged.data[mutationassociated == "no"]
+    mydt_wide <- nosnpdata[, !c("ARO Accession",
+                                "CARDversion", "Model Sequence ID", "Model ID",
+                                "Model Name", "ARO Name",
+                                "Protein Accession", "DNA Accession",
+                                "AMR Gene Family", "Drug Class",
+                                "Resistance Mechanism", "mutationassociated")]
+    mydt_wide
   }
 }
