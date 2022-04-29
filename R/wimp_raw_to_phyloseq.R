@@ -62,14 +62,14 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
   rownames(mb_table_numeric) <- dropped_row_names
   colnames(mb_table_numeric) <- dropped_col_names
   #taxonomy now
-  message("starting taxonomic table building (long...)")
+  message("Starting taxonomic table building (long...)")
   mb.taxonIDneeded <- as.data.frame(row.names(mb_table_numeric))
   setnames(mb.taxonIDneeded, "row.names(mb_table_numeric)", "taxID")
   mb.taxonIDneeded <- as.numeric(mb.taxonIDneeded$taxID)
   message("Now downloading and putting together the NCBI
-          database this might take a while...")
+          database. This might take a while...")
   prepareDatabase(getAccessions=FALSE, indexTaxa=TRUE)
-  message("Assigning all taxID in count matix to fill taxonomy,
+  message("Assigning all taxID in count matrix to fill taxonomy,
           you might want to take a break.")
   full.taxon.wimp <- getTaxonomy(mb.taxonIDneeded,'nameNode.sqlite')
   full.taxon.wimp.dt <- as.data.table(full.taxon.wimp, keep.rownames = "taxID")
@@ -80,23 +80,23 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
   merged.wimp.data <- merge(x = mb.dt, y = full.taxon.wimp.dt,
                             by = "taxID", all.x = TRUE)
   message("Done with taxa assignments. It should not be too much longer...")
-  {
-    #get rid of unclassified
-    if (keep.unclassified == TRUE) {
-      wimp.data.unclass.flag <- merged.wimp.data
-    } else if (keep.unclassified == FALSE) {
-      wimp.data.unclass.flag <- merged.wimp.data[phylum != "NA"]
-    }
+
+  #get rid of unclassified
+  if (keep.unclassified) {
+    wimp.data.unclass.flag <- merged.wimp.data
+  } else {
+    wimp.data.unclass.flag <- merged.wimp.data[phylum != "NA"]
   }
+
   #get rid of human
-  {
-    if (keep.human == TRUE) {
-      wimp.data.filtered <- wimp.data.unclass.flag
-    } else if (keep.human == FALSE) {
-      wimp.data.filtered <- wimp.data.unclass.flag[taxID != "9606"]
-    }
+
+  if (keep.human) {
+    wimp.data.filtered <- wimp.data.unclass.flag
+  } else {
+    wimp.data.filtered <- wimp.data.unclass.flag[taxID != "9606"]
   }
-  #prepare for phyoseq
+
+  #prepare for phyloseq
   taxa_long <- wimp.data.filtered[, c("taxID", "superkingdom", "phylum", "class",
                                       "order", "family", "genus", "species")]
   count_table_mb <- wimp.data.filtered[, !c("superkingdom", "phylum", "class",
