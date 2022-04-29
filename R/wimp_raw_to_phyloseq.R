@@ -1,21 +1,21 @@
 ##' Raw WIMP files plus metadata to phyloseq object
 ##'@name wimp_raw_to_phyloseq
-##' @description given wimp directory and metadata make phyloseq object
+##' @description Given wimp directory and metadata, make phyloseq object.
 ##' \pkg{\link{phyloseq}} package required.
 ##' @param path.to.wimp.files path to data of raw csv files from WIMP
 ##' analysis
 ##' @param metadata dataframe of metadata with "filename" and "barcode"
 ##'  columns required
-#' @param keep.unclassified true or false to keep reads that do not
+#' @param keep.unclassified TRUE or FALSE: whether to keep reads that do not
 #' classify below phylum, default = FALSE
-#' @param keep.human true or false to keep reads that classifed to
-#' human default = FALSE
+#' @param keep.human TRUE or FALSE: whether to keep reads that are classified as
+#' human, default = FALSE
 ##' @seealso \pkg{\link{phyloseq}}
 #' @return phyloseq object for downstream analysis with WIMP data
 #' @examples
 #' \dontrun{
-#' wimp_raw_to_phyloseq(path.to.wimp.files= path/to/wimpfiles,
-#' metadata = metadata, keep.unclassifed=FALSE, keep.human=FALSE)
+#' wimp_raw_to_phyloseq(path.to.wimp.files = path/to/wimpfiles,
+#' metadata = metadata, keep.unclassified = FALSE, keep.human = FALSE)
 #' }
 #' @import data.table
 #' @import taxonomizr
@@ -79,9 +79,9 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
   mb.dt$taxID <- as.numeric(mb.dt$taxID)
   merged.wimp.data <- merge(x = mb.dt, y = full.taxon.wimp.dt,
                             by = "taxID", all.x = TRUE)
-  message("done with taxa assignemnts, it should not be to much longer.")
+  message("Done with taxa assignments. It should not be too much longer...")
   {
-    #get rid of unclassifed
+    #get rid of unclassified
     if (keep.unclassified == TRUE) {
       wimp.data.unclass.flag <- merged.wimp.data
     } else if (keep.unclassified == FALSE) {
