@@ -32,10 +32,10 @@ read_in_wimp_files <- function(path.to.wimp.files) {
   total.reads <- nrow(mb.rawdata)
   mb.classified <- mb.rawdata[mb.rawdata$exit_status == "Classified",]
   classified.reads <- nrow(mb.classified)
-  percentage.classifed <- round((classified.reads/total.reads*100),
+  percentage.classified <- round((classified.reads/total.reads*100),
                                 digits = 2)
-  message(paste("The percentage of classifed reads was",
-                percentage.classifed))
+  message(paste("The percentage of classified reads was",
+                percentage.classified))
   mb.rawdata.reduced <- mb.rawdata[, list(csvname, barcode, taxID)]
   sampleidinfo <- mb.rawdata.reduced[, .(sampleID=
                                            mb.rawdata.reduced[["sampleID"]],

@@ -63,16 +63,11 @@ amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata,
                                             as.numeric))
   rownames(amr_table_numeric) <- dropped_row_names
   colnames(amr_table_numeric) <- dropped_col_names
+
+
   #taxonomy generation
-  amr.CVTERMID.list <- as.data.frame(row.names(amr_table_numeric))
-  setnames(amr.CVTERMID.list, "row.names(amr_table_numeric)", "CVTERMID")
-  amr.CVTERMID.list$CVTERMID <- as.numeric(amr.CVTERMID.list$CVTERMID)
-  CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
-  merged.data <- merge(x = amr.CVTERMID.list,
-                       y = CARD_taxonomy, by = "CVTERMID", all.x = TRUE)
-  taxa_short <- merged.data[, c("Drug Class",
-                                "AMR Gene Family", "Resistance Mechanism",
-                                "ARO Name")]
+  taxa_short <- generate_amr_taxonomy(amr_count_table, verbose = FALSE)
+
   rownames(taxa_short) <- dropped_row_names
   #quick metadata
   metadata <- as.data.frame(metadata)
@@ -81,6 +76,6 @@ amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata,
   OTU = otu_table(amr_table_numeric, taxa_are_rows = TRUE)
   TAX = tax_table(as.matrix(taxa_short))
   META = sample_data(metadata)
-  ps <- (phyloseq(OTU, TAX, META))
+  ps <- phyloseq(OTU, TAX, META)
   phyloseq_to_metagenomeSeq(ps)
 }

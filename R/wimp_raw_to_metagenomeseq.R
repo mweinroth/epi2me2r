@@ -114,6 +114,6 @@ wimp_raw_to_metagenomeseq <- function(path.to.wimp.files, metadata,
   OTU = otu_table(count_table_mb, taxa_are_rows = TRUE)
   TAX = tax_table(as.matrix(taxa_long))
   META = sample_data(mb.metadata)
-  ps <- (phyloseq(OTU, TAX, META))
+  ps <- phyloseq(OTU, TAX, META)
   phyloseq_to_metagenomeSeq(ps)
 }

@@ -28,62 +28,19 @@ data(CARD_taxonomy, envir=environment())
 
 amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
                                 coveragenumber=80, keepSNP=FALSE){
-  #first count table
-  parsed_files <- list.files(path = path.to.amr.files)
-  Sample_IDs <- sub(".csv", "", parsed_files)
-  i <- 1
-  file_name <- paste0(parsed_files[i])
-  amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
-  amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
 
-  for(i in 1:length(parsed_files)){
-    file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path.to.amr.files,file_name))
-    amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
-    if(i == 1){
-      amr.rawdata <- amr.dataframe
-    } else {
-      amr.rawdata <- rbind(amr.rawdata, amr.dataframe)
-    }
+  # Checks for valid input. Fails with error if any are not met.
+  stopifnot(coveragenumber >= 0 & coveragenumber <= 99)
+  stopifnot(is.logical(keepSNP))
+  stopifnot(dir.exists(path.to.amr.files))
+  stopifnot(is.data.frame(metadata))
+
+  if (any(!c('filename', 'barcode') %in% names(metadata))) {
+    stop('metadata does not have columns named "filename" and "barcode".')
   }
-  amr.rawdata.reduced <- amr.rawdata[, list(csvname, barcode,
-                                            coverage, URL)]
-  sampleidinfo <- amr.rawdata.reduced[, .(sampleID=
-                                            amr.rawdata.reduced[["sampleID"]],
-                                          sampleID=
-                                            do.call(paste, c(.SD, sep="_"))),
-                                      .SDcols= csvname:barcode]
-  amr.rawdata.reduced <- cbind(sampleidinfo, amr.rawdata.reduced)
-  amr.rawdata.reduced[, c('1','2', '3', '4', 'CVTERMID') :=
-                        do.call(Map, c(f = c, strsplit(URL, '/'))) ]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced[,
-                                                    list(sampleID, coverage, CVTERMID)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[
-    coverage %between% c(coveragenumber, 100)]
-  amr.rawdata.reduced.subset <- amr.rawdata.reduced.subset[,
-                                                           list(sampleID,
-                                                                CVTERMID)]
-  mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset,
-                                      CVTERMID ~ sampleID))
-  {
-    if (keepSNP == TRUE) {
-      amr_count_table <- print(mydt_wide)
-    } else if (keepSNP == FALSE) {
-      mydt_wide$CVTERMID <- as.numeric(mydt_wide$CVTERMID)
-      CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
-      merged.data <- merge(x = mydt_wide, y = CARD_taxonomy,
-                           by = "CVTERMID", all.x = TRUE)
-      nosnpdata <- merged.data[mutationassociated == "no"]
-      count_nosnpdata <- nosnpdata[, !c("ARO Accession", "CARDversion",
-                                        "Model Sequence ID", "Model ID",
-                                        "Model Name", "ARO Name",
-                                        "Protein Accession", "DNA Accession",
-                                        "AMR Gene Family", "Drug Class",
-                                        "Resistance Mechanism",
-                                        "mutationassociated")]
-      amr_count_table <- count_nosnpdata
-    }
-  }
+
+  amr_count_table <- read_in_amr_files(path.to.amr.files)
+
   #remove mis-barcoded samples
   metadata$sampleID <- paste(metadata$arma_filename,
                              metadata$amra_barcode, sep = "_")
@@ -104,15 +61,10 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
                                             as.numeric))
   rownames(amr_table_numeric) <- dropped_row_names
   colnames(amr_table_numeric) <- dropped_col_names
+
   #taxonomy generation
-  amr.CVTERMID.list <- as.data.frame(row.names(amr_table_numeric))
-  setnames(amr.CVTERMID.list, "row.names(amr_table_numeric)", "CVTERMID")
-  amr.CVTERMID.list$CVTERMID <- as.numeric(amr.CVTERMID.list$CVTERMID)
-  CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
-  merged.data <- merge(x = amr.CVTERMID.list, y = CARD_taxonomy,
-                       by = "CVTERMID", all.x = TRUE)
-  taxa_short <- merged.data[, c("Drug Class", "AMR Gene Family",
-                                "Resistance Mechanism", "ARO Name")]
+  taxa_short <- generate_amr_taxonomy(amr_count_table, verbose = FALSE)
+
   rownames(taxa_short) <- dropped_row_names
   #quick metadata
   metadata <- as.data.frame(metadata)
@@ -121,5 +73,5 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
   OTU = otu_table(amr_table_numeric, taxa_are_rows = TRUE)
   TAX = tax_table(as.matrix(taxa_short))
   META = sample_data(metadata)
-  print(phyloseq(OTU, TAX, META))
+  phyloseq(OTU, TAX, META)
 }
