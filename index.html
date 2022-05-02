@@ -87,32 +87,27 @@
 <p>There are three main types of functions in epi2me2r:</p>
 <ul>
 <li>
-<strong>fully automated</strong>: these functions take minimal input (just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
-<ul>
+<strong>fully automated</strong>: these functions take minimal input (just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:<ul>
 <li>
-<code>raw_amr_to_phyloseq</code>
-<ul>
+<code>raw_amr_to_phyloseq</code><ul>
 <li>input: directory with all epi2me generated AMR csv files and metadata file as a csv</li>
 <li>output: phyloseq object with count table, taxonomy, and metadata</li>
 </ul>
 </li>
 <li>
-<code>raw_amr_to_metagenomseq</code>
-<ul>
+<code>raw_amr_to_metagenomseq</code><ul>
 <li>input: directory with all epi2me generated AMR csv files and metadata file as a csv</li>
 <li>output: metagenomeseq object with count table, taxonomy, and metadata</li>
 </ul>
 </li>
 <li>
-<code>raw_wimp_to_phyloseq</code>
-<ul>
+<code>raw_wimp_to_phyloseq</code><ul>
 <li>input: directory with all epi2me generated WIMP csv files and metadata file as a csv</li>
 <li>output: phyloseq object with count table, taxonomy, and metadata</li>
 </ul>
 </li>
 <li>
-<code>raw_wimp_to_metagenomeseq</code>
-<ul>
+<code>raw_wimp_to_metagenomeseq</code><ul>
 <li>input: directory with all epi2me generated WIMP csv files and metadata file as a csv</li>
 <li>output: metagenomeseq object with count table, taxonomy, and metadata</li>
 </ul>
@@ -120,32 +115,27 @@
 </ul>
 </li>
 <li>
-<strong>step-by-step</strong>: If you are looking for just a portion of the data you can these functions to generation only what you need:
-<ul>
+<strong>step-by-step</strong>: If you are looking for just a portion of the data you can these functions to generation only what you need:<ul>
 <li>
-<code>read_in_amr_files</code>
-<ul>
+<code>read_in_amr_files</code><ul>
 <li>input: directory with all epi2me generated AMR csv files</li>
 <li>output: count matrix of all samples x AMR genes</li>
 </ul>
 </li>
 <li>
-<code>read_in_wimp_files</code>
-<ul>
+<code>read_in_wimp_files</code><ul>
 <li>input: directory with all epi2me generated WIMP csv files</li>
 <li>output: count matrix of all samples x taxinomic classifications</li>
 </ul>
 </li>
 <li>
-<code>generate_amr_taxonomy</code>
-<ul>
+<code>generate_amr_taxonomy</code><ul>
 <li>input: count table from <code>read_in_amr_files</code> or generated in the same format</li>
 <li>output: ontological list of all AMR genes in the same</li>
 </ul>
 </li>
 <li>
-<code>generate_wimp_taxonomy</code>
-<ul>
+<code>generate_wimp_taxonomy</code><ul>
 <li>input: count table from <code>read_in_wimp_files</code> or generated in the same format</li>
 <li>output: list of of all IDed organisms in the samples by superkingdom to species</li>
 </ul>
@@ -263,7 +253,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
     </footer>
