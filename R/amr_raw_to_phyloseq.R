@@ -35,8 +35,8 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
   stopifnot(dir.exists(path.to.amr.files))
   stopifnot(is.data.frame(metadata))
 
-  if (any(!c('filename', 'barcode') %in% names(metadata))) {
-    stop('metadata does not have columns named "filename" and "barcode".')
+  if (any(!c('arma_filename', 'amra_barcode') %in% names(metadata))) {
+    stop('metadata does not have columns named "arma_filename" and "amra_barcode".')
   }
 
   amr_count_table <- read_in_amr_files(path.to.amr.files)
@@ -65,12 +65,11 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
   #taxonomy generation
   taxa_short <- generate_amr_taxonomy(amr_count_table, verbose = FALSE)
 
-  rownames(taxa_short) <- dropped_row_names
   #quick metadata
   metadata <- as.data.frame(metadata)
   rownames(metadata) <- metadata$sampleID
   #put it together
-  OTU = otu_table(amr_table_numeric, taxa_are_rows = TRUE)
+  OTU = otu_table(amr_count_table, taxa_are_rows = TRUE)
   TAX = tax_table(as.matrix(taxa_short))
   META = sample_data(metadata)
   phyloseq(OTU, TAX, META)
