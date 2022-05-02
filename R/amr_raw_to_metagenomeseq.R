@@ -38,8 +38,8 @@ amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata,
   stopifnot(dir.exists(path.to.amr.files))
   stopifnot(is.data.frame(metadata))
 
-  if (any(!c('filename', 'barcode') %in% names(metadata))) {
-    stop('metadata does not have columns named "filename" and "barcode".')
+  if (any(!c('arma_filename', 'amra_barcode') %in% names(metadata))) {
+    stop('metadata does not have columns named "arma_filename" and "amra_barcode".')
   }
 
   amr_count_table <- read_in_amr_files(path.to.amr.files, coveragenumber, keepSNP)
@@ -52,8 +52,9 @@ amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata,
   amr_count_table.t <- as.data.table(t(as.matrix(amr_count_table,
                                                  rownames = "CVTERMID")),
                                      keep.rownames = "sampleID")
-  dropped_mis_barcode.t <- merge(x = sampleID_names, amr_count_table.t,
-                                 by = "sampleID", all.x = TRUE)
+  dropped_mis_barcode.t <- merge(x = sampleID_names,
+                                 amr_count_table.t,by = "sampleID",
+                                 all.x = TRUE)
   #entire section because I could not get the df to be numeric in the count data
   dropped_mis_barcode <- as.data.frame(t(dropped_mis_barcode.t))
   dropped_col_names <- as.character(dropped_mis_barcode[1,])
@@ -64,16 +65,14 @@ amr_raw_to_metagenomeseq <- function(path.to.amr.files, metadata,
   rownames(amr_table_numeric) <- dropped_row_names
   colnames(amr_table_numeric) <- dropped_col_names
 
-
   #taxonomy generation
   taxa_short <- generate_amr_taxonomy(amr_count_table, verbose = FALSE)
 
-  rownames(taxa_short) <- dropped_row_names
   #quick metadata
   metadata <- as.data.frame(metadata)
   rownames(metadata) <- metadata$sampleID
   #put it together
-  OTU = otu_table(amr_table_numeric, taxa_are_rows = TRUE)
+  OTU = otu_table(amr_count_table, taxa_are_rows = TRUE)
   TAX = tax_table(as.matrix(taxa_short))
   META = sample_data(metadata)
   ps <- phyloseq(OTU, TAX, META)
