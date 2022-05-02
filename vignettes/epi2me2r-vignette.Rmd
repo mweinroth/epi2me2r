@@ -122,7 +122,7 @@ Like the functions for AMR, the same parameters for importing to metagenomseq ar
 ```{r wimp mgs, eval = FALSE}
 mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../inst/extdata/example_wimp_data/",
                                      metadata = epi2me.metadata,
-                                     keep.unclassifed = FALSE, 
+                                     keep.unclassified = FALSE, 
                                      keep.human = FALSE)
 mgs.wimp.object
 ```
