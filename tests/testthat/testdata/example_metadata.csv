@@ -1,0 +1,5 @@
+﻿arma_filename,wimp_filename,amra_barcode,wimp_barcode,Samplename,treatment
+arma_288715,324212_1777,barcode02,barcode02,Animal1,control
+arma_288715,324212_1777,barcode03,barcode03,Animal2,antibiotic
+arma_288715,324212_1777,barcode04,barcode04,Animal3,control
+arma_288716,324212_1778,none,NA,Animal4,antibiotic
