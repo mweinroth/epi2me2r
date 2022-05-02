@@ -13,9 +13,9 @@ read_in_wimp_files <- function(path.to.wimp.files) {
   # Check inputs for validity
   stopifnot(dir.exists(path.to.wimp.files))
 
-  if(!format %in% c('wide', 'long')) {
-    stop('format should be either "wide" or "long"')
-  }
+  # if(!format %in% c('wide', 'long')) {
+  #   stop('format should be either "wide" or "long"')
+  # }
 
   message(paste("Reading in raw files from", path.to.wimp.files))
   parsed_files <- list.files(path = path.to.wimp.files)
