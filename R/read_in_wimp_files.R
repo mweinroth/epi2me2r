@@ -42,6 +42,6 @@ read_in_wimp_files <- function(path.to.wimp.files) {
   mb.rawdata.reduced.subset <- mb.rawdata.reduced[, list(sampleID, taxID)]
   mydt_wide <- suppressMessages(dcast(mb.rawdata.reduced.subset,
                                         taxID ~ sampleID))
-  return(mydt_wide)
+mydt_wide
 
 }
