@@ -7,20 +7,20 @@
 \item{path.to.amr.files}{path to data of raw csv files from AMRA
 CARD analysis}
 
-\item{metdata}{data.table of metadata with "filename" and "barcode"
+\item{metadata}{data.table of metadata with "filename" and "barcode"
 columns required}
 
 \item{coveragenumber}{Minimum percentage of a gene that must be
-covered 0 to 99, default = 80}
+covered. Range from 0 to 99, default = 80}
 
-\item{keepSNP}{true or false to keep AMR gene conferred by one SNP
+\item{keepSNP}{TRUE or FALSE: whether to keep AMR gene conferred by one SNP
 change, default = FALSE}
 }
 \value{
 metagenomeSeq object for downstream analysis
 }
 \description{
-given directory and metadata make phyloseq object
+Given directory and metadata, make phyloseq object.
 \pkg{\link{metagenomeSeq}} package required.
 }
 \examples{

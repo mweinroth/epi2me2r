@@ -2,19 +2,19 @@
 % Please edit documentation in R/generate_amr_taxonomy.R
 \name{generate_amr_taxonomy}
 \alias{generate_amr_taxonomy}
-\title{Generates a taxonomy file for AMR court table}
+\title{Generates a taxonomy file for AMR count table}
 \arguments{
 \item{amr.count.table}{count of AMR genes with CVTERMID in the
 first row and samples on columns}
 
-\item{verbose}{true or false to keep all columns of AMR gene
-information or not}
+\item{verbose}{TRUE or FALSE: whether to keep all columns of AMR gene
+information or not. Default FALSE.}
 }
 \value{
 data table of taxonomy of AMR genes in count table
 }
 \description{
-Generates a taxonomy file for AMR court table
+Generates a taxonomy file for AMR count table
 }
 \examples{
 \dontrun{

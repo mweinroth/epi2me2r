@@ -12,29 +12,29 @@ wimp_raw_to_metagenomeseq(
 )
 }
 \arguments{
-\item{path.to.wimp.files}{path to data of raw csv files from
+\item{path.to.wimp.files}{path to data of raw CSV files from
 WIMP analysis}
 
 \item{metadata}{dataframe of metadata with "filename" and "barcode"
 columns required}
 
-\item{keep.unclassified}{true or false to keep reads that do not
+\item{keep.unclassified}{TRUE or FALSE: whether to keep reads that do not
 classify below phylum, default = FALSE}
 
-\item{keep.human}{true or false to keep reads that classified to
-human default = FALSE}
+\item{keep.human}{TRUE or FALSE: whether to keep reads that are classified as
+human, default = FALSE}
 }
 \value{
 metagenomeseq object for downstream analysis with WIMP data
 }
 \description{
-given wimp directory and metadata make phyloseq
-object \pkg{\link{metagenomeSeq}} package required.
+Given WIMP directory and metadata, make phyloseq
+object. \pkg{\link{metagenomeSeq}} package required.
 }
 \examples{
 \dontrun{
-wimp_raw_to_metagenomeseq(path.to.wimp.files= path/to/wimpfiles,
-metadata = metadata, keep.unclassifed=FALSE, keep.human=FALSE)
+wimp_raw_to_metagenomeseq(path.to.wimp.files = path/to/wimpfiles,
+metadata = metadata, keep.unclassified = FALSE, keep.human = FALSE)
 }
 }
 \seealso{

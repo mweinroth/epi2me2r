@@ -39,7 +39,7 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
     stop('metadata does not have columns named "arma_filename" and "amra_barcode".')
   }
 
-  amr_count_table <- read_in_amr_files(path.to.amr.files)
+  amr_count_table <- read_in_amr_files(path.to.amr.files, coveragenumber, keepSNP)
 
   #remove mis-barcoded samples
   metadata$sampleID <- paste(metadata$arma_filename,
