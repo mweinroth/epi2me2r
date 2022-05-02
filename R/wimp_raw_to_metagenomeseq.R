@@ -38,8 +38,8 @@ wimp_raw_to_metagenomeseq <- function(path.to.wimp.files, metadata,
   stopifnot(is.logical(keep.unclassified))
   stopifnot(is.logical(keep.human))
 
-  if (any(!c('filename', 'barcode') %in% names(metadata))) {
-    stop('metadata does not have columns named "filename" and "barcode".')
+  if (any(!c('wimp_filename', 'wimp_barcode') %in% names(metadata))) {
+    stop('metadata does not have columns named "wimp_filename" and "wimp_barcode".')
   }
 
   wimp_count_table <- read_in_wimp_files(path.to.wimp.files)
