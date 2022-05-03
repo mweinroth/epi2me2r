@@ -66,7 +66,7 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="epi2me2r">epi2me2r<a class="anchor" aria-label="anchor" href="#epi2me2r"></a>
 </h1></div>
-<p>epi2me2r is designed to take CSV output from Oxford Nanopore’s <a href="https://epi2me.nanoporetech.com/" class="external-link">EPI2ME</a> and facilitate the easy import of these documents into R for downstream analysis either into a <a href="https://bioconductor.org/packages/release/bioc/html/phyloseq.html" class="external-link">phyloseq</a> or <a href="https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html" class="external-link">metgenomeSeq</a> object or count tables and taxonomy for other packages. Currently, raw data from WIMP and Antimicrobial Resistance (AMR) can be used as inputs.</p>
+<p>epi2me2r is designed to take CSV output from Oxford Nanopore’s <a href="https://epi2me.nanoporetech.com/" class="external-link">EPI2ME</a> and facilitate the easy import of these documents into R for downstream analysis. The raw data are imported either into a <a href="https://bioconductor.org/packages/release/bioc/html/phyloseq.html" class="external-link">phyloseq</a> or <a href="https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html" class="external-link">metagenomeSeq</a> object, or count tables and taxonomy for other packages. Currently, raw data from WIMP and Antimicrobial Resistance (AMR) can be used as inputs.</p>
 <div class="section level2">
 <h2 id="contents">Contents<a class="anchor" aria-label="anchor" href="#contents"></a>
 </h2>
@@ -84,47 +84,47 @@
 <div class="section level1">
 <h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h1>
-<p>There are three main types of functions in epi2me2r:</p>
+<p>There are three main types of functions in <code>epi2me2r</code>:</p>
 <ul>
 <li>
-<strong>fully automated</strong>: these functions take minimal input (just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:<ul>
+<strong>fully automated</strong>: these functions take minimal input (just raw CSV files and metadata) and produce either phyloseq or metagenomeSeq objects for downstream analysis:<ul>
 <li>
-<code>raw_amr_to_phyloseq</code><ul>
-<li>input: directory with all epi2me generated AMR csv files and metadata file as a csv</li>
-<li>output: phyloseq object with count table, taxonomy, and metadata</li>
+<code>raw_amr_to_phyloseq()</code><ul>
+<li>input: directory with all epi2me generated AMR CSV files and metadata file as a CSV</li>
+<li>output: <code>phyloseq</code> object with count table, taxonomy, and metadata</li>
 </ul>
 </li>
 <li>
-<code>raw_amr_to_metagenomseq</code><ul>
-<li>input: directory with all epi2me generated AMR csv files and metadata file as a csv</li>
-<li>output: metagenomeseq object with count table, taxonomy, and metadata</li>
+<code>raw_amr_to_metagenomeseq()</code><ul>
+<li>input: directory with all epi2me generated AMR CSV files and metadata file as a CSV</li>
+<li>output: <code>metagenomeSeq</code> object with count table, taxonomy, and metadata</li>
 </ul>
 </li>
 <li>
-<code>raw_wimp_to_phyloseq</code><ul>
-<li>input: directory with all epi2me generated WIMP csv files and metadata file as a csv</li>
-<li>output: phyloseq object with count table, taxonomy, and metadata</li>
+<code>raw_wimp_to_phyloseq()</code><ul>
+<li>input: directory with all epi2me generated WIMP CSV files and metadata file as a CSV</li>
+<li>output: <code>phyloseq</code> object with count table, taxonomy, and metadata</li>
 </ul>
 </li>
 <li>
-<code>raw_wimp_to_metagenomeseq</code><ul>
-<li>input: directory with all epi2me generated WIMP csv files and metadata file as a csv</li>
-<li>output: metagenomeseq object with count table, taxonomy, and metadata</li>
+<code>raw_wimp_to_metagenomeseq()</code><ul>
+<li>input: directory with all epi2me generated WIMP CSV files and metadata file as a CSV</li>
+<li>output: <code>metagenomeSeq</code> object with count table, taxonomy, and metadata</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<strong>step-by-step</strong>: If you are looking for just a portion of the data you can these functions to generation only what you need:<ul>
+<strong>step-by-step</strong>: If you are looking for just a portion of the data you can these functions to generate only what you need:<ul>
 <li>
 <code>read_in_amr_files</code><ul>
-<li>input: directory with all epi2me generated AMR csv files</li>
+<li>input: directory with all epi2me generated AMR CSV files</li>
 <li>output: count matrix of all samples x AMR genes</li>
 </ul>
 </li>
 <li>
 <code>read_in_wimp_files</code><ul>
-<li>input: directory with all epi2me generated WIMP csv files</li>
+<li>input: directory with all epi2me generated WIMP CSV files</li>
 <li>output: count matrix of all samples x taxinomic classifications</li>
 </ul>
 </li>
@@ -143,26 +143,25 @@
 </ul>
 </li>
 <li>
-<strong>other</strong>: An additional function we created but does not fit into the main workflows is <code>amr_read_taxonomy</code>. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available. This function uses the paths from both the raw AMR directory containing the AMR csv and the WIMP directory with all the raw WIMP csv. The Output is a taxonomic classification of all AMR genes that have both classifications available.</li>
+<strong>other</strong>: An additional function we created but does not fit into the main workflows is <code><a href="reference/amr_read_taxonomy.html">amr_read_taxonomy()</a></code>. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available. This function uses the paths from both the raw AMR directory containing the AMR CSVs and the WIMP directory with all the raw WIMP CSVs. The output is a taxonomic classification of all AMR genes that have both classifications available.</li>
 </ul>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>epi2me2r can currently be downloaded from github:</p>
-<pre><code><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span> 
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span> 
-<span class="fu">install_github</span><span class="op">(</span><span class="st">"mweinroth/epi2me2r"</span><span class="op">)</span> 
+<p>The development version of <code>epi2me2r</code> can currently be downloaded from GitHub:</p>
+<pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mweinroth/epi2me2r"</span><span class="op">)</span> 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mweinroth.github.io/epi2me2r/">epi2me2r</a></span><span class="op">)</span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="inputs">Inputs<a class="anchor" aria-label="anchor" href="#inputs"></a>
 </h2>
-<p>To use epi2me2r you will need your <strong>raw data</strong> and a <strong>metadata file</strong>.</p>
+<p>To use <code>epi2me2r</code> you will need your <strong>raw data</strong> and a <strong>metadata file</strong>.</p>
 <div class="section level3">
 <h3 id="raw-data">raw data<a class="anchor" aria-label="anchor" href="#raw-data"></a>
 </h3>
-<p>Raw data files are downloaded from the EPI2ME report either in the WIMP or AMR CARD tab (Each sample will have 2 different files if you conducted both an AMR and WIMP analysis). Raw data will be downloaded as a csv file with a separate file from each run. If you have barcodes your samples, multiple samples will be contained in one csv file; if not each sample will have its own file. <strong>DO NOT</strong> change the names of the files you have downloaded as the file name will have the type of analysis and run number in it (i.e. arma_288715.csv [<em>AMR</em>] or 226094_1777.csv [<em>WIMP</em>]).</p>
-<p><strong><em>Place all raw data files of the same analysis type in the directory with only those files in it</em></strong></p>
+<p>Raw data files are downloaded from the EPI2ME report either in the WIMP or AMR CARD tab (Each sample will have 2 different files if you conducted both an AMR and WIMP analysis). Raw data will be downloaded as a CSV file with a separate file from each run. If you have barcodes for your samples, multiple samples will be contained in one CSV file; if not, each sample will have its own file. <strong>DO NOT</strong> change the names of the files you have downloaded, as the file name will have the type of analysis and run number in it (e.g., <code>arma_288715.csv</code> [<em>AMR</em>] or <code>226094_1777.csv</code> [<em>WIMP</em>]).</p>
+<p><strong><em>Place all raw data files of the same analysis type in the directory with only those files in it!</em></strong></p>
 <p>You will use this directory location when you import your samples.</p>
 </div>
 <div class="section level3">
@@ -172,19 +171,19 @@
 <p>This file has <strong>4</strong> required columns that must been entered as seen below:</p>
 <ul>
 <li>
-<code>amr_filename</code> : the original amr file name without the csv extension</li>
+<code>amr_filename</code> : the original amr file name without the <code>.csv</code> extension</li>
 <li>
 <code>amr_barcodes</code> : the barcodes of each same (note if you did not barcode any of your samples enter <em>none</em> in all of the cells). <strong>In the AMR workflow, barcodes are listed as “barcode” and a two digit number, no barcodes are entered as “none”</strong>
 </li>
 <li>
-<code>wimp_filename</code> : the original amr file name without the csv extension</li>
+<code>wimp_filename</code> : the original amr file name without the <code>.csv</code> extension</li>
 <li>
 <code>wimp_barcodes</code> : the barcodes of each same (note if you did not barcode any of your samples enter <em>NA</em> in all of the cells). <strong>In the AMR workflow, barcodes are listed as “BC” and a two digit number, no barcodes are entered as “NA”</strong>
 </li>
 <li>
-<code>additionally information</code> after these four required columns, you may include any additional metadata that is import, such as treatment type, sample numbers, etc.</li>
+<code>additionally information</code> after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.</li>
 </ul>
-<p>An example csv is avalible <a href="https://github.com/mweinroth/epi2me2r/blob/master/data/example_metadata.csv" class="external-link">here</a></p>
+<p>An example CSV is available <a href="https://github.com/mweinroth/epi2me2r/blob/master/data/example_metadata.csv" class="external-link">here</a></p>
 <p><img src="https://github.com/mweinroth/epi2me2r/blob/master/inst/metadata-example.jpg"></p>
 </div>
 <div class="section level3">
