@@ -5,3 +5,4 @@
 ^pkgdown$
 ^\.github$
 ^codemeta\.json$
+^\.DS_Store$
