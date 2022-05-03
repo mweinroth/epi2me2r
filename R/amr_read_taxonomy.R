@@ -1,11 +1,11 @@
 #' assign taxonomy for phylogenetic and AMR for each read
 #'@name amr_read_taxonomy
-#' @description given raw data for AMR and WIMP, provides full AMR and
-#' toxon info for those reads that assign to both
+#' @description Given raw data for AMR and WIMP, provides full AMR and
+#' taxon info for those reads that assign to both
 #' @param path.to.wimp.files path to data of raw csv files from WIMP analysis
 #' @param path.to.amr.files path to data of raw csv files from AMRA analysis
 #' @param coveragenumber Minimum percentage of a gene that must be
-#' covered 0 to 99, default = 80
+#'  covered. Range from 0 to 99, default = 80
 #' @return data frame with double classified reads
 #' @examples
 #' \dontrun{
@@ -20,6 +20,12 @@ data(CARD_taxonomy, envir=environment())
 
 amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
                               coveragenumber=80){
+
+  # Checks for valid input. Fails if any is invalid.
+  stopifnot(coveragenumber >= 0 & coveragenumber <= 99)
+  stopifnot(dir.exists(path.to.wimp.files))
+  stopifnot(dir.exists(path.to.amr.files))
+
   read_in_amr_readid <- function(path.to.amr.directory, coveragepercentage=80){
     parsed_files <- list.files(path = path.to.amr.directory)
     Sample_IDs <- sub(".csv", "", parsed_files)
@@ -116,11 +122,11 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
 
   #WIMP taxonomy
   mb.taxonIDneeded <- as.numeric(taxa_short$taxID)
-  message("Now downloading and putting together the NCBI databasem this
-          might take a while...")
+  message("Now downloading and putting together the NCBI database.
+  This might take a while...")
   prepareDatabase(getAccessions=FALSE, indexTaxa=TRUE)
-  message("Assigning all taxID in count matix to fill taxonomy, you might
-          want to take a break.")
+  message("Assigning all taxID in count matrix to fill taxonomy.
+  You might want to take a break...")
   full.taxon.wimp <- getTaxonomy(mb.taxonIDneeded,'nameNode.sqlite')
   full.taxon.wimp.dt <- as.data.table(full.taxon.wimp,
                                       keep.rownames = "taxID")
