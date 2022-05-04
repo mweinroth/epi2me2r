@@ -2,9 +2,9 @@
 ##'@name amr_raw_to_phyloseq
 ##' @description given directory and metadata make phyloseq object
 ##' \pkg{\link{phyloseq}} package required.
-##' @param path.to.amr.files path to data of raw csv files from AMRA
+##' @param path.to.amr.files path to data of raw csv files from ARMA
 ##' CARD analysis
-##' @param metdata data.table of metadata with "filename" and "barcode"
+##' @param metdata data.table of metadata with "arma_filename" and "arma_barcode"
 ##'  columns required
 #' @param coveragenumber Minimum percentage of a gene that must be
 #'  covered. Range from 0 to 99, default = 80
@@ -35,15 +35,15 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
   stopifnot(dir.exists(path.to.amr.files))
   stopifnot(is.data.frame(metadata))
 
-  if (any(!c('arma_filename', 'amra_barcode') %in% names(metadata))) {
-    stop('metadata does not have columns named "arma_filename" and "amra_barcode".')
+  if (any(!c('arma_filename', 'arma_barcode') %in% names(metadata))) {
+    stop('metadata does not have columns named "arma_filename" and "arma_barcode".')
   }
 
   amr_count_table <- read_in_amr_files(path.to.amr.files, coveragenumber, keepSNP)
 
   #remove mis-barcoded samples
   metadata$sampleID <- paste(metadata$arma_filename,
-                             metadata$amra_barcode, sep = "_")
+                             metadata$arma_barcode, sep = "_")
   sampleID_names <- as.data.frame(metadata$sampleID)
   colnames(sampleID_names) <- "sampleID"
   amr_count_table.t <- as.data.table(t(as.matrix(amr_count_table,
