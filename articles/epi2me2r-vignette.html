@@ -79,11 +79,11 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mweinroth.github.io/epi2me2r/">epi2me2r</a></span><span class="op">)</span></code></pre></div>
-<p>epi2me2r is meant to full a fully automated methods to take raw csv of AMRA and WIMP output from the EPI2ME pipeline from <a href="https://nanoporetech.com/" class="external-link">Oxford Nanopore</a> to quickly convert it into common R package formats, namely <a href="https://joey711.github.io/phyloseq/" class="external-link">phyloseq</a> and <a href="https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html" class="external-link">metagenomeSeq</a>.</p>
+<p>epi2me2r is meant to full a fully automated methods to take raw csv of CARD ARMA and WIMP output from the EPI2ME pipeline from <a href="https://nanoporetech.com/" class="external-link">Oxford Nanopore</a> to quickly convert it into common R package formats, namely <a href="https://joey711.github.io/phyloseq/" class="external-link">phyloseq</a> and <a href="https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html" class="external-link">metagenomeSeq</a>.</p>
 <p>There are three main types of functions in epi2me2r:</p>
 <ul>
 <li>
-<strong>fully automated</strong>: these functions take minimal input (usually just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
+<strong>fully automated</strong>: these functions take minimal input (just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
 <ul>
 <li><code>raw_amr_to_phyloseq</code></li>
 <li><code>raw_amr_to_metagenomseq</code></li>
@@ -101,12 +101,12 @@
 </ul>
 </li>
 <li>
-<strong>other</strong>: An additional function we created but does not fit into the main workflows is <code>amr_read_taxonomy</code>. This function reads in both AMR and WIMP raw data and adds the taxonomic infromation to the AMR gene if available.</li>
+<strong>other</strong>: An additional function we created but does not fit into the main workflows is <code>amr_read_taxonomy</code>. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available.</li>
 </ul>
 <div class="section level2">
 <h2 id="preperation-of-metadata-file">preperation of metadata file<a class="anchor" aria-label="anchor" href="#preperation-of-metadata-file"></a>
 </h2>
-<p>Prior to starting, making sure the metadata file is formatted appropriately and in the correct format will ensure your data is imported correctly. You can use one metadata file for both your AMR and WIMP samples or separate. Both options are shown below.</p>
+<p>Prior to starting, making sure the metadata file is formatted appropriately and in the correct format will ensure your data is imported correctly. You can use one metadata file for both your AMR and WIMP samples or separate. Both options are described below.</p>
 <div class="section level4">
 <h4 id="combo-metadata-file">Combo metadata file<a class="anchor" aria-label="anchor" href="#combo-metadata-file"></a>
 </h4>
@@ -129,17 +129,25 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">epi2me.metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../inst/extdata/example_metadata.csv"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">epi2me.metadata</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">##   arma_filename wimp_filename amra_barcode wimp_barcode Samplename  treatment</span>
+<pre><code><span class="co">##   arma_filename wimp_filename arma_barcode wimp_barcode Samplename  treatment</span>
 <span class="co">## 1   arma_288715   324212_1777    barcode02    barcode02    Animal1    control</span>
 <span class="co">## 2   arma_288715   324212_1777    barcode03    barcode03    Animal2 antibiotic</span>
 <span class="co">## 3   arma_288715   324212_1777    barcode04    barcode04    Animal3    control</span>
 <span class="co">## 4   arma_288716   324212_1778         none         &lt;NA&gt;    Animal4 antibiotic</span></code></pre>
 </div>
+<div class="section level4">
+<h4 id="individual-metadata-file">Individual Metadata file<a class="anchor" aria-label="anchor" href="#individual-metadata-file"></a>
+</h4>
+<p>If you are just importing WIMP or CARD ARMA files, you do not need all the meta data assoicated with the other workflow.</p>
+<p>If you are just processing <strong>AMRA CARD</strong> data the required columns are: * <code>arma_filenames</code> * <code>amra_barcodes</code> * other metadata such as treatment and sample names</p>
+<p>On the other hand, if you are just processing <strong>WIMP</strong> data the required columns are: * <code>wimp_filenames</code> * <code>wimp_barcodes</code> * other metadata such as treatment and sample names</p>
+<p>Even if you are just processing one type of data, both arma and wimp information can be included in the metadata (as seen in the combo metadata)</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="full-automated-data-import">Full Automated data import<a class="anchor" aria-label="anchor" href="#full-automated-data-import"></a>
 </h2>
-<p>For both AMR and WIMP data, the raw csv’s downloaded from the epi2mw website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARM data you will need <strong>two</strong> directories one for each set of data.</p>
+<p>For both AMR and WIMP data, the raw csv’s downloaded from the epi2me website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARM data you will need <strong>two</strong> directories one for each set of data.</p>
 <div class="section level3">
 <h3 id="amr-data">AMR data<a class="anchor" aria-label="anchor" href="#amr-data"></a>
 </h3>
@@ -379,7 +387,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Maggie Weinroth.</p>
+<p>Developed by Maggie Weinroth, Quentin D. Read.</p>
 </div>
 
 <div class="pkgdown-footer-right">
