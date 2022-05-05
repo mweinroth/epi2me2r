@@ -55,8 +55,8 @@ There are three main types of functions in `epi2me2r`:
 The development version of `epi2me2r` can currently be downloaded from GitHub:
 
 ```
-if (!require("remotes")) install.packages("remotes")
-remotes::install_github("mweinroth/epi2me2r") 
+library(devtools)
+install_github("mweinroth/epi2me2r") 
 library(epi2me2r)
 ```
 
