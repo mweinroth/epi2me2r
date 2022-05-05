@@ -2,8 +2,9 @@ Package: epi2me2r
 Type: Package
 Title: Takes epi2me output and makes it into R usable files
 Version: 0.1.0
-Authors@R: person("Maggie", "Weinroth", , "maggie.weinroth@usda.gov", role = c("aut", "cre"))
-Description: Currenlty, takes WIMP and AMRA data, reads and cleans it prepares it for downstream analysis. 
+Authors@R: c(person("Maggie", "Weinroth", , "maggie.weinroth@usda.gov", role = c("aut", "cre")),
+             person(c('Quentin', 'D.'), 'Read', role = 'aut'))
+Description: Currenlty, takes WIMP and AMRA data, reads it, cleans it, and prepares it for downstream analysis. 
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
