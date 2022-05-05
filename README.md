@@ -87,12 +87,14 @@ There are four required columns if you are running both a WIMP and AMR analysis:
 This file has **4** required columns that must been entered as seen below:
 
 - `arma_filename` : the original amr file name without the `.csv` extension
-- `arma_barcode` : the barcodes of each same (note if you did not barcode any of your samples enter *none* in all of the cells). **In the AMR workflow, barcodes are listed as "barcode" and a two digit number, no barcodes are entered as "none"**
+- `arma_barcode` : the barcodes of each same (note if you did not barcode any of your samples enter *none* in all of the cells). **In the AMR workflow, if there are no barcodes entered as "none"**
 - `wimp_filename` : the original amr file name without the `.csv` extension
-- `wimp_barcode` : the barcodes of each same (note if you did not barcode any of your samples enter *NA* in all of the cells). **In the AMR workflow, barcodes are listed as "BC" and a two digit number, no barcodes are entered as "NA"**
+- `wimp_barcode` : the barcodes of each same (note if you did not barcode any of your samples enter *NA* in all of the cells). **In the WIMP workflow, no barcodes are entered as "NA"**
 - `additionally information` after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.
 
-An example CSV is available [here](https://github.com/mweinroth/epi2me2r/blob/master/data/example_metadata.csv)
+**A quick note about barcodes:** As talked about in the [Issues](#Issues) section below, earlier versions of the epi2me workflow list ARMA barcodes as "barcode" and a two digit number while WIMP barcodes are listed as "BC" and a two digit number. While this is no longer the case, (both are written as `barcode` followed by the numeber, if you are using older output, see the section below on changed the barcodes to a compatable style or simply cntl+f all and replace in excel. 
+
+An example CSV is available [here](https://github.com/mweinroth/epi2me2r/blob/master/inst/extdata/example_metadata.csv)
 
 ![](https://github.com/mweinroth/epi2me2r/blob/master/inst/metadata-example.jpg)
 
@@ -103,7 +105,14 @@ See [vignette](https://mweinroth.github.io/epi2me2r/articles/epi2me2r-vignette.h
 
 ## Issues
 
-metadata barcodes between versions of epi2me
+The current ARMA and WIMP barcodes have mostly compatable barcodes nomenclature (the only difference being ARMA files without barcodes are entered as `none` and WIMP as `NA`). However, in ealry epi2me outputs versions, ARMA barcodes were listed as "barcode" and a two digit number while WIMP barcodes were listed as "BC" and a two digit number. While this is no longer the case, (both are written as `barcode` followed by the numeber, if you are using older output, you will need to repalce the "barcode" in the WIMP files to the "BC". You can do this through opening and replacing all "BC" with "barcode" in excel or another text editor or in R:
+
+```
+fake.data <- read.csv("226094_1777.csv") #read in data
+fake.data$barcode <- sub("BC*", "barcode", fake.data$barcode) #sub
+head(fake.data) #check to see if it worked
+write.csv(fakedata, "226094_1777.csv") #save it (this overwrites original)
+```
 
 # Contact
 
