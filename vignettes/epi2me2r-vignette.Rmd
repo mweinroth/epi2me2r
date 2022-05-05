@@ -16,14 +16,14 @@ library(epi2me2r)
 system.file(package = "epi2me2r")
 ```
 
-epi2me2r is meant to full a fully automated methods to take raw csv of AMRA and
+epi2me2r is meant to full a fully automated methods to take raw csv of CARD ARMA and
 WIMP output from the EPI2ME pipeline from [Oxford Nanopore](https://nanoporetech.com/) 
 to quickly convert it into common R package formats, namely [phyloseq](https://joey711.github.io/phyloseq/)
 and [metagenomeSeq](https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html). 
 
 There are three main types of functions in epi2me2r:
 
-- **fully automated**: these functions take minimal input (usually just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
+- **fully automated**: these functions take minimal input (just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
     - `raw_amr_to_phyloseq`
     - `raw_amr_to_metagenomseq`
     - `raw_wimp_to_phyloseq`
@@ -35,12 +35,12 @@ There are three main types of functions in epi2me2r:
     - `generate_amr_taxonomy`
     - `generate_wimp_taxonomy`
 
-- **other**: An additional function we created but does not fit into the main workflows is `amr_read_taxonomy`. This function reads in both AMR and WIMP raw data and adds the taxonomic infromation to the AMR gene if available.  
+- **other**: An additional function we created but does not fit into the main workflows is `amr_read_taxonomy`. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available.  
 
 
 ## preperation of metadata file
 
-Prior to starting, making sure the metadata file is formatted appropriately and in the correct format will ensure your data is imported correctly. You can use one metadata file for both your AMR and WIMP samples or separate. Both options are shown below. 
+Prior to starting, making sure the metadata file is formatted appropriately and in the correct format will ensure your data is imported correctly. You can use one metadata file for both your AMR and WIMP samples or separate. Both options are described below. 
 
 #### Combo metadata file
 
@@ -59,9 +59,26 @@ epi2me.metadata <- read.csv("../inst/extdata/example_metadata.csv")
 head(epi2me.metadata)
 ```
 
+#### Individual Metadata file
+
+If you are just importing WIMP or CARD ARMA files, you do not need all the meta data assoicated with the other workflow. 
+
+If you are just processing **AMRA CARD** data the required columns are:
+* `arma_filenames`
+* `amra_barcodes`
+* other metadata such as treatment and sample names 
+
+On the other hand, if you are just processing **WIMP** data the required columns are:
+* `wimp_filenames`
+* `wimp_barcodes`
+* other metadata such as treatment and sample names 
+
+Even if you are just processing one type of data, both arma and wimp information can be included in the metadata (as seen in the combo metadata)
+
+
 ## Full Automated data import
 
-For both AMR and WIMP data, the raw csv's downloaded from the epi2mw website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARM data you will need **two** directories one for each set of data. 
+For both AMR and WIMP data, the raw csv's downloaded from the epi2me website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARM data you will need **two** directories one for each set of data. 
 
 ### AMR data
 

@@ -4,10 +4,10 @@
 \alias{amr_raw_to_phyloseq}
 \title{Raw AMR files plus metadata to phyloseq object}
 \arguments{
-\item{path.to.amr.files}{path to data of raw csv files from AMRA
+\item{path.to.amr.files}{path to data of raw csv files from ARMA
 CARD analysis}
 
-\item{metdata}{data.table of metadata with "filename" and "barcode"
+\item{metdata}{data.table of metadata with "arma_filename" and "arma_barcode"
 columns required}
 
 \item{coveragenumber}{Minimum percentage of a gene that must be
