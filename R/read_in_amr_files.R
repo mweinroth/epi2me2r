@@ -31,7 +31,7 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
 
   amr.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path.to.amr.files, file_name))
+    amr.dataframe <- fread(file.path(path.to.amr.files, file_name))
     cbind(amr.dataframe, csvname = Sample_IDs[i])
   })
 

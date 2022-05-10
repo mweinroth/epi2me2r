@@ -31,12 +31,12 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
     Sample_IDs <- sub(".csv", "", parsed_files)
     i <- 1
     file_name <- paste0(parsed_files[i])
-    amr.dataframe <- fread(paste0(path.to.amr.directory,file_name))
+    amr.dataframe <- fread(file.path(path.to.amr.directory,file_name))
     amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
 
     for(i in 1:length(parsed_files)){
       file_name <- paste0(parsed_files[i])
-      amr.dataframe <- fread(paste0(path.to.amr.directory,file_name))
+      amr.dataframe <- fread(file.path(path.to.amr.directory,file_name))
       amr.dataframe <- cbind(amr.dataframe, csvname = Sample_IDs[i])
       if(i == 1){
         amr.rawdata <- amr.dataframe
@@ -71,11 +71,11 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
     Sample_IDs <- sub(".csv", "", parsed_files)
     i <- 1
     file_name <- paste0(parsed_files[i])
-    mb.dataframe <- fread(paste0(path.to.wimp.directory,file_name))
+    mb.dataframe <- fread(file.path(path.to.wimp.directory,file_name))
     mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
     for(i in 1:length(parsed_files)){
       file_name <- paste0(parsed_files[i])
-      mb.dataframe <- fread(paste0(path.to.wimp.directory,file_name))
+      mb.dataframe <- fread(file.path(path.to.wimp.directory,file_name))
       mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
       if(i == 1){
         mb.rawdata <- mb.dataframe
@@ -104,16 +104,16 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
   combo_wimp_amr <- merge(x = amr.file,
                           y = wimp.file,
                           by = "read_id", all.x = TRUE)
-  combo_classifed_only <- na.omit(combo_wimp_amr)
+  combo_classified_only <- na.omit(combo_wimp_amr)
   #print out info
   total_amr_gene_number <- nrow(combo_wimp_amr)
-  classifed_amr_gene_number <- nrow(combo_classifed_only)
-  percentage.classifed <- round((classifed_amr_gene_number/
+  classified_amr_gene_number <- nrow(combo_classified_only)
+  percentage.classified <- round((classified_amr_gene_number/
                                    total_amr_gene_number*100), digits = 2)
-  #message(paste("The percentage of classifed reads was", percentage.classifed, "%"))
-  combo_classifed_only$CVTERMID <- as.numeric(combo_classifed_only$CVTERMID)
+  #message(paste("The percentage of classified reads was", percentage.classified, "%"))
+  combo_classified_only$CVTERMID <- as.numeric(combo_classified_only$CVTERMID)
   CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
-  merged.data <- merge(x = combo_classifed_only, y = CARD_taxonomy,
+  merged.data <- merge(x = combo_classified_only, y = CARD_taxonomy,
                        by = "CVTERMID", all.x = TRUE)
   taxa_short <- merged.data[, c("read_id", "CVTERMID",
                                 "Drug Class", "AMR Gene Family",
@@ -122,11 +122,9 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
 
   #WIMP taxonomy
   mb.taxonIDneeded <- as.numeric(taxa_short$taxID)
-  message("Now downloading and putting together the NCBI database.
-  This might take a while...")
+  message("Now downloading and putting together the NCBI database. This might take a while...")
   prepareDatabase(getAccessions=FALSE, indexTaxa=TRUE)
-  message("Assigning all taxID in count matrix to fill taxonomy.
-  You might want to take a break...")
+  message("Assigning all taxID in count matrix to fill taxonomy. You might want to take a break...")
   full.taxon.wimp <- getTaxonomy(mb.taxonIDneeded,'nameNode.sqlite')
   full.taxon.wimp.dt <- as.data.table(full.taxon.wimp,
                                       keep.rownames = "taxID")

@@ -19,7 +19,7 @@ read_in_wimp_files <- function(path.to.wimp.files) {
 
   mb.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
-    mb.dataframe <- fread(paste0(path.to.wimp.files,file_name))
+    mb.dataframe <- fread(file.path(path.to.wimp.files,file_name))
     cbind(mb.dataframe, csvname = Sample_IDs[i])
   })
 

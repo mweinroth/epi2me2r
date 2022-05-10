@@ -12,10 +12,6 @@ vignette: >
 library(epi2me2r)
 ```
 
-```{r get data, include=FALSE}
-system.file(package = "epi2me2r")
-```
-
 The `epi2me2r` package includes fully automated methods to take raw CSVs of CARD ARMA and
 WIMP output from the EPI2ME pipeline from [Oxford Nanopore](https://nanoporetech.com/) 
 and quickly convert it into common R package formats, namely [phyloseq](https://joey711.github.io/phyloseq/)
@@ -52,10 +48,10 @@ This file has **4** required columns that must be named as follows:
 - `wimp_barcode` : the barcodes of each sample (note: if you did not barcode any of your samples, enter `NA` in all of the cells). **In the WIMP workflow, missing barcodes are coded as `NA`**
 - `additional information` after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.
 
-An example of a combo metadata file:
+An example of a combo metadata file is included with this package.
 
 ```{r metadata combo example, message = FALSE, warning= FALSE}
-epi2me.metadata <- read.csv("../inst/extdata/example_metadata.csv")
+epi2me.metadata <- read.csv(system.file("extdata", "example_metadata.csv", package = "epi2me2r"))
 head(epi2me.metadata)
 ```
 
@@ -92,8 +88,12 @@ Reading the AMR data requires a directory and a metadata file. The directory sho
 - `keepSNP` *optional* : whether to include genes that are considered resistance genes only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
 
 
+In the following code example, we use the `amr_raw_to_phyloseq()` function and the included example metadata file read in above, as well as a directory containing example AMR files also included with the `epi2me2r` package. This code creates a `phyloSeq` object from the example AMR files and metadata.
+
 ```{r amr phylo}
-ps.amr.object <- amr_raw_to_phyloseq(path.to.amr.files = "../inst/extdata/example_amr_data/",
+example.amr.dir <- system.file("extdata", "example_amr_data", package = "epi2me2r")
+
+ps.amr.object <- amr_raw_to_phyloseq(path.to.amr.files = example.amr.dir,
                                      metadata = epi2me.metadata,
                                      coveragenumber = 80, 
                                      keepSNP = FALSE)
@@ -101,13 +101,13 @@ ps.amr.object <- amr_raw_to_phyloseq(path.to.amr.files = "../inst/extdata/exampl
 
 #### amr_raw_to_metagenomeseq
 
-The same parameters for importing to metagenomseq are used as those that were used above in the `amr_raw_to_phyloseq` function:
+The `amr_raw_to_metagenomeseq()` function uses the same arguments as above for importing to `metagenomeSeq`:
 
 ```{r amr mgs}
-mgs.amr.object <- amr_raw_to_metagenomeseq(path.to.amr.files = "../inst/extdata/example_amr_data/",
-                                     metadata = epi2me.metadata,
-                                     coveragenumber = 80, 
-                                     keepSNP = FALSE)
+mgs.amr.object <- amr_raw_to_metagenomeseq(path.to.amr.files = example.amr.dir,
+                                           metadata = epi2me.metadata,
+                                           coveragenumber = 80, 
+                                           keepSNP = FALSE)
 mgs.amr.object
 ```
 
@@ -122,31 +122,34 @@ Reading in the WIMP data requires a directory and a metadata file. The directory
 
 - `path.to.wimp.files` *required*: the path to the raw CSV files (for example `"Desktop/raw_data/"`)
 - `metadata` *required*: metadata formatted as described above as a `data.frame`
-- `keep.unclassifed` *optional* : whether to keep genes that do not classify or do not classify beyond a superkingdom. Default is `FALSE` (does not include these reads) but can be changed to `TRUE` to include these reads 
+- `keep.unclassified` *optional* : whether to keep genes that do not classify or do not classify beyond a superkingdom. Default is `FALSE` (does not include these reads) but can be changed to `TRUE` to include these reads 
 - `keep.human` *optional* : whether to keep reads associated with *Homo sapiens* (usually considered a contaminant in microbiome data). Default is `FALSE` (does not include human-associated reads) but can be changed to `TRUE` to include these reads. 
 
+The following code uses the `wimp_raw_to_phyloseq()` function and the example metadata we read in above as well as a directory of example WIMP files included with the package to convert the raw WIMP files to a `phyloSeq` object:
+
 ```{r wimp phylo, eval = FALSE}
-ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../inst/extdata/example_wimp_data/",
-                                     metadata = epi2me.metadata,
-                                     keep.unclassifed = FALSE, 
-                                     keep.human = FALSE)
+example.wimp.dir <- system.file("extdata", "example_wimp_data", package = "epi2me2r")
+
+ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = example.wimp.dir,
+                                       metadata = epi2me.metadata,
+                                       keep.unclassified = FALSE, 
+                                       keep.human = FALSE)
 ```                                     
 
 #### wimp_raw_to_metagenomeseq
 
-Like the functions for AMR, the same parameters for importing to `metagenomeSeq` are used as were used above in the `wimp_raw_to_phyloseq` function:
+Like the functions for AMR, the `wimp_raw_to_metagenomeSeq()` function uses the same arguments for importing to `metagenomeSeq` are used as were used above in the `wimp_raw_to_phyloseq()` function:
 
 ```{r wimp mgs, eval = FALSE}
-mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../inst/extdata/example_wimp_data/",
-                                     metadata = epi2me.metadata,
-                                     keep.unclassified = FALSE, 
-                                     keep.human = FALSE)
-mgs.wimp.object
+mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = example.wimp.dir,
+                                             metadata = epi2me.metadata,
+                                             keep.unclassified = FALSE, 
+                                             keep.human = FALSE)
 ```
 
 ## Step-by-step import
 
-In some cases you might not want a `phyloseq` or `metagenomeSeq` object but instead just a count matrix or taxonomic list. In these cases you can use the below functions. 
+In some cases you might not want a `phyloseq` or `metagenomeSeq` object, but instead just a count matrix or taxonomic list. In these cases you can use the below functions. 
 
 ### AMR data
 
@@ -159,7 +162,7 @@ This takes the directory that the AMR CSV files are in and creates a count matri
 - `keepSNP` *optional* : whether to include genes that are considered resistance genes only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
 
 ```{r amr read in}
-amr.count.table <- read_in_amr_files(path.to.amr.files = "../inst/extdata/example_amr_data/",
+amr.count.table <- read_in_amr_files(path.to.amr.files = example.amr.dir,
                                      coveragenumber = 80, 
                                      keepSNP = FALSE)
 head(amr.count.table)
@@ -213,7 +216,7 @@ Another useful function is `amr_read_taxonomy`, which matches any classified AMR
 
 
 ```{r amr read, eval=FALSE}
-amr.read.classification <- amr_read_taxonomy(path.to.amr.files = "../inst/extdata/example_amr_data/",
-                                             path.to.wimp.files = "../inst/extdata/example_wimp_data/")
+amr.read.classification <- amr_read_taxonomy(path.to.amr.files = example.amr.dir,
+                                             path.to.wimp.files = example.wimp.dir)
 ```
 

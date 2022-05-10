@@ -66,11 +66,9 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
   mb.taxonIDneeded <- as.data.frame(row.names(mb_table_numeric))
   setnames(mb.taxonIDneeded, "row.names(mb_table_numeric)", "taxID")
   mb.taxonIDneeded <- as.numeric(mb.taxonIDneeded$taxID)
-  message("Now downloading and putting together the NCBI
-          database. This might take a while...")
+  message("Now downloading and putting together the NCBI database. This might take a while...")
   prepareDatabase(getAccessions=FALSE, indexTaxa=TRUE)
-  message("Assigning all taxID in count matrix to fill taxonomy.
-          You might want to take a break...")
+  message("Assigning all taxID in count matrix to fill taxonomy. You might want to take a break...")
   full.taxon.wimp <- getTaxonomy(mb.taxonIDneeded,'nameNode.sqlite')
   full.taxon.wimp.dt <- as.data.table(full.taxon.wimp, keep.rownames = "taxID")
   full.taxon.wimp.dt$taxID <- as.numeric(full.taxon.wimp.dt$taxID)
