@@ -16,41 +16,41 @@ library(epi2me2r)
 system.file(package = "epi2me2r")
 ```
 
-epi2me2r is meant to full a fully automated methods to take raw csv of CARD ARMA and
+The `epi2me2r` package includes fully automated methods to take raw CSVs of CARD ARMA and
 WIMP output from the EPI2ME pipeline from [Oxford Nanopore](https://nanoporetech.com/) 
-to quickly convert it into common R package formats, namely [phyloseq](https://joey711.github.io/phyloseq/)
+and quickly convert it into common R package formats, namely [phyloseq](https://joey711.github.io/phyloseq/)
 and [metagenomeSeq](https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html). 
 
-There are three main types of functions in epi2me2r:
+There are three main types of functions in `epi2me2r`:
 
-- **fully automated**: these functions take minimal input (just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
-    - `raw_amr_to_phyloseq`
-    - `raw_amr_to_metagenomseq`
-    - `raw_wimp_to_phyloseq`
-    - `raw_wimp_to_metagenomeseq`
+- **fully automated**: these functions take minimal input (just raw CSV files and metadata) and produce either `phyloseq` or `metagenomeSeq` objects for downstream analysis:
+    - `amr_raw_to_phyloseq()`
+    - `amr_raw_to_metagenomeseq()`
+    - `wimp_raw_to_phyloseq()`
+    - `wimp_raw_to_metagenomeseq()`
         
-- **step-by-step**: If you are looking for just a portion of the data you can these functions to generation only what you need:
-    - `read_in_amr_files`
-    - `read_in_wimp_files`
-    - `generate_amr_taxonomy`
-    - `generate_wimp_taxonomy`
+- **step-by-step**: If you need output from an intermediate step, you can these functions to generate only what you need:
+    - `read_in_amr_files()`
+    - `read_in_wimp_files()`
+    - `generate_amr_taxonomy()`
+    - `generate_wimp_taxonomy()`
 
-- **other**: An additional function we created but does not fit into the main workflows is `amr_read_taxonomy`. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available.  
+- **other**: An additional function we created but does not fit into the main workflows is `amr_read_taxonomy()`. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available.  
 
 
-## preperation of metadata file
+## Preparation of metadata file
 
-Prior to starting, making sure the metadata file is formatted appropriately and in the correct format will ensure your data is imported correctly. You can use one metadata file for both your AMR and WIMP samples or separate. Both options are described below. 
+Prior to starting, making sure the metadata file is formatted appropriately will ensure your data is imported correctly. You can use one combined metadata file for both your AMR and WIMP samples or a separate file for each. Both options are described below. 
 
 #### Combo metadata file
 
-This file has **4** required columns that must been entered as seen below:
+This file has **4** required columns that must be named as follows:
 
-- `amr_filename` : the original amr file name without the csv extension
-- `amr_barcodes` : the barcodes of each same (note if you did not barcode any of your samples enter *none* in all of the cells). **In the AMR workflow, barcodes are listed as "barcode" and a two digit number, no barcodes are entered as"none"**
-- `wimp_filename` : the original amr file name without the csv extension
-- `wimp_barcodes` : the barcodes of each same (note if you did not barcode any of your samples enter *NA* in all of the cells). **In the AMR workflow, barcodes are listed as "BC" and a two digit number, no barcodes are entered as"NA"**
-- `additionally information` after these four required columns, you may include any additional metadata that is import, such as treatment type, sample numbers, etc.
+- `arma_filename` : the original amr file name without the `.csv` extension
+- `arma_barcode` : the barcodes of each sample (note: if you did not barcode any of your samples, enter `none` in all of the cells). **In the AMR workflow, missing barcodes are coded as `none`**
+- `wimp_filename` : the original amr file name without the `.csv` extension
+- `wimp_barcode` : the barcodes of each sample (note: if you did not barcode any of your samples, enter `NA` in all of the cells). **In the WIMP workflow, missing barcodes are coded as `NA`**
+- `additional information` after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.
 
 An example of a combo metadata file:
 
@@ -59,37 +59,37 @@ epi2me.metadata <- read.csv("../inst/extdata/example_metadata.csv")
 head(epi2me.metadata)
 ```
 
-#### Individual Metadata file
+#### Individual metadata file
 
-If you are just importing WIMP or CARD ARMA files, you do not need all the meta data assoicated with the other workflow. 
+If you are just importing WIMP or CARD ARMA files, you do not need all the metadata associated with the other workflow. 
 
-If you are just processing **AMRA CARD** data the required columns are:
-* `arma_filenames`
-* `amra_barcodes`
+If you are just processing **AMRA CARD** data, the required columns are:
+* `arma_filename`
+* `amra_barcode`
 * other metadata such as treatment and sample names 
 
 On the other hand, if you are just processing **WIMP** data the required columns are:
-* `wimp_filenames`
-* `wimp_barcodes`
+* `wimp_filename`
+* `wimp_barcode`
 * other metadata such as treatment and sample names 
 
-Even if you are just processing one type of data, both arma and wimp information can be included in the metadata (as seen in the combo metadata)
+Even if you are just processing one type of data, both ARMA and WIMP information can be included in the metadata (as seen in the section on combo metadata above).
 
 
-## Full Automated data import
+## Fully automated data import
 
-For both AMR and WIMP data, the raw csv's downloaded from the epi2me website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARM data you will need **two** directories one for each set of data. 
+For both AMR and WIMP data, the raw CSVs downloaded from the epi2me website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARMA data you will need **two** directories, one for each set of data. 
 
 ### AMR data
 
 #### amr_raw_to_phyloseq
 
-The read in for AMR data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
+Reading the AMR data requires a directory and a metadata file. The directory should have only the CSV files generated by EPI2ME in it. An example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
 
-- `path.to.amr.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
-- `metadata` *required*: metadata following format above as a data.frame
-- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. Default is `80`.
-- `keepSNP` *optional* : if gene that are considered resistance only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
+- `path.to.amr.files` *required*: the path to the raw CSV files (for example `"Desktop/raw_data/"`)
+- `metadata` *required*: metadata formatted as described above as a `data.frame`
+- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table. The default is 80%; this argument takes any number from 1 to 99. Default is `80`.
+- `keepSNP` *optional* : whether to include genes that are considered resistance genes only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
 
 
 ```{r amr phylo}
@@ -116,14 +116,14 @@ mgs.amr.object
 
 #### wimp_raw_to_phyloseq
 
-WIMP files used the same idea as the AMR files but use the package [taxonomizr](https://github.com/sherrillmix/taxonomizr) to help add taxonomic hierarchical information. 
+WIMP files are similar to the AMR files but use the package [taxonomizr](https://github.com/sherrillmix/taxonomizr) to add taxonomic hierarchical information. 
 
-The read in for WIMP data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
+Reading in the WIMP data requires a directory and a metadata file. The directory should have only the CSV files generated by EPI2ME in it. An example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:
 
-- `path.to.wimp.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
-- `metadata` *required*: metadata following format above as a data.frame
-- `keep.unclassifed` *optional* : keep genes that do not classify or do not classify beyond a superkingdom. Default is `FALSE` (does not include these reads) but can be changed to `TRUE` to include these reads 
-- `keep.human` *optional* : Keep reads associated with homo sapien (for microbiome usually considered a contaminant) Default is `FALSE` (does not include human associated reads) but can be changed to `TRUE` to include these reads. 
+- `path.to.wimp.files` *required*: the path to the raw CSV files (for example `"Desktop/raw_data/"`)
+- `metadata` *required*: metadata formatted as described above as a `data.frame`
+- `keep.unclassifed` *optional* : whether to keep genes that do not classify or do not classify beyond a superkingdom. Default is `FALSE` (does not include these reads) but can be changed to `TRUE` to include these reads 
+- `keep.human` *optional* : whether to keep reads associated with *Homo sapiens* (usually considered a contaminant in microbiome data). Default is `FALSE` (does not include human-associated reads) but can be changed to `TRUE` to include these reads. 
 
 ```{r wimp phylo, eval = FALSE}
 ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../inst/extdata/example_wimp_data/",
@@ -134,7 +134,7 @@ ps.wimp.object <- wimp_raw_to_phyloseq(path.to.wimp.files = "../inst/extdata/exa
 
 #### wimp_raw_to_metagenomeseq
 
-Like the functions for AMR, the same parameters for importing to metagenomseq are used as those that were used above in the `wimp_raw_to_phyloseq` function:
+Like the functions for AMR, the same parameters for importing to `metagenomeSeq` are used as were used above in the `wimp_raw_to_phyloseq` function:
 
 ```{r wimp mgs, eval = FALSE}
 mgs.wimp.object <- wimp_raw_to_metagenomeseq(path.to.wimp.files = "../inst/extdata/example_wimp_data/",
@@ -146,17 +146,17 @@ mgs.wimp.object
 
 ## Step-by-step import
 
-In some cases you might not want a phyloseq or metagenomeseq object but instead just a count matrix or taxonomic list. In these cases you can use the below functions. 
+In some cases you might not want a `phyloseq` or `metagenomeSeq` object but instead just a count matrix or taxonomic list. In these cases you can use the below functions. 
 
 ### AMR data
 
 #### read_in_amr_file
 
-This takes the directory the AMR csv files are in and creates a count matrix that can be used in down stream analysis. The inputs are similar to those in the previous examples (but does not require metadata):
+This takes the directory that the AMR CSV files are in and creates a count matrix that can be used in downstream analysis. The inputs are similar to those in the previous examples (but metadata is not required):
 
-- `path.to.amr.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
-- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. Default is `80`.
-- `keepSNP` *optional* : if gene that are considered resistance only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
+- `path.to.amr.files` *required*: the path to the raw CSV files (for example `"Desktop/raw_data/"`)
+- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table. The default is 80%; this argument takes any number from 1 to 99. Default is `80`.
+- `keepSNP` *optional* : whether to include genes that are considered resistance genes only with a SNP mutation. Default is `FALSE` (does not include these genes) but can be changed to `TRUE` to include these genes. 
 
 ```{r amr read in}
 amr.count.table <- read_in_amr_files(path.to.amr.files = "../inst/extdata/example_amr_data/",
@@ -167,10 +167,10 @@ head(amr.count.table)
 
 #### generate_amr_taxonomy
 
-This function assigns AMR taxonomic hierarchical information from [CARD](https://card.mcmaster.ca/) using a count table with CV TERM ID's as the first column (CVTERMID). Only one input is needed:
+This function assigns AMR taxonomic hierarchical information from [CARD](https://card.mcmaster.ca/) using a count table with CV TERM ID's as the first column (`"CVTERMID"`). Only one input is needed:
 
 - `amr.count.table` *required*: data frame of generated with `amr.count.table` or that has  `CVTERMID` as the first column for AMR taxonomic assignment
-- `verbose` *optional* : only a subset of coumn names are included in the output by default: (`CVTERMID`,`Drug Class`, `AMR Gene Family`, `Resistance Mechanism`, and `ARO Name`) if `verbose=TRUE` 13 columns are returned. 
+- `verbose` *optional* : only a subset of column names are included in the output by default: (`CVTERMID`,`Drug Class`, `AMR Gene Family`, `Resistance Mechanism`, and `ARO Name`). If `verbose==TRUE` 13 columns are returned. 
 
 ```{r amr tax read in}
 amr.taxonomy <- generate_amr_taxonomy(amr.count.table = amr.count.table,
@@ -182,9 +182,9 @@ head(amr.taxonomy)
 
 #### read_in_wimp_file
 
-This takes the directory the WIMP csv files are in and creates a count matrix that can be used in down stream analysis. The inputs are similar to those in the previous examples (but does not require metadata):
+This takes the directory the WIMP CSV files are in and creates a count matrix that can be used in downstream analysis. The inputs are similar to those in the previous examples (but metadata is not required):
 
-- `path.to.wimp.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_data/")
+- `path.to.wimp.files` *required*: the path to the raw CSV files (for example `"Desktop/raw_data/"`)
 
 ```{r wimp read in}
 wimp.count.table <- read_in_wimp_files(path.to.wimp.files = "../inst/extdata/example_wimp_data/")
@@ -193,26 +193,26 @@ head(wimp.count.table)
 
 #### generate_wimp_taxonomy
 
-This function assigns phylogenetic taxonomic hierarchical information with the help of `taxonomizr` a count table with NCBI taxonomic ID's (`taxID` as the first column is required.
+This function assigns phylogenetic taxonomic hierarchical information with the help of `taxonomizr`. A count table with NCBI taxonomic ID's (`"taxID"`) as the first column is required.
 
-- `wimp.count.table` *required*: data frame of generated with `wimp.count.table` or that has  `taxID` as the first column for phylogenetic taxonomic assignment
+- `wimp.count.table` *required*: data frame generated with `wimp.count.table` or that has `"taxID"` as the first column for phylogenetic taxonomic assignment
 
 
-```{r wimp tax, eval=F}
+```{r wimp tax, eval=FALSE}
 wimp.taxonomy <- generate_wimp_taxonomy(wimp.count.table = wimp.count.table)
 ```
 
 
 ## Other functions
 
-Once function that can be useful but does not fit into the other sections is `amr_read_taxonomy` which matched any classified AMR read with the phylogenetic taxonomy (if it is assigned) using read_id. To use this you would need the following:
+Another useful function is `amr_read_taxonomy`, which matches any classified AMR read with the phylogenetic taxonomy (if it is assigned) using `read_id()`. This function takes the following arguments:
 
-- `path.to.amr.files` *required*: the path to the raw csv files (i.e. "Desktop/raw_amr_data/")
-- `path.to.wimp.files` *required*: the path to the raw csv files (i.e. "Desktop/raw__wimp_data/")
-- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. Default is `80`.
+- `path.to.amr.files` *required*: the path to the raw AMR CSV files (for example `"Desktop/raw_amr_data/"`)
+- `path.to.wimp.files` *required*: the path to the raw WIMP CSV files (for example `"Desktop/raw_wimp_data/"`)
+- `coveragenumber` *optional* : the total length of the gene that must be present for it to be included in the count table. The default is 80%; this argument takes any number from 1 to 99. Default is `80`.
 
 
-```{r amr read, eval=F}
+```{r amr read, eval=FALSE}
 amr.read.classification <- amr_read_taxonomy(path.to.amr.files = "../inst/extdata/example_amr_data/",
                                              path.to.wimp.files = "../inst/extdata/example_wimp_data/")
 ```
