@@ -87,7 +87,7 @@
 <p>There are three main types of functions in <code>epi2me2r</code>:</p>
 <ul>
 <li>
-<strong>fully automated</strong>: these functions take minimal input (just raw CSV files and metadata) and produce either phyloseq or metagenomeSeq objects for downstream analysis:<ul>
+<strong>fully automated</strong>: these functions take minimal input (just raw CSV files and metadata) and produce either <code>phyloseq</code> or <code>metagenomeSeq</code> objects for downstream analysis:<ul>
 <li>
 <code>raw_amr_to_phyloseq()</code><ul>
 <li>input: directory with all epi2me generated AMR CSV files and metadata file as a CSV</li>
@@ -115,7 +115,7 @@
 </ul>
 </li>
 <li>
-<strong>step-by-step</strong>: If you are looking for just a portion of the data you can these functions to generate only what you need:<ul>
+<strong>step-by-step</strong>: If you are looking for just a portion of the data you can use these functions to generate only what you need:<ul>
 <li>
 <code>read_in_amr_files</code><ul>
 <li>input: directory with all epi2me generated AMR CSV files</li>
@@ -125,7 +125,7 @@
 <li>
 <code>read_in_wimp_files</code><ul>
 <li>input: directory with all epi2me generated WIMP CSV files</li>
-<li>output: count matrix of all samples x taxinomic classifications</li>
+<li>output: count matrix of all samples x taxonomic classifications</li>
 </ul>
 </li>
 <li>
@@ -149,8 +149,8 @@
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>The development version of <code>epi2me2r</code> can currently be downloaded from GitHub:</p>
-<pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span>
-<span class="fu">install_github</span><span class="op">(</span><span class="st">"mweinroth/epi2me2r"</span><span class="op">)</span> 
+<pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'remotes'</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mweinroth/epi2me2r"</span><span class="op">)</span> 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mweinroth.github.io/epi2me2r/">epi2me2r</a></span><span class="op">)</span></code></pre>
 </div>
 <div class="section level2">
@@ -168,24 +168,26 @@
 <h3 id="metadata">metadata<a class="anchor" aria-label="anchor" href="#metadata"></a>
 </h3>
 <p>The second file you will need is a metadata file describing the type of samples you have, such as sample names. This file may also contain other important information about your samples such as treatments. There are four required columns if you are running both a WIMP and AMR analysis:</p>
-<p>This file has <strong>4</strong> required columns that must been entered as seen below:</p>
+<p>This file has <strong>4</strong> required columns that must be named as follows:</p>
 <ul>
 <li>
 <code>arma_filename</code> : the original amr file name without the <code>.csv</code> extension</li>
 <li>
-<code>arma_barcode</code> : the barcodes of each same (note if you did not barcode any of your samples enter <em>none</em> in all of the cells). <strong>In the AMR workflow, if there are no barcodes entered as “none”</strong>
+<code>arma_barcode</code> : the barcodes of each sample (note: if you did not barcode any of your samples, enter <code>none</code> in all of the cells). <strong>In the AMR workflow, missing barcodes are coded as <code>none</code></strong>
 </li>
 <li>
 <code>wimp_filename</code> : the original amr file name without the <code>.csv</code> extension</li>
 <li>
-<code>wimp_barcode</code> : the barcodes of each same (note if you did not barcode any of your samples enter <em>NA</em> in all of the cells). <strong>In the WIMP workflow, no barcodes are entered as “NA”</strong>
+<code>wimp_barcode</code> : the barcodes of each sample (note: if you did not barcode any of your samples, enter <code>NA</code> in all of the cells). <strong>In the WIMP workflow, missing barcodes are coded as <code>NA</code></strong>
 </li>
 <li>
-<code>additionally information</code> after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.</li>
+<code>additional information</code> after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.</li>
 </ul>
-<p><strong>A quick note about barcodes:</strong> As talked about in the <a href="#Issues">Issues</a> section below, earlier versions of the epi2me workflow list ARMA barcodes as “barcode” and a two digit number while WIMP barcodes are listed as “BC” and a two digit number. While this is no longer the case, (both are written as <code>barcode</code> followed by the numeber, if you are using older output, see the section below on changed the barcodes to a compatable style or simply cntl+f all and replace in excel.</p>
-<p>An example CSV is available <a href="https://github.com/mweinroth/epi2me2r/blob/master/inst/extdata/example_metadata.csv" class="external-link">here</a></p>
-<p><img src="https://github.com/mweinroth/epi2me2r/blob/master/inst/metadata-example.jpg"></p>
+<p><strong>A quick note about barcodes:</strong> As talked about in the <a href="#Issues">Issues</a> section below, earlier versions of the epi2me workflow list ARMA barcodes as <code>"barcode"</code> and a two digit number while WIMP barcodes are listed as <code>"BC"</code> and a two digit number. While this is no longer the case (both are written as <code>barcode</code> followed by the number), if you are using older output, see the section below on changing the barcodes to a compatible style.</p>
+<p><a href="https://github.com/mweinroth/epi2me2r/blob/master/inst/extdata/example_metadata.csv" class="external-link">An example CSV is available here.</a></p>
+<div class="figure">
+<img src="https://github.com/mweinroth/epi2me2r/blob/master/inst/metadata-example.jpg" alt=""><p class="caption">First few rows of example CSV</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -196,11 +198,11 @@
 <div class="section level2">
 <h2 id="issues">Issues<a class="anchor" aria-label="anchor" href="#issues"></a>
 </h2>
-<p>The current ARMA and WIMP barcodes have mostly compatable barcodes nomenclature (the only difference being ARMA files without barcodes are entered as <code>none</code> and WIMP as <code>NA</code>). However, in ealry epi2me outputs versions, ARMA barcodes were listed as “barcode” and a two digit number while WIMP barcodes were listed as “BC” and a two digit number. While this is no longer the case, (both are written as <code>barcode</code> followed by the numeber, if you are using older output, you will need to repalce the “barcode” in the WIMP files to the “BC”. You can do this through opening and replacing all “BC” with “barcode” in excel or another text editor or in R:</p>
+<p>The current ARMA and WIMP barcodes have mostly compatible barcodes nomenclature (the only difference being ARMA files without barcodes are entered as <code>none</code> and WIMP as <code>NA</code>). However, in early epi2me versions, ARMA barcodes were listed as <code>"barcode"</code> and a two digit number while WIMP barcodes were listed as <code>"BC"</code> and a two digit number. While this is no longer the case (both are formatted as <code>"barcode"</code> followed by the number), if you are using older output, you will need to replace the <code>"BC"</code> in the WIMP files with <code>"barcode"</code>. You can do this through opening the file and <code>Ctrl+H</code> to search and replace all <code>"BC"</code> with <code>"barcode"</code> in Excel or another text editor or in R:</p>
 <pre><code><span class="va">fake.data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"226094_1777.csv"</span><span class="op">)</span> <span class="co">#read in data</span>
 <span class="va">fake.data</span><span class="op">$</span><span class="va">barcode</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub</a></span><span class="op">(</span><span class="st">"BC*"</span>, <span class="st">"barcode"</span>, <span class="va">fake.data</span><span class="op">$</span><span class="va">barcode</span><span class="op">)</span> <span class="co">#sub</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fake.data</span><span class="op">)</span> <span class="co">#check to see if it worked</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">fakedata</span>, <span class="st">"226094_1777.csv"</span><span class="op">)</span> <span class="co">#save it (this overwrites original)</span></code></pre>
+<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">fake.data</span>, <span class="st">"226094_1777.csv"</span><span class="op">)</span> <span class="co">#save it (this overwrites original)</span></code></pre>
 </div>
 </div>
 <div class="section level1">

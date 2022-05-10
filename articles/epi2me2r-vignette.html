@@ -79,51 +79,51 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mweinroth.github.io/epi2me2r/">epi2me2r</a></span><span class="op">)</span></code></pre></div>
-<p>epi2me2r is meant to full a fully automated methods to take raw csv of CARD ARMA and WIMP output from the EPI2ME pipeline from <a href="https://nanoporetech.com/" class="external-link">Oxford Nanopore</a> to quickly convert it into common R package formats, namely <a href="https://joey711.github.io/phyloseq/" class="external-link">phyloseq</a> and <a href="https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html" class="external-link">metagenomeSeq</a>.</p>
-<p>There are three main types of functions in epi2me2r:</p>
+<p>The <code>epi2me2r</code> package includes fully automated methods to take raw CSVs of CARD ARMA and WIMP output from the EPI2ME pipeline from <a href="https://nanoporetech.com/" class="external-link">Oxford Nanopore</a> and quickly convert it into common R package formats, namely <a href="https://joey711.github.io/phyloseq/" class="external-link">phyloseq</a> and <a href="https://www.bioconductor.org/packages/release/bioc/html/metagenomeSeq.html" class="external-link">metagenomeSeq</a>.</p>
+<p>There are three main types of functions in <code>epi2me2r</code>:</p>
 <ul>
 <li>
-<strong>fully automated</strong>: these functions take minimal input (just raw csv files and metadata) and produce either phyloseq and metagenomicSeq objects for downstream analysis:
+<strong>fully automated</strong>: these functions take minimal input (just raw CSV files and metadata) and produce either <code>phyloseq</code> or <code>metagenomeSeq</code> objects for downstream analysis:
 <ul>
-<li><code>raw_amr_to_phyloseq</code></li>
-<li><code>raw_amr_to_metagenomseq</code></li>
-<li><code>raw_wimp_to_phyloseq</code></li>
-<li><code>raw_wimp_to_metagenomeseq</code></li>
+<li><code><a href="../reference/amr_raw_to_phyloseq.html">amr_raw_to_phyloseq()</a></code></li>
+<li><code><a href="../reference/amr_raw_to_metagenomeseq.html">amr_raw_to_metagenomeseq()</a></code></li>
+<li><code><a href="../reference/wimp_raw_to_phyloseq.html">wimp_raw_to_phyloseq()</a></code></li>
+<li><code><a href="../reference/wimp_raw_to_metagenomeseq.html">wimp_raw_to_metagenomeseq()</a></code></li>
 </ul>
 </li>
 <li>
-<strong>step-by-step</strong>: If you are looking for just a portion of the data you can these functions to generation only what you need:
+<strong>step-by-step</strong>: If you need output from an intermediate step, you can these functions to generate only what you need:
 <ul>
-<li><code>read_in_amr_files</code></li>
-<li><code>read_in_wimp_files</code></li>
-<li><code>generate_amr_taxonomy</code></li>
-<li><code>generate_wimp_taxonomy</code></li>
+<li><code><a href="../reference/read_in_amr_files.html">read_in_amr_files()</a></code></li>
+<li><code><a href="../reference/read_in_wimp_files.html">read_in_wimp_files()</a></code></li>
+<li><code><a href="../reference/generate_amr_taxonomy.html">generate_amr_taxonomy()</a></code></li>
+<li><code><a href="../reference/generate_wimp_taxonomy.html">generate_wimp_taxonomy()</a></code></li>
 </ul>
 </li>
 <li>
-<strong>other</strong>: An additional function we created but does not fit into the main workflows is <code>amr_read_taxonomy</code>. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available.</li>
+<strong>other</strong>: An additional function we created but does not fit into the main workflows is <code><a href="../reference/amr_read_taxonomy.html">amr_read_taxonomy()</a></code>. This function reads in both AMR and WIMP raw data and adds the taxonomic information to the AMR gene if available.</li>
 </ul>
 <div class="section level2">
-<h2 id="preperation-of-metadata-file">preperation of metadata file<a class="anchor" aria-label="anchor" href="#preperation-of-metadata-file"></a>
+<h2 id="preparation-of-metadata-file">Preparation of metadata file<a class="anchor" aria-label="anchor" href="#preparation-of-metadata-file"></a>
 </h2>
-<p>Prior to starting, making sure the metadata file is formatted appropriately and in the correct format will ensure your data is imported correctly. You can use one metadata file for both your AMR and WIMP samples or separate. Both options are described below.</p>
+<p>Prior to starting, making sure the metadata file is formatted appropriately will ensure your data is imported correctly. You can use one combined metadata file for both your AMR and WIMP samples or a separate file for each. Both options are described below.</p>
 <div class="section level4">
 <h4 id="combo-metadata-file">Combo metadata file<a class="anchor" aria-label="anchor" href="#combo-metadata-file"></a>
 </h4>
-<p>This file has <strong>4</strong> required columns that must been entered as seen below:</p>
+<p>This file has <strong>4</strong> required columns that must be named as follows:</p>
 <ul>
 <li>
-<code>amr_filename</code> : the original amr file name without the csv extension</li>
+<code>arma_filename</code> : the original amr file name without the <code>.csv</code> extension</li>
 <li>
-<code>amr_barcodes</code> : the barcodes of each same (note if you did not barcode any of your samples enter <em>none</em> in all of the cells). <strong>In the AMR workflow, barcodes are listed as “barcode” and a two digit number, no barcodes are entered as“none”</strong>
+<code>arma_barcode</code> : the barcodes of each sample (note: if you did not barcode any of your samples, enter <code>none</code> in all of the cells). <strong>In the AMR workflow, missing barcodes are coded as <code>none</code></strong>
 </li>
 <li>
-<code>wimp_filename</code> : the original amr file name without the csv extension</li>
+<code>wimp_filename</code> : the original amr file name without the <code>.csv</code> extension</li>
 <li>
-<code>wimp_barcodes</code> : the barcodes of each same (note if you did not barcode any of your samples enter <em>NA</em> in all of the cells). <strong>In the AMR workflow, barcodes are listed as “BC” and a two digit number, no barcodes are entered as“NA”</strong>
+<code>wimp_barcode</code> : the barcodes of each sample (note: if you did not barcode any of your samples, enter <code>NA</code> in all of the cells). <strong>In the WIMP workflow, missing barcodes are coded as <code>NA</code></strong>
 </li>
 <li>
-<code>additionally information</code> after these four required columns, you may include any additional metadata that is import, such as treatment type, sample numbers, etc.</li>
+<code>additional information</code> after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.</li>
 </ul>
 <p>An example of a combo metadata file:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -136,34 +136,35 @@
 <span class="co">## 4   arma_288716   324212_1778         none         &lt;NA&gt;    Animal4 antibiotic</span></code></pre>
 </div>
 <div class="section level4">
-<h4 id="individual-metadata-file">Individual Metadata file<a class="anchor" aria-label="anchor" href="#individual-metadata-file"></a>
+<h4 id="individual-metadata-file">Individual metadata file<a class="anchor" aria-label="anchor" href="#individual-metadata-file"></a>
 </h4>
-<p>If you are just importing WIMP or CARD ARMA files, you do not need all the meta data assoicated with the other workflow.</p>
-<p>If you are just processing <strong>AMRA CARD</strong> data the required columns are: * <code>arma_filenames</code> * <code>amra_barcodes</code> * other metadata such as treatment and sample names</p>
-<p>On the other hand, if you are just processing <strong>WIMP</strong> data the required columns are: * <code>wimp_filenames</code> * <code>wimp_barcodes</code> * other metadata such as treatment and sample names</p>
-<p>Even if you are just processing one type of data, both arma and wimp information can be included in the metadata (as seen in the combo metadata)</p>
+<p>If you are just importing WIMP or CARD ARMA files, you do not need all the metadata associated with the other workflow.</p>
+<p>If you are just processing <strong>AMRA CARD</strong> data, the required columns are: * <code>arma_filename</code> * <code>amra_barcode</code> * other metadata such as treatment and sample names</p>
+<p>On the other hand, if you are just processing <strong>WIMP</strong> data the required columns are: * <code>wimp_filename</code> * <code>wimp_barcode</code> * other metadata such as treatment and sample names</p>
+<p>Even if you are just processing one type of data, both ARMA and WIMP information can be included in the metadata (as seen in the section on combo metadata above).</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="full-automated-data-import">Full Automated data import<a class="anchor" aria-label="anchor" href="#full-automated-data-import"></a>
+<h2 id="fully-automated-data-import">Fully automated data import<a class="anchor" aria-label="anchor" href="#fully-automated-data-import"></a>
 </h2>
-<p>For both AMR and WIMP data, the raw csv’s downloaded from the epi2me website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARM data you will need <strong>two</strong> directories one for each set of data.</p>
+<p>For both AMR and WIMP data, the raw CSVs downloaded from the epi2me website need to be in their own directory (without any other files). Note that if you are processing both WIMP and ARMA data you will need <strong>two</strong> directories, one for each set of data.</p>
 <div class="section level3">
 <h3 id="amr-data">AMR data<a class="anchor" aria-label="anchor" href="#amr-data"></a>
 </h3>
 <div class="section level4">
 <h4 id="amr_raw_to_phyloseq">amr_raw_to_phyloseq<a class="anchor" aria-label="anchor" href="#amr_raw_to_phyloseq"></a>
 </h4>
-<p>The read in for AMR data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:</p>
+<p>Reading the AMR data requires a directory and a metadata file. The directory should have only the CSV files generated by EPI2ME in it. An example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:</p>
 <ul>
 <li>
-<code>path.to.amr.files</code> <em>required</em>: the path to the raw csv files (i.e. “Desktop/raw_data/”)</li>
+<code>path.to.amr.files</code> <em>required</em>: the path to the raw CSV files (for example <code>"Desktop/raw_data/"</code>)</li>
 <li>
-<code>metadata</code> <em>required</em>: metadata following format above as a data.frame</li>
+<code>metadata</code> <em>required</em>: metadata formatted as described above as a <code>data.frame</code>
+</li>
 <li>
-<code>coveragenumber</code> <em>optional</em> : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. Default is <code>80</code>.</li>
+<code>coveragenumber</code> <em>optional</em> : the total length of the gene that must be present for it to be included in the count table. The default is 80%; this argument takes any number from 1 to 99. Default is <code>80</code>.</li>
 <li>
-<code>keepSNP</code> <em>optional</em> : if gene that are considered resistance only with a SNP mutation. Default is <code>FALSE</code> (does not include these genes) but can be changed to <code>TRUE</code> to include these genes.</li>
+<code>keepSNP</code> <em>optional</em> : whether to include genes that are considered resistance genes only with a SNP mutation. Default is <code>FALSE</code> (does not include these genes) but can be changed to <code>TRUE</code> to include these genes.</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ps.amr.object</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/amr_raw_to_phyloseq.html">amr_raw_to_phyloseq</a></span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="st">"../inst/extdata/example_amr_data/"</span>,
@@ -204,17 +205,18 @@
 <div class="section level4">
 <h4 id="wimp_raw_to_phyloseq">wimp_raw_to_phyloseq<a class="anchor" aria-label="anchor" href="#wimp_raw_to_phyloseq"></a>
 </h4>
-<p>WIMP files used the same idea as the AMR files but use the package <a href="https://github.com/sherrillmix/taxonomizr" class="external-link">taxonomizr</a> to help add taxonomic hierarchical information.</p>
-<p>The read in for WIMP data requires a directory and a metadata file. The directory will be one that only has the csv files generated from EPI2ME in it. And example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:</p>
+<p>WIMP files are similar to the AMR files but use the package <a href="https://github.com/sherrillmix/taxonomizr" class="external-link">taxonomizr</a> to add taxonomic hierarchical information.</p>
+<p>Reading in the WIMP data requires a directory and a metadata file. The directory should have only the CSV files generated by EPI2ME in it. An example of the metadata file is above. The data we will be using is from an example run on the EPI2ME pipeline. There are four options:</p>
 <ul>
 <li>
-<code>path.to.wimp.files</code> <em>required</em>: the path to the raw csv files (i.e. “Desktop/raw_data/”)</li>
+<code>path.to.wimp.files</code> <em>required</em>: the path to the raw CSV files (for example <code>"Desktop/raw_data/"</code>)</li>
 <li>
-<code>metadata</code> <em>required</em>: metadata following format above as a data.frame</li>
+<code>metadata</code> <em>required</em>: metadata formatted as described above as a <code>data.frame</code>
+</li>
 <li>
-<code>keep.unclassifed</code> <em>optional</em> : keep genes that do not classify or do not classify beyond a superkingdom. Default is <code>FALSE</code> (does not include these reads) but can be changed to <code>TRUE</code> to include these reads</li>
+<code>keep.unclassifed</code> <em>optional</em> : whether to keep genes that do not classify or do not classify beyond a superkingdom. Default is <code>FALSE</code> (does not include these reads) but can be changed to <code>TRUE</code> to include these reads</li>
 <li>
-<code>keep.human</code> <em>optional</em> : Keep reads associated with homo sapien (for microbiome usually considered a contaminant) Default is <code>FALSE</code> (does not include human associated reads) but can be changed to <code>TRUE</code> to include these reads.</li>
+<code>keep.human</code> <em>optional</em> : whether to keep reads associated with <em>Homo sapiens</em> (usually considered a contaminant in microbiome data). Default is <code>FALSE</code> (does not include human-associated reads) but can be changed to <code>TRUE</code> to include these reads.</li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ps.wimp.object</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wimp_raw_to_phyloseq.html">wimp_raw_to_phyloseq</a></span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="st">"../inst/extdata/example_wimp_data/"</span>,
@@ -225,7 +227,7 @@
 <div class="section level4">
 <h4 id="wimp_raw_to_metagenomeseq">wimp_raw_to_metagenomeseq<a class="anchor" aria-label="anchor" href="#wimp_raw_to_metagenomeseq"></a>
 </h4>
-<p>Like the functions for AMR, the same parameters for importing to metagenomseq are used as those that were used above in the <code>wimp_raw_to_phyloseq</code> function:</p>
+<p>Like the functions for AMR, the same parameters for importing to <code>metagenomeSeq</code> are used as were used above in the <code>wimp_raw_to_phyloseq</code> function:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mgs.wimp.object</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wimp_raw_to_metagenomeseq.html">wimp_raw_to_metagenomeseq</a></span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="st">"../inst/extdata/example_wimp_data/"</span>,
                                      metadata <span class="op">=</span> <span class="va">epi2me.metadata</span>,
@@ -238,21 +240,21 @@
 <div class="section level2">
 <h2 id="step-by-step-import">Step-by-step import<a class="anchor" aria-label="anchor" href="#step-by-step-import"></a>
 </h2>
-<p>In some cases you might not want a phyloseq or metagenomeseq object but instead just a count matrix or taxonomic list. In these cases you can use the below functions.</p>
+<p>In some cases you might not want a <code>phyloseq</code> or <code>metagenomeSeq</code> object but instead just a count matrix or taxonomic list. In these cases you can use the below functions.</p>
 <div class="section level3">
 <h3 id="amr-data-1">AMR data<a class="anchor" aria-label="anchor" href="#amr-data-1"></a>
 </h3>
 <div class="section level4">
 <h4 id="read_in_amr_file">read_in_amr_file<a class="anchor" aria-label="anchor" href="#read_in_amr_file"></a>
 </h4>
-<p>This takes the directory the AMR csv files are in and creates a count matrix that can be used in down stream analysis. The inputs are similar to those in the previous examples (but does not require metadata):</p>
+<p>This takes the directory that the AMR CSV files are in and creates a count matrix that can be used in downstream analysis. The inputs are similar to those in the previous examples (but metadata is not required):</p>
 <ul>
 <li>
-<code>path.to.amr.files</code> <em>required</em>: the path to the raw csv files (i.e. “Desktop/raw_data/”)</li>
+<code>path.to.amr.files</code> <em>required</em>: the path to the raw CSV files (for example <code>"Desktop/raw_data/"</code>)</li>
 <li>
-<code>coveragenumber</code> <em>optional</em> : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. Default is <code>80</code>.</li>
+<code>coveragenumber</code> <em>optional</em> : the total length of the gene that must be present for it to be included in the count table. The default is 80%; this argument takes any number from 1 to 99. Default is <code>80</code>.</li>
 <li>
-<code>keepSNP</code> <em>optional</em> : if gene that are considered resistance only with a SNP mutation. Default is <code>FALSE</code> (does not include these genes) but can be changed to <code>TRUE</code> to include these genes.</li>
+<code>keepSNP</code> <em>optional</em> : whether to include genes that are considered resistance genes only with a SNP mutation. Default is <code>FALSE</code> (does not include these genes) but can be changed to <code>TRUE</code> to include these genes.</li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">amr.count.table</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_in_amr_files.html">read_in_amr_files</a></span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="st">"../inst/extdata/example_amr_data/"</span>,
@@ -277,12 +279,12 @@
 <div class="section level4">
 <h4 id="generate_amr_taxonomy">generate_amr_taxonomy<a class="anchor" aria-label="anchor" href="#generate_amr_taxonomy"></a>
 </h4>
-<p>This function assigns AMR taxonomic hierarchical information from <a href="https://card.mcmaster.ca/" class="external-link">CARD</a> using a count table with CV TERM ID’s as the first column (CVTERMID). Only one input is needed:</p>
+<p>This function assigns AMR taxonomic hierarchical information from <a href="https://card.mcmaster.ca/" class="external-link">CARD</a> using a count table with CV TERM ID’s as the first column (<code>"CVTERMID"</code>). Only one input is needed:</p>
 <ul>
 <li>
 <code>amr.count.table</code> <em>required</em>: data frame of generated with <code>amr.count.table</code> or that has <code>CVTERMID</code> as the first column for AMR taxonomic assignment</li>
 <li>
-<code>verbose</code> <em>optional</em> : only a subset of coumn names are included in the output by default: (<code>CVTERMID</code>,<code>Drug Class</code>, <code>AMR Gene Family</code>, <code>Resistance Mechanism</code>, and <code>ARO Name</code>) if <code>verbose=TRUE</code> 13 columns are returned.</li>
+<code>verbose</code> <em>optional</em> : only a subset of column names are included in the output by default: (<code>CVTERMID</code>,<code>Drug Class</code>, <code>AMR Gene Family</code>, <code>Resistance Mechanism</code>, and <code>ARO Name</code>). If <code>verbose==TRUE</code> 13 columns are returned.</li>
 </ul>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">amr.taxonomy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generate_amr_taxonomy.html">generate_amr_taxonomy</a></span><span class="op">(</span>amr.count.table <span class="op">=</span> <span class="va">amr.count.table</span>,
@@ -324,10 +326,10 @@
 <div class="section level4">
 <h4 id="read_in_wimp_file">read_in_wimp_file<a class="anchor" aria-label="anchor" href="#read_in_wimp_file"></a>
 </h4>
-<p>This takes the directory the WIMP csv files are in and creates a count matrix that can be used in down stream analysis. The inputs are similar to those in the previous examples (but does not require metadata):</p>
+<p>This takes the directory the WIMP CSV files are in and creates a count matrix that can be used in downstream analysis. The inputs are similar to those in the previous examples (but metadata is not required):</p>
 <ul>
 <li>
-<code>path.to.wimp.files</code> <em>required</em>: the path to the raw csv files (i.e. “Desktop/raw_data/”)</li>
+<code>path.to.wimp.files</code> <em>required</em>: the path to the raw CSV files (for example <code>"Desktop/raw_data/"</code>)</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wimp.count.table</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_in_wimp_files.html">read_in_wimp_files</a></span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="st">"../inst/extdata/example_wimp_data/"</span><span class="op">)</span></code></pre></div>
@@ -353,10 +355,10 @@
 <div class="section level4">
 <h4 id="generate_wimp_taxonomy">generate_wimp_taxonomy<a class="anchor" aria-label="anchor" href="#generate_wimp_taxonomy"></a>
 </h4>
-<p>This function assigns phylogenetic taxonomic hierarchical information with the help of <code>taxonomizr</code> a count table with NCBI taxonomic ID’s (<code>taxID</code> as the first column is required.</p>
+<p>This function assigns phylogenetic taxonomic hierarchical information with the help of <code>taxonomizr</code>. A count table with NCBI taxonomic ID’s (<code>"taxID"</code>) as the first column is required.</p>
 <ul>
 <li>
-<code>wimp.count.table</code> <em>required</em>: data frame of generated with <code>wimp.count.table</code> or that has <code>taxID</code> as the first column for phylogenetic taxonomic assignment</li>
+<code>wimp.count.table</code> <em>required</em>: data frame generated with <code>wimp.count.table</code> or that has <code>"taxID"</code> as the first column for phylogenetic taxonomic assignment</li>
 </ul>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wimp.taxonomy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generate_wimp_taxonomy.html">generate_wimp_taxonomy</a></span><span class="op">(</span>wimp.count.table <span class="op">=</span> <span class="va">wimp.count.table</span><span class="op">)</span></code></pre></div>
@@ -366,14 +368,14 @@
 <div class="section level2">
 <h2 id="other-functions">Other functions<a class="anchor" aria-label="anchor" href="#other-functions"></a>
 </h2>
-<p>Once function that can be useful but does not fit into the other sections is <code>amr_read_taxonomy</code> which matched any classified AMR read with the phylogenetic taxonomy (if it is assigned) using read_id. To use this you would need the following:</p>
+<p>Another useful function is <code>amr_read_taxonomy</code>, which matches any classified AMR read with the phylogenetic taxonomy (if it is assigned) using <code>read_id()</code>. This function takes the following arguments:</p>
 <ul>
 <li>
-<code>path.to.amr.files</code> <em>required</em>: the path to the raw csv files (i.e. “Desktop/raw_amr_data/”)</li>
+<code>path.to.amr.files</code> <em>required</em>: the path to the raw AMR CSV files (for example <code>"Desktop/raw_amr_data/"</code>)</li>
 <li>
-<code>path.to.wimp.files</code> <em>required</em>: the path to the raw csv files (i.e. "Desktop/raw__wimp_data/")</li>
+<code>path.to.wimp.files</code> <em>required</em>: the path to the raw WIMP CSV files (for example <code>"Desktop/raw_wimp_data/"</code>)</li>
 <li>
-<code>coveragenumber</code> <em>optional</em> : the total length of the gene that must be present for it to be included in the count table, the default is 80%; this argument takes any number from 1 to 99. Default is <code>80</code>.</li>
+<code>coveragenumber</code> <em>optional</em> : the total length of the gene that must be present for it to be included in the count table. The default is 80%; this argument takes any number from 1 to 99. Default is <code>80</code>.</li>
 </ul>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">amr.read.classification</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/amr_read_taxonomy.html">amr_read_taxonomy</a></span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="st">"../inst/extdata/example_amr_data/"</span>,
