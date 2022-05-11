@@ -3,7 +3,7 @@ pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   epi2me2r-vignette: epi2me2r-vignette.html
-last_built: 2022-05-11T12:53Z
+last_built: 2022-05-11T21:23Z
 urls:
   reference: https://mweinroth.github.io/epi2me2r/reference
   article: https://mweinroth.github.io/epi2me2r/articles
