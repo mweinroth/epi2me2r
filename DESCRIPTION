@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(person("Maggie", "Weinroth", , "maggie.weinroth@usda.gov", role = c("aut", "cre")),
              person(c('Quentin', 'D.'), 'Read', role = 'aut'))
 Description: Currenlty, takes WIMP and AMRA data, reads it, cleans it, and prepares it for downstream analysis. 
-License: GPL-2
+License: This package was written by a United States federal government employee in their official capacity therefore it is not protected by copyright and is in the public domain.  
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
