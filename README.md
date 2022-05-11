@@ -105,7 +105,7 @@ See [vignette](https://mweinroth.github.io/epi2me2r/articles/epi2me2r-vignette.h
 
 ## Issues
 
-The current ARMA and WIMP barcodes have mostly compatible barcodes nomenclature (the only difference being ARMA files without barcodes are entered as `none` and WIMP as `NA`). However, in early epi2me versions, ARMA barcodes were listed as `"barcode"` and a two digit number while WIMP barcodes were listed as `"BC"` and a two digit number. While this is no longer the case (both are formatted as `"barcode"` followed by the number), if you are using older output, you will need to replace the `"BC"` in the WIMP files with `"barcode"`. You can do this through opening the file and `Ctrl+F` to search and replace all `"BC"` with `"barcode"` in Excel or another text editor or in R:
+The current ARMA and WIMP barcodes have mostly compatible barcodes nomenclature (the only difference being ARMA files without barcodes are entered as `none` and WIMP as `NA`). However, in early epi2me versions, ARMA barcodes were listed as `"barcode"` and a two digit number while WIMP barcodes were listed as `"BC"` and a two digit number. While this is no longer the case (both are formatted as `"barcode"` followed by the number), if you are using older output, you will need to replace the `"BC"` in the WIMP files with `"barcode"`. You can do this through opening the file and `Ctrl+H` to search and replace all `"BC"` with `"barcode"` in Excel or another text editor or in R:
 
 ```
 fake.data <- read.csv("226094_1777.csv") #read in data
