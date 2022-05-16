@@ -190,7 +190,7 @@ This takes the directory the WIMP CSV files are in and creates a count matrix th
 - `path.to.wimp.files` *required*: the path to the raw CSV files (for example `"Desktop/raw_data/"`)
 
 ```{r wimp read in}
-wimp.count.table <- read_in_wimp_files(path.to.wimp.files = "../inst/extdata/example_wimp_data/")
+wimp.count.table <- read_in_wimp_files(path.to.wimp.files = example.wimp.dir)
 head(wimp.count.table)
 ```
 
