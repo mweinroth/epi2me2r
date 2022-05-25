@@ -5,3 +5,8 @@
 inst/doc
 docs
 .DS_Store
+
+# SQLite and associated files created when downloading and assembling NCBI database
+nameNode.sqlite
+names.dmp
+nodes.dmp
