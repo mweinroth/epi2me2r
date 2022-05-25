@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_in_wimp_files.R
 \name{read_in_wimp_files}
 \alias{read_in_wimp_files}
-\title{take raw mb csv files to matrix}
+\title{Convert raw WIMP CSV files to data table}
 \usage{
 read_in_wimp_files(path.to.wimp.files)
 }
@@ -13,10 +13,10 @@ read_in_wimp_files(path.to.wimp.files)
 matrix of mb genes at a specific coverage
 }
 \description{
-take raw mb csv files to matrix
+Convert raw WIMP CSV files to data table
 }
 \examples{
 \dontrun{
-read_in_mb_file(path.to.wimp.files="~/Desktop/my.files")
+read_in_wimp_files(path.to.wimp.files="~/Desktop/my.files")
 }
 }

@@ -1,9 +1,9 @@
-#' take raw mb csv files to matrix
+#' Convert raw WIMP CSV files to data table
 #' @param path.to.wimp.files A file path
 #' @return matrix of mb genes at a specific coverage
 #' @examples
 #' \dontrun{
-#' read_in_mb_file(path.to.wimp.files="~/Desktop/my.files")
+#' read_in_wimp_files(path.to.wimp.files="~/Desktop/my.files")
 #' }
 #' @import data.table
 #' @export

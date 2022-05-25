@@ -4,15 +4,15 @@
 \alias{amr_read_taxonomy}
 \title{assign taxonomy for phylogenetic and AMR for each read}
 \arguments{
-\item{path.to.wimp.files}{path to data of raw csv files from WIMP analysis}
+\item{path.to.wimp.files}{path to folder containing raw CSV files from WIMP analysis}
 
-\item{path.to.amr.files}{path to data of raw csv files from AMRA analysis}
+\item{path.to.amr.files}{path to folder containing raw CSV files from AMRA analysis}
 
 \item{coveragenumber}{Minimum percentage of a gene that must be
 covered. Range from 0 to 99, default = 80}
 }
 \value{
-data frame with double classified reads
+data.frame with double classified reads
 }
 \description{
 Given raw data for AMR and WIMP, provides full AMR and

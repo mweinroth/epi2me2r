@@ -2,22 +2,23 @@
 % Please edit documentation in R/read_in_amr_files.R
 \name{read_in_amr_files}
 \alias{read_in_amr_files}
-\title{take raw AMR csv files to matrix}
+\title{Convert raw AMR CSV files to data table}
 \arguments{
-\item{path.to.amr.files}{A file path to AMR raw data csv}
+\item{path.to.amr.files}{path to folder containing raw CSV files from AMRA
+CARD analysis}
 
-\item{coveragenumber}{Minimum percentage of a gene that must
-be covered 0 to 99}
+\item{coveragenumber}{Minimum percentage of a gene that must be
+covered. Range from 0 to 99, default = 80}
 
-\item{keepSNP}{true or false to keep AMR gene conferred by
-one SNP change}
+\item{keepSNP}{TRUE or FALSE: whether to keep AMR gene conferred by one SNP
+change, default = FALSE}
 }
 \value{
 matrix of AMR genes at a specific coverage with or
 without SNP associated
 }
 \description{
-take raw AMR csv files to matrix
+Convert raw AMR CSV files to data table
 }
 \examples{
 \dontrun{

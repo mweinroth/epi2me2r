@@ -2,11 +2,11 @@
 #'@name amr_read_taxonomy
 #' @description Given raw data for AMR and WIMP, provides full AMR and
 #' taxon info for those reads that assign to both
-#' @param path.to.wimp.files path to data of raw csv files from WIMP analysis
-#' @param path.to.amr.files path to data of raw csv files from AMRA analysis
+#' @param path.to.wimp.files path to folder containing raw CSV files from WIMP analysis
+#' @param path.to.amr.files path to folder containing raw CSV files from AMRA analysis
 #' @param coveragenumber Minimum percentage of a gene that must be
 #'  covered. Range from 0 to 99, default = 80
-#' @return data frame with double classified reads
+#' @return data.frame with double classified reads
 #' @examples
 #' \dontrun{
 #' amr_read_taxonomy(path.to.wimp.files = path/to/wimp.count.table,

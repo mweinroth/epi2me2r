@@ -2,7 +2,7 @@
 ##'@name amr_raw_to_metagenomeseq
 ##' @description Given directory and metadata, make phyloseq object.
 ##' \pkg{\link{metagenomeSeq}} package required.
-##' @param path.to.amr.files path to data of raw csv files from AMRA
+##' @param path.to.amr.files path to folder containing raw CSV files from AMRA
 ##' CARD analysis
 ##' @param metadata data.table of metadata with "filename" and "barcode"
 ##'  columns required

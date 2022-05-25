@@ -4,7 +4,7 @@
 \alias{amr_raw_to_metagenomeseq}
 \title{Raw AMR files plus metadata to phyloseq object}
 \arguments{
-\item{path.to.amr.files}{path to data of raw csv files from AMRA
+\item{path.to.amr.files}{path to folder containing raw CSV files from AMRA
 CARD analysis}
 
 \item{metadata}{data.table of metadata with "filename" and "barcode"

@@ -1,10 +1,11 @@
-#' take raw AMR csv files to matrix
+#' Convert raw AMR CSV files to data table
 #' @name read_in_amr_files
-#' @param path.to.amr.files A file path to AMR raw data csv
-#' @param coveragenumber Minimum percentage of a gene that must
-#' be covered 0 to 99
-#' @param keepSNP true or false to keep AMR gene conferred by
-#' one SNP change
+#' @param path.to.amr.files path to folder containing raw CSV files from AMRA
+#' CARD analysis
+#' @param coveragenumber Minimum percentage of a gene that must be
+#'  covered. Range from 0 to 99, default = 80
+#' @param keepSNP TRUE or FALSE: whether to keep AMR gene conferred by one SNP
+#' change, default = FALSE
 #' @return matrix of AMR genes at a specific coverage with or
 #' without SNP associated
 #' @examples
