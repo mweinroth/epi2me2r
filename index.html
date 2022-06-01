@@ -46,6 +46,9 @@
     <a class="dropdown-item" href="articles/epi2me2r-vignette.html">epi2me2r vignette</a>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -153,9 +156,9 @@
 <pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'remotes'</span><span class="op">)</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mweinroth/epi2me2r"</span><span class="op">)</span></code></pre>
 <p>This will install <code>epi2me2r</code> and its CRAN dependencies <code>data.table</code> and <code>taxonomizr</code>. However it will not install the dependencies <code>Biobase</code>, <code>phyloseq</code>, and <code>metagenomeSeq</code>, which are available through Bioconductor. To install those dependencies, run the following code. The following code first installs the <code>BiocManager</code> package. Then it calls <code>BiocManager::install()</code> without any arguments to install the latest version of Bioconductor. Then it calls <code>BiocManager::install()</code> again to install the Bioconductor dependencies of <code>epi2me2r</code>. See <a href="https://www.bioconductor.org/install/" class="external-link">Bioconductor’s installation instructions</a> for more details.</p>
-<pre><code>if (!require("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-BiocManager::install()
-BiocManager::install(c("Biobase", phyloseq", "metagenomeSeq"))</code></pre>
+<pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="op">)</span>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Biobase"</span>, <span class="st">"phyloseq"</span>, <span class="st">"metagenomeSeq"</span><span class="op">)</span><span class="op">)</span></code></pre>
 <p>To run <code>epi2me2r</code>, call</p>
 <pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mweinroth.github.io/epi2me2r/">epi2me2r</a></span><span class="op">)</span></code></pre>
 </div>
