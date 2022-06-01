@@ -61,7 +61,7 @@ taxon info for those reads that assign to both</p>
     <dl><dt>path.to.wimp.files</dt>
 <dd><p>path to folder containing raw CSV files from WIMP analysis</p></dd>
 <dt>path.to.amr.files</dt>
-<dd><p>path to folder containing raw CSV files from AMRA analysis</p></dd>
+<dd><p>path to folder containing raw CSV files from ARMA analysis</p></dd>
 <dt>coveragenumber</dt>
 <dd><p>Minimum percentage of a gene that must be
 covered. Range from 0 to 99, default = 80</p></dd>
@@ -74,8 +74,8 @@ covered. Range from 0 to 99, default = 80</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">amr_read_taxonomy</span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="va">path</span><span class="op">/</span><span class="va">to</span><span class="op">/</span><span class="va">wimp.count.table</span>,</span>
-<span class="r-in">path.to.amr.files <span class="op">=</span> <span class="va">path</span><span class="op">/</span><span class="va">to</span><span class="op">/</span><span class="va">amr.count.table</span>, coveragenumber <span class="op">=</span> <span class="fl">80</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">amr_read_taxonomy</span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="st">"path/to/wimp_files"</span>,</span>
+<span class="r-in">path.to.amr.files <span class="op">=</span> <span class="st">"path/to/amr_files"</span>, coveragenumber <span class="op">=</span> <span class="fl">80</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 </code></pre></div>
     </div>

@@ -139,7 +139,7 @@
 <h4 id="individual-metadata-file">Individual metadata file<a class="anchor" aria-label="anchor" href="#individual-metadata-file"></a>
 </h4>
 <p>If you are just importing WIMP or CARD ARMA files, you do not need all the metadata associated with the other workflow.</p>
-<p>If you are just processing <strong>AMRA CARD</strong> data, the required columns are: * <code>arma_filename</code> * <code>amra_barcode</code> * other metadata such as treatment and sample names</p>
+<p>If you are just processing <strong>ARMA CARD</strong> data, the required columns are: * <code>arma_filename</code> * <code>arma_barcode</code> * other metadata such as treatment and sample names</p>
 <p>On the other hand, if you are just processing <strong>WIMP</strong> data the required columns are: * <code>wimp_filename</code> * <code>wimp_barcode</code> * other metadata such as treatment and sample names</p>
 <p>Even if you are just processing one type of data, both ARMA and WIMP information can be included in the metadata (as seen in the section on combo metadata above).</p>
 </div>
@@ -174,17 +174,20 @@
                                      metadata <span class="op">=</span> <span class="va">epi2me.metadata</span>,
                                      coveragenumber <span class="op">=</span> <span class="fl">80</span>, 
                                      keepSNP <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## Reading in raw AMR files from /home/runner/work/_temp/Library/epi2me2r/extdata/example_amr_data</span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="amr_raw_to_metagenomeseq">amr_raw_to_metagenomeseq<a class="anchor" aria-label="anchor" href="#amr_raw_to_metagenomeseq"></a>
 </h4>
 <p>The <code><a href="../reference/amr_raw_to_metagenomeseq.html">amr_raw_to_metagenomeseq()</a></code> function uses the same arguments as above for importing to <code>metagenomeSeq</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mgs.amr.object</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/amr_raw_to_metagenomeseq.html">amr_raw_to_metagenomeseq</a></span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="va">example.amr.dir</span>,
                                            metadata <span class="op">=</span> <span class="va">epi2me.metadata</span>,
                                            coveragenumber <span class="op">=</span> <span class="fl">80</span>, 
-                                           keepSNP <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="va">mgs.amr.object</span></code></pre></div>
+                                           keepSNP <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## Reading in raw AMR files from /home/runner/work/_temp/Library/epi2me2r/extdata/example_amr_data</span></code></pre>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mgs.amr.object</span></code></pre></div>
 <pre><code><span class="co">## MRexperiment (storageMode: environment)</span>
 <span class="co">## assayData: 67 features, 4 samples </span>
 <span class="co">##   element names: counts </span>
@@ -222,7 +225,7 @@
 <code>keep.human</code> <em>optional</em> : whether to keep reads associated with <em>Homo sapiens</em> (usually considered a contaminant in microbiome data). Default is <code>FALSE</code> (does not include human-associated reads) but can be changed to <code>TRUE</code> to include these reads.</li>
 </ul>
 <p>The following code uses the <code><a href="../reference/wimp_raw_to_phyloseq.html">wimp_raw_to_phyloseq()</a></code> function and the example metadata we read in above as well as a directory of example WIMP files included with the package to convert the raw WIMP files to a <code>phyloSeq</code> object:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example.wimp.dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_wimp_data"</span>, package <span class="op">=</span> <span class="st">"epi2me2r"</span><span class="op">)</span>
 
 <span class="va">ps.wimp.object</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wimp_raw_to_phyloseq.html">wimp_raw_to_phyloseq</a></span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="va">example.wimp.dir</span>,
@@ -234,7 +237,7 @@
 <h4 id="wimp_raw_to_metagenomeseq">wimp_raw_to_metagenomeseq<a class="anchor" aria-label="anchor" href="#wimp_raw_to_metagenomeseq"></a>
 </h4>
 <p>Like the functions for AMR, the <code>wimp_raw_to_metagenomeSeq()</code> function uses the same arguments for importing to <code>metagenomeSeq</code> are used as were used above in the <code><a href="../reference/wimp_raw_to_phyloseq.html">wimp_raw_to_phyloseq()</a></code> function:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mgs.wimp.object</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wimp_raw_to_metagenomeseq.html">wimp_raw_to_metagenomeseq</a></span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="va">example.wimp.dir</span>,
                                              metadata <span class="op">=</span> <span class="va">epi2me.metadata</span>,
                                              keep.unclassified <span class="op">=</span> <span class="cn">FALSE</span>, 
@@ -261,11 +264,13 @@
 <li>
 <code>keepSNP</code> <em>optional</em> : whether to include genes that are considered resistance genes only with a SNP mutation. Default is <code>FALSE</code> (does not include these genes) but can be changed to <code>TRUE</code> to include these genes.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">amr.count.table</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_in_amr_files.html">read_in_amr_files</a></span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="va">example.amr.dir</span>,
                                      coveragenumber <span class="op">=</span> <span class="fl">80</span>, 
-                                     keepSNP <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">amr.count.table</span><span class="op">)</span></code></pre></div>
+                                     keepSNP <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## Reading in raw AMR files from /home/runner/work/_temp/Library/epi2me2r/extdata/example_amr_data</span></code></pre>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">amr.count.table</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##    CVTERMID arma_288715_barcode02 arma_288715_barcode03 arma_288715_barcode04</span>
 <span class="co">## 1:    36033                     5                     1                     1</span>
 <span class="co">## 2:    36036                     0                     0                     1</span>
@@ -291,7 +296,7 @@
 <li>
 <code>verbose</code> <em>optional</em> : only a subset of column names are included in the output by default: (<code>CVTERMID</code>,<code>Drug Class</code>, <code>AMR Gene Family</code>, <code>Resistance Mechanism</code>, and <code>ARO Name</code>). If <code>verbose==TRUE</code> 13 columns are returned.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">amr.taxonomy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generate_amr_taxonomy.html">generate_amr_taxonomy</a></span><span class="op">(</span>amr.count.table <span class="op">=</span> <span class="va">amr.count.table</span>,
                                          verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">amr.taxonomy</span><span class="op">)</span></code></pre></div>
@@ -336,13 +341,13 @@
 <li>
 <code>path.to.wimp.files</code> <em>required</em>: the path to the raw CSV files (for example <code>"Desktop/raw_data/"</code>)</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example.wimp.dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_wimp_data"</span>, package <span class="op">=</span> <span class="st">"epi2me2r"</span><span class="op">)</span>
 
 <span class="va">wimp.count.table</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_in_wimp_files.html">read_in_wimp_files</a></span><span class="op">(</span>path.to.wimp.files <span class="op">=</span> <span class="va">example.wimp.dir</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Reading in raw files from /home/runner/work/_temp/Library/epi2me2r/extdata/example_wimp_data</span></code></pre>
+<pre><code><span class="co">## Reading in raw WIMP files from /home/runner/work/_temp/Library/epi2me2r/extdata/example_wimp_data</span></code></pre>
 <pre><code><span class="co">## The percentage of classified reads was 94.4</span></code></pre>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wimp.count.table</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##    taxID 324212_1777_barcode02 324212_1777_barcode03 324212_1777_barcode04</span>
 <span class="co">## 1:     0                     9                     6                     6</span>
@@ -367,7 +372,7 @@
 <li>
 <code>wimp.count.table</code> <em>required</em>: data frame generated with <code>wimp.count.table</code> or that has <code>"taxID"</code> as the first column for phylogenetic taxonomic assignment</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wimp.taxonomy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/generate_wimp_taxonomy.html">generate_wimp_taxonomy</a></span><span class="op">(</span>wimp.count.table <span class="op">=</span> <span class="va">wimp.count.table</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -384,7 +389,7 @@
 <li>
 <code>coveragenumber</code> <em>optional</em> : the total length of the gene that must be present for it to be included in the count table. The default is 80%; this argument takes any number from 1 to 99. Default is <code>80</code>.</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">amr.read.classification</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/amr_read_taxonomy.html">amr_read_taxonomy</a></span><span class="op">(</span>path.to.amr.files <span class="op">=</span> <span class="va">example.amr.dir</span>,
                                              path.to.wimp.files <span class="op">=</span> <span class="va">example.wimp.dir</span><span class="op">)</span></code></pre></div>
 </div>
