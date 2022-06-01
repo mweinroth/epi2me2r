@@ -63,7 +63,7 @@ This will install `epi2me2r` and its CRAN dependencies `data.table` and `taxonom
 ```
 if (!require("BiocManager", quietly = TRUE)) install.packages("BiocManager")
 BiocManager::install()
-BiocManager::install(c("Biobase", phyloseq", "metagenomeSeq"))
+BiocManager::install(c("Biobase", "phyloseq", "metagenomeSeq"))
 ```
 
 To run `epi2me2r`, call

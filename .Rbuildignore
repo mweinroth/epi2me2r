@@ -6,3 +6,4 @@
 ^\.github$
 ^codemeta\.json$
 ^\.DS_Store$
+cran-comments.md
