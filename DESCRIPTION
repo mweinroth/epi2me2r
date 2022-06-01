@@ -11,7 +11,8 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 BugReports: https://github.com/mweinroth/epi2me2r/issues
-Imports: data.table,
+Imports: 
+    data.table,
     taxonomizr, 
     phyloseq, 
     Biobase,

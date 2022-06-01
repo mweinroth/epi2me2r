@@ -51,21 +51,35 @@ There are three main types of functions in `epi2me2r`:
 
 ## Installation
 
-The development version of `epi2me2r` can currently be downloaded from GitHub:
+The development version of `epi2me2r` can currently be downloaded and installed from GitHub:
 
 ```
-if (!require(remotes)) install.packages('remotes')
+if (!require(remotes, quietly = TRUE)) install.packages('remotes')
 remotes::install_github("mweinroth/epi2me2r") 
+```
+
+This will install `epi2me2r` and its CRAN dependencies `data.table` and `taxonomizr`. However it will not install the dependencies `Biobase`, `phyloseq`, and `metagenomeSeq`, which are available through Bioconductor. To install those dependencies, run the following code. The following code first installs the `BiocManager` package. Then it calls `BiocManager::install()` without any arguments to install the latest version of Bioconductor. Then it calls `BiocManager::install()` again to install the Bioconductor dependencies of `epi2me2r`. See [Bioconductor's installation instructions](https://www.bioconductor.org/install/) for more details.
+
+```
+if (!require("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install()
+BiocManager::install(c("Biobase", phyloseq", "metagenomeSeq"))
+```
+
+To run `epi2me2r`, call
+
+```
 library(epi2me2r)
 ```
 
 ## Inputs
+
 To use `epi2me2r` you will need your **raw data** and a **metadata file**. 
 
 ### raw data 
 
 Raw data files are downloaded from the EPI2ME report either in the WIMP or AMR CARD tab 
-(Each sample will have 2 different files if you conducted both an AMR and WIMP analysis). 
+(each sample will have 2 different files if you conducted both an AMR and WIMP analysis). 
 Raw data will be downloaded as a CSV file with a separate file from each run. 
 If you have barcodes for your samples, multiple samples will be contained in one CSV file; 
 if not, each sample will have its own file. 
@@ -91,7 +105,7 @@ This file has **4** required columns that must be named as follows:
 - `wimp_barcode` : the barcodes of each sample (note: if you did not barcode any of your samples, enter `NA` in all of the cells). **In the WIMP workflow, missing barcodes are coded as `NA`**
 - `additional information` after these four required columns, you may include any additional metadata that is important, such as treatment type, sample numbers, etc.
 
-**A quick note about barcodes:** As talked about in the [Issues](#Issues) section below, earlier versions of the epi2me workflow list ARMA barcodes as `"barcode"` and a two digit number while WIMP barcodes are listed as `"BC"` and a two digit number. While this is no longer the case (both are written as `barcode` followed by the number), if you are using older output, see the section below on changing the barcodes to a compatible style. 
+**A quick note about barcodes:** As talked about in the [Issues](#Issues) section below, earlier versions of the EPI2ME workflow list ARMA barcodes as `"barcode"` and a two digit number while WIMP barcodes are listed as `"BC"` and a two digit number. While this is no longer the case (both are written as `barcode` followed by the number), if you are using older output, see the section below on changing the barcodes to a compatible style. 
 
 [An example CSV is available here.](https://github.com/mweinroth/epi2me2r/blob/master/inst/extdata/example_metadata.csv)
 
@@ -104,15 +118,16 @@ See [vignette](https://mweinroth.github.io/epi2me2r/articles/epi2me2r-vignette.h
 
 ## Issues
 
-The current ARMA and WIMP barcodes have mostly compatible barcodes nomenclature (the only difference being ARMA files without barcodes are entered as `none` and WIMP as `NA`). However, in early epi2me versions, ARMA barcodes were listed as `"barcode"` and a two digit number while WIMP barcodes were listed as `"BC"` and a two digit number. While this is no longer the case (both are formatted as `"barcode"` followed by the number), if you are using older output, you will need to replace the `"BC"` in the WIMP files with `"barcode"`. You can do this through opening the file and `Ctrl+H` to search and replace all `"BC"` with `"barcode"` in Excel or another text editor or in R:
+The current ARMA and WIMP barcodes have mostly compatible barcode nomenclature (the only difference being ARMA files without barcodes are entered as `none` and WIMP as `NA`). However, in early EPI2ME versions, ARMA barcodes were listed as `"barcode"` and a two digit number while WIMP barcodes were listed as `"BC"` and a two digit number. While this is no longer the case (both are formatted as `"barcode"` followed by the number), if you are using older output, you will need to replace the `"BC"` in the WIMP files with `"barcode"`. You can do this through opening the file and `Ctrl+H` to search and replace all `"BC"` with `"barcode"` in Excel or another text editor or in R.
+
+The following example code reads in a CSV file and replaces all instances of the string `"BC"` with `"barcode"` in the `barcode` column, then overwrites the original file.
 
 ```
-fake.data <- read.csv("226094_1777.csv") #read in data
-fake.data$barcode <- sub("BC*", "barcode", fake.data$barcode) #sub
-head(fake.data) #check to see if it worked
-write.csv(fake.data, "226094_1777.csv") #save it (this overwrites original)
+fake.data <- read.csv("226094_1777.csv") 
+fake.data$barcode <- sub("BC*", "barcode", fake.data$barcode) 
+write.csv(fake.data, "226094_1777.csv") 
 ```
 
 # Contact
 
-If you have a question or comment, please open a [GitHub issue](https://github.com/mweinroth/epi2me2r/issues).
+If you have a question or comment, please open a [GitHub issue](https://github.com/mweinroth/epi2me2r/issues) on the `epi2me2r` repository.
