@@ -27,7 +27,7 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
   stopifnot(is.logical(keepSNP))
   stopifnot(dir.exists(path.to.amr.files))
 
-  message(paste("Reading in raw AMR files from", path.to.wimp.files))
+  message(paste("Reading in raw AMR files from", path.to.amr.files))
   parsed_files <- list.files(path = path.to.amr.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
 
