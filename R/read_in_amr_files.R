@@ -1,12 +1,12 @@
 #' Convert raw AMR CSV files to data table
 #' @name read_in_amr_files
-#' @param path.to.amr.files path to folder containing raw CSV files from AMRA
+#' @param path.to.amr.files path to folder containing raw CSV files from ARMA
 #' CARD analysis
 #' @param coveragenumber Minimum percentage of a gene that must be
 #'  covered. Range from 0 to 99, default = 80
 #' @param keepSNP TRUE or FALSE: whether to keep AMR gene conferred by one SNP
 #' change, default = FALSE
-#' @return matrix of AMR genes at a specific coverage with or
+#' @return data.table of AMR genes at a specific coverage with or
 #' without SNP associated
 #' @examples
 #' \dontrun{
@@ -27,6 +27,7 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
   stopifnot(is.logical(keepSNP))
   stopifnot(dir.exists(path.to.amr.files))
 
+  message(paste("Reading in raw AMR files from", path.to.wimp.files))
   parsed_files <- list.files(path = path.to.amr.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
 

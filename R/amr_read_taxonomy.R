@@ -3,14 +3,14 @@
 #' @description Given raw data for AMR and WIMP, provides full AMR and
 #' taxon info for those reads that assign to both
 #' @param path.to.wimp.files path to folder containing raw CSV files from WIMP analysis
-#' @param path.to.amr.files path to folder containing raw CSV files from AMRA analysis
+#' @param path.to.amr.files path to folder containing raw CSV files from ARMA analysis
 #' @param coveragenumber Minimum percentage of a gene that must be
 #'  covered. Range from 0 to 99, default = 80
 #' @return data.frame with double classified reads
 #' @examples
 #' \dontrun{
-#' amr_read_taxonomy(path.to.wimp.files = path/to/wimp.count.table,
-#' path.to.amr.files = path/to/amr.count.table, coveragenumber = 80)
+#' amr_read_taxonomy(path.to.wimp.files = "path/to/wimp_files",
+#' path.to.amr.files = "path/to/amr_files", coveragenumber = 80)
 #' }
 #' @import data.table
 #' @import stats
@@ -26,7 +26,7 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
   stopifnot(dir.exists(path.to.wimp.files))
   stopifnot(dir.exists(path.to.amr.files))
 
-  read_in_amr_readid <- function(path.to.amr.directory, coveragepercentage=80){
+  read_in_amr_readid <- function(path.to.amr.directory, coveragepercentage) {
     parsed_files <- list.files(path = path.to.amr.directory)
     Sample_IDs <- sub(".csv", "", parsed_files)
     i <- 1
@@ -65,24 +65,19 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
                                                                   sampleID,
                                                                   CVTERMID)]
   }
-  read_in_wimp_files <- function(path.to.wimp.directory){
+  read_in_wimp_files <- function(path.to.wimp.directory) {
     message(paste("Reading in raw files from", path.to.wimp.directory))
     parsed_files <- list.files(path = path.to.wimp.directory)
     Sample_IDs <- sub(".csv", "", parsed_files)
-    i <- 1
-    file_name <- paste0(parsed_files[i])
-    mb.dataframe <- fread(file.path(path.to.wimp.directory,file_name))
-    mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
-    for(i in 1:length(parsed_files)){
+
+    mb.rawdata <- lapply(1:length(parsed_files), function(i) {
       file_name <- paste0(parsed_files[i])
-      mb.dataframe <- fread(file.path(path.to.wimp.directory,file_name))
-      mb.dataframe <- cbind(mb.dataframe, csvname = Sample_IDs[i])
-      if(i == 1){
-        mb.rawdata <- mb.dataframe
-      } else {
-        mb.rawdata <- rbind(mb.rawdata, mb.dataframe)
-      }
-    }
+      mb.dataframe <- fread(file.path(path.to.wimp.files,file_name))
+      cbind(mb.dataframe, csvname = Sample_IDs[i])
+    })
+
+    mb.rawdata <- do.call(rbind, mb.rawdata)
+
     total.reads <- nrow(mb.rawdata)
     mb.classified <- mb.rawdata[mb.rawdata$exit_status == "Classified",]
     classified.reads <- nrow(mb.classified)
@@ -105,12 +100,7 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
                           y = wimp.file,
                           by = "read_id", all.x = TRUE)
   combo_classified_only <- na.omit(combo_wimp_amr)
-  #print out info
-  total_amr_gene_number <- nrow(combo_wimp_amr)
-  classified_amr_gene_number <- nrow(combo_classified_only)
-  percentage.classified <- round((classified_amr_gene_number/
-                                   total_amr_gene_number*100), digits = 2)
-  #message(paste("The percentage of classified reads was", percentage.classified, "%"))
+
   combo_classified_only$CVTERMID <- as.numeric(combo_classified_only$CVTERMID)
   CARD_taxonomy$CVTERMID <- as.numeric(CARD_taxonomy$CVTERMID)
   merged.data <- merge(x = combo_classified_only, y = CARD_taxonomy,

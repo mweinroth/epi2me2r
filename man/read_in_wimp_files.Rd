@@ -7,10 +7,10 @@
 read_in_wimp_files(path.to.wimp.files)
 }
 \arguments{
-\item{path.to.wimp.files}{A file path}
+\item{path.to.wimp.files}{File path to folder containing raw WIMP files}
 }
 \value{
-matrix of mb genes at a specific coverage
+data.table of mb genes at a specific coverage
 }
 \description{
 Convert raw WIMP CSV files to data table

@@ -14,7 +14,6 @@ Currently, raw data from WIMP and Antimicrobial Resistance (AMR) can be used as 
 - [Usage](#usage)
 - [Issues](#Issues)
 - [Contact](#Contact)
-- [Citation](#Citation)
 
 # Overview
 
@@ -116,8 +115,4 @@ write.csv(fake.data, "226094_1777.csv") #save it (this overwrites original)
 
 # Contact
 
-Any questions or comments can be directed to Maggie Weinroth: maggie.weinroth@usda.gov
-
-# Citation
-
-.
+If you have a question or comment, please open a [GitHub issue](https://github.com/mweinroth/epi2me2r/issues).

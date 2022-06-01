@@ -1,6 +1,6 @@
 #' Convert raw WIMP CSV files to data table
-#' @param path.to.wimp.files A file path
-#' @return matrix of mb genes at a specific coverage
+#' @param path.to.wimp.files File path to folder containing raw WIMP files
+#' @return data.table of mb genes at a specific coverage
 #' @examples
 #' \dontrun{
 #' read_in_wimp_files(path.to.wimp.files="~/Desktop/my.files")
@@ -13,7 +13,7 @@ read_in_wimp_files <- function(path.to.wimp.files) {
   # Check inputs for validity
   stopifnot(dir.exists(path.to.wimp.files))
 
-  message(paste("Reading in raw files from", path.to.wimp.files))
+  message(paste("Reading in raw WIMP files from", path.to.wimp.files))
   parsed_files <- list.files(path = path.to.wimp.files)
   Sample_IDs <- sub(".csv", "", parsed_files)
 

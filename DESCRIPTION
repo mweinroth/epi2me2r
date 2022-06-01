@@ -3,8 +3,8 @@ Type: Package
 Title: Takes epi2me output and makes it into R objects
 Version: 0.1.0
 Authors@R: c(person("Maggie", "Weinroth", role = c("aut")),
-             person(c('Quentin', 'D.'), 'Read', email = 'quentin.read@usda.gov', role = c('aut', 'cre'))
-Description: The functions in this package take WIMP and AMRA data, read it, clean it, and prepare it for downstream analysis. 
+             person(c('Quentin', 'D.'), 'Read', email = 'quentin.read@usda.gov', role = c('aut', 'cre')))
+Description: The functions in this package take WIMP and ARMA data, read it, clean it, and prepare it for downstream analysis. 
     This package was written by United States federal government employees in their official capacity. Therefore, it is not protected by copyright and is in the public domain.  
 License: CC0
 Encoding: UTF-8

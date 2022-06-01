@@ -4,7 +4,7 @@
 \alias{read_in_amr_files}
 \title{Convert raw AMR CSV files to data table}
 \arguments{
-\item{path.to.amr.files}{path to folder containing raw CSV files from AMRA
+\item{path.to.amr.files}{path to folder containing raw CSV files from ARMA
 CARD analysis}
 
 \item{coveragenumber}{Minimum percentage of a gene that must be
@@ -14,7 +14,7 @@ covered. Range from 0 to 99, default = 80}
 change, default = FALSE}
 }
 \value{
-matrix of AMR genes at a specific coverage with or
+data.table of AMR genes at a specific coverage with or
 without SNP associated
 }
 \description{

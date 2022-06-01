@@ -59,9 +59,9 @@ head(epi2me.metadata)
 
 If you are just importing WIMP or CARD ARMA files, you do not need all the metadata associated with the other workflow. 
 
-If you are just processing **AMRA CARD** data, the required columns are:
+If you are just processing **ARMA CARD** data, the required columns are:
 * `arma_filename`
-* `amra_barcode`
+* `arma_barcode`
 * other metadata such as treatment and sample names 
 
 On the other hand, if you are just processing **WIMP** data the required columns are:

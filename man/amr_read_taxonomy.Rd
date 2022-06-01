@@ -6,7 +6,7 @@
 \arguments{
 \item{path.to.wimp.files}{path to folder containing raw CSV files from WIMP analysis}
 
-\item{path.to.amr.files}{path to folder containing raw CSV files from AMRA analysis}
+\item{path.to.amr.files}{path to folder containing raw CSV files from ARMA analysis}
 
 \item{coveragenumber}{Minimum percentage of a gene that must be
 covered. Range from 0 to 99, default = 80}
@@ -20,7 +20,7 @@ taxon info for those reads that assign to both
 }
 \examples{
 \dontrun{
-amr_read_taxonomy(path.to.wimp.files = path/to/wimp.count.table,
-path.to.amr.files = path/to/amr.count.table, coveragenumber = 80)
+amr_read_taxonomy(path.to.wimp.files = "path/to/wimp_files",
+path.to.amr.files = "path/to/amr_files", coveragenumber = 80)
 }
 }
