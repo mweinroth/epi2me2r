@@ -2,31 +2,37 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "epi2me2r",
-  "description": "Currenlty, takes WIMP and AMRA data, reads and cleans it prepares it for downstream analysis. ",
-  "name": "epi2me2r: Takes epi2me output and makes it into R usable files",
-  "codeRepository": "https://github.com/mweinroth/epi2me2r",
-  "license": "https://spdx.org/licenses/GPL-2.0",
+  "description": "The functions in this package take WIMP and ARMA data, read it, clean it, and prepare it for downstream analysis. This package was written by United States federal government employees in their official capacity. Therefore, it is not protected by copyright and is in the public domain. ",
+  "name": "epi2me2r: Takes epi2me output and makes it into R objects",
+  "codeRepository": "https://github.com/qdread/epi2me2r",
+  "issueTracker": "https://github.com/mweinroth/epi2me2r/issues",
+  "license": "https://spdx.org/licenses/CC0-1.0",
   "version": "0.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
   "author": [
     {
       "@type": "Person",
       "givenName": "Maggie",
-      "familyName": "Weinroth",
-      "email": "maggie.weinroth@usda.gov"
+      "familyName": "Weinroth"
+    },
+    {
+      "@type": "Person",
+      "givenName": ["Quentin", "D."],
+      "familyName": "Read",
+      "email": "quentin.read@usda.gov"
     }
   ],
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Maggie",
-      "familyName": "Weinroth",
-      "email": "maggie.weinroth@usda.gov"
+      "givenName": ["Quentin", "D."],
+      "familyName": "Read",
+      "email": "quentin.read@usda.gov"
     }
   ],
   "softwareSuggestions": [
@@ -65,18 +71,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=reshape2"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "metagenomeSeq",
-      "name": "metagenomeSeq",
-      "provider": {
-        "@id": "https://www.bioconductor.org",
-        "@type": "Organization",
-        "name": "Bioconductor",
-        "url": "https://www.bioconductor.org"
-      },
-      "sameAs": "https://bioconductor.org/packages/release/bioc/html/metagenomeSeq.html"
     },
     {
       "@type": "SoftwareApplication",
@@ -141,9 +135,46 @@
       },
       "sameAs": "https://bioconductor.org/packages/release/bioc/html/Biobase.html"
     },
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "metagenomeSeq",
+      "name": "metagenomeSeq",
+      "provider": {
+        "@id": "https://www.bioconductor.org",
+        "@type": "Organization",
+        "name": "Bioconductor",
+        "url": "https://www.bioconductor.org"
+      },
+      "sameAs": "https://bioconductor.org/packages/release/bioc/html/metagenomeSeq.html"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.5.0"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "753.189KB",
+  "fileSize": "754.595KB",
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "datePublished": "2022",
+      "author": [
+        {
+          "@type": "Organization",
+          "name": "Weinroth"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Margaret",
+          "familyName": "D."
+        }
+      ],
+      "name": "epi2me2r",
+      "description": "none"
+    }
+  ],
   "relatedLink": "https://mweinroth.github.io/epi2me2r/",
-  "readme": "https://github.com/mweinroth/epi2me2r/blob/master/README.md"
+  "readme": "https://github.com/qdread/epi2me2r/blob/master/README.md"
 }
