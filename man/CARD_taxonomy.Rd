@@ -8,22 +8,22 @@
 A data frame with 3385 rows and 13 variables
 }
 \source{
-\url{http://card.mcmaster.ca/download}
+\url{https://card.mcmaster.ca/download}
 }
 \usage{
 data(CARD_taxonomy)
 }
 \description{
-A dataset the information on CARD genes in the 3.1.4 and 1.13 data releases
+A dataset with information on CARD genes in the 3.1.4 and 1.13 data releases
 The variables are as follows:
 }
 \details{
 \itemize{
   \item ARO Accession. ARO Accession (3000005--3005385)
   \item CARDversion. If the data came from 3.1.4 or 1.1.3
-  (3.1.3, hand-added1.1.3)
-  \item CVTERMID CV TERM ID (36014--43745)
-  \item Model Sequence ID. Model Sequence ID
+  (3.1.3, hand-added 1.1.3)
+  \item CVTERMID. CV TERM ID (36014--43745)
+  \item Model Sequence ID.
   \item Model ID.
   \item Model Name.
   \item ARO Name.
