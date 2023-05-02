@@ -34,6 +34,8 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
   amr.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
     amr.dataframe <- fread(file.path(path.to.amr.files, file_name))
+    #rows to lower to compare
+    rownames(amr.dataframe) <- tolower(rownames(amr.dataframe))
     cbind(amr.dataframe, csvname = Sample_IDs[i])
   })
 
@@ -41,9 +43,9 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
 
   amr.rawdata.reduced <- amr.rawdata[, list(csvname, barcode,
                                             coverage, URL)]
-  sampleidinfo <- amr.rawdata.reduced[, .(sampleID=
-                                            amr.rawdata.reduced[["sampleID"]],
-                                          sampleID=
+  sampleidinfo <- amr.rawdata.reduced[, .(sampleid=
+                                            amr.rawdata.reduced[["sampleid"]],
+                                          sampleid=
                                             do.call(paste, c(.SD, sep="_"))),
                                       .SDcols= csvname:barcode]
   amr.rawdata.reduced <- cbind(sampleidinfo, amr.rawdata.reduced)
@@ -51,9 +53,9 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
                         do.call(Map, c(f = c, strsplit(URL, '/'))) ]
   amr.rawdata.reduced.subset <-
     amr.rawdata.reduced[coverage %between% c(coveragenumber, 100),
-                        list(sampleID, CVTERMID)]
+                        list(sampleid, CVTERMID)]
   mydt_wide <- suppressMessages(dcast(amr.rawdata.reduced.subset,
-                                      CVTERMID ~ sampleID))
+                                      CVTERMID ~ sampleid))
 
   if (keepSNP) {
     mydt_wide

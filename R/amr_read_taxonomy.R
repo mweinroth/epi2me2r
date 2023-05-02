@@ -47,7 +47,7 @@ amr_read_taxonomy <- function(path.to.wimp.files, path.to.amr.files,
     amr.rawdata.reduced <- amr.rawdata[, list(csvname, barcode,
                                               coverage, URL, read_id)]
     sampleidinfo <- amr.rawdata.reduced[, .(sampleID=
-                                              amr.rawdata.reduced[["sampleID"]],
+                                              amr.rawdata.reduced[["sampleid"]],
                                             sampleID=
                                               do.call(paste, c(.SD, sep="_"))),
                                         .SDcols= csvname:barcode]
