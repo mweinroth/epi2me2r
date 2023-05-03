@@ -13,17 +13,18 @@
 #'
 
 generate_wimp_taxonomy <- function(wimp.count.table){
-  mb.taxonIDneeded <- as.numeric(wimp.count.table$taxID)
+  # change to lower and always use lowercase to get columns
+  mb.taxonIDneeded <- as.numeric(wimp.count.table$taxid)
   message("Now downloading and putting together the NCBI database. This might take a while...")
   prepareDatabase(getAccessions=FALSE, indexTaxa=TRUE)
   message("Assigning all taxID in count matrix to fill taxonomy. You might want to take a break...")
   full.taxon.wimp <- getTaxonomy(mb.taxonIDneeded,'nameNode.sqlite')
-  full.taxon.wimp.dt <- as.data.table(full.taxon.wimp, keep.rownames = "taxID")
-  full.taxon.wimp.dt$taxID <- as.numeric(full.taxon.wimp.dt$taxID)
-  wimp.count.table$taxID <- as.numeric(wimp.count.table$taxID)
+  full.taxon.wimp.dt <- as.data.table(full.taxon.wimp, keep.rownames = "taxid")
+  full.taxon.wimp.dt$taxid <- as.numeric(full.taxon.wimp.dt$taxid)
+  wimp.count.table$taxid <- as.numeric(wimp.count.table$taxid)
   merged.wimp.data <- merge(x = wimp.count.table, y = full.taxon.wimp.dt,
-                            by = "taxID", all.x = TRUE)
-  taxa_long <- merged.wimp.data[, c("taxID", "superkingdom", "phylum",
+                            by = "taxid", all.x = TRUE)
+  taxa_long <- merged.wimp.data[, c("taxid", "superkingdom", "phylum",
                                     "class", "order", "family", "genus",
                                     "species")]
   taxa_long

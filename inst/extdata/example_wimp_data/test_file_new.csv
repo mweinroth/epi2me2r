@@ -1,0 +1,257 @@
+filename,readid,runid,barcode,exit_status,taxID,species_taxID,species,accuracy,genus_taxID,genus,lca
+test_file_new,0e65a58e-e724-4c9c-a39e-fd520b6b44fc,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,186803,342942,Mediterraneibacter glycyrrhizinilyticus,87.75,-1,NA,1
+test_file_new,0fde0dea-fab2-4920-a30b-a9bf7e4703f9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,815,1841856,Bacteroides mediterraneensis,88.63,-1,NA,1
+test_file_new,13a6f194-b979-4c7b-a927-861580f36881,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,742816,742816,Megamonas funiformis YIT 11815,87.39,158846,Megamonas,0
+test_file_new,45a84e56-ebf1-42e9-bef1-fafa7cbe3a66,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,850,850,Fusobacterium mortiferum,90.82,848,Fusobacterium,0
+test_file_new,5d529fff-267b-4f95-b246-cd303cde52fb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,815,1841856,Bacteroides mediterraneensis,85.05,-1,NA,1
+test_file_new,a51b8661-9336-47fe-b3ff-73efa1651901,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,208479,208479,Enterocloster bolteae,90.44,2719313,Enterocloster,0
+test_file_new,c55b580c-e7d6-4e7d-a018-9e9dd3498749,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,491921,491921,Megamonas rupellensis,89.23,158846,Megamonas,0
+test_file_new,d38177a4-b145-4e9f-810b-793d3481e2be,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,852,852,Fusobacterium perfoetens,92.1,848,Fusobacterium,0
+test_file_new,d9c8c8c9-6115-4a1b-b3a3-62ad626f6146,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,491921,491921,Megamonas rupellensis,88.78,158846,Megamonas,0
+test_file_new,da4046c7-aae3-44ae-959e-18fa09794bbe,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,491921,491921,Megamonas rupellensis,92.85,158846,Megamonas,0
+test_file_new,e46b418a-5a96-412f-8419-993e4c6e09fb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode05,Classification successful,253257,253257,Lacrimispora amygdalina,86.79,2719231,Lacrimispora,0
+test_file_new,a42d7636-f67d-48a8-98b6-c45583c3eb20,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode07,Classification successful,186802,29322,[Eubacterium] cellulosolvens,85.43,-1,NA,1
+test_file_new,077069a3-e189-4efa-95fa-9c32d6b9a876,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Classification successful,190,190,Aquaspirillum serpens,83.35,187,Aquaspirillum,0
+test_file_new,19dea31a-c726-4f52-b335-3bf35a313410,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,4c36d9c5-607d-446d-8917-68d7b2cfa71b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Classification successful,186803,585394,Roseburia hominis A2-183,90.88,-1,NA,1
+test_file_new,5187bcae-c483-4d50-bd98-630c255ef466,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Classification successful,852,852,Fusobacterium perfoetens,91.51,848,Fusobacterium,0
+test_file_new,5d4ea0e9-9750-43fe-835d-6f84b3f10ece,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Classification successful,856,856,Fusobacterium varium,90.35,848,Fusobacterium,0
+test_file_new,63a275fd-daf6-4a02-a207-0b7edddc693a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Classification successful,449673,449673,Bacteroides stercoris ATCC 43183,94.38,816,Bacteroides,0
+test_file_new,751996c3-4444-45c8-bc9a-994d322663d3,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,85e16daf-0d5f-4fc5-9d00-dce504875ded,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,a4fb54ad-7b97-408d-b8b8-3e20b59dcac2,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,a7cae2a0-0bd4-4436-94c2-9de988a4c803,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Classification successful,1224,760,Pasteurella stomatis,82.16,-1,NA,1
+test_file_new,cbeffcdb-3f18-4e24-8d5f-4e8fd5d83b58,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Classification successful,32024,32024,Campylobacter sputorum biovar sputorum,82.95,194,Campylobacter,0
+test_file_new,d407d32d-80a8-4250-bad7-1a067a2d63fb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,unclassified,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,0092d1b9-f75b-495c-ba23-2c9589590817,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,815,484018,Phocaeicola plebeius DSM 17135,83.33,-1,NA,1
+test_file_new,01c06045-d950-41c8-a37d-6e9bf37c796b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,657309,657309,Bacteroides xylanisolvens XB1A,91.12,816,Bacteroides,0
+test_file_new,0e17cfb1-36e5-4455-bf7e-e26b2264688b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,246787,246787,Bacteroides cellulosilyticus,90.39,816,Bacteroides,0
+test_file_new,19623288-14b0-4693-9e01-31ca67e1d889,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,90.84,848,Fusobacterium,0
+test_file_new,1b1e0232-81b7-490c-95ca-43168fbca834,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,92.53,848,Fusobacterium,0
+test_file_new,1e7c3db0-2b8c-4076-ae50-99fc1750aabe,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,91.38,848,Fusobacterium,0
+test_file_new,215e7611-78bb-44ac-9acf-4a13a0d5b735,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,91.75,848,Fusobacterium,0
+test_file_new,246fda3d-bf99-4dd0-b9e3-23b961549137,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,60552,60552,Burkholderia vietnamiensis,84.75,32008,Burkholderia,0
+test_file_new,3a523109-d785-408f-82cb-6ce3daeb0425,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,1077285,1077285,Bacteroides faecis MAJ27,90.84,816,Bacteroides,0
+test_file_new,3d6404c1-ccfc-4507-a7fd-d69633a710b9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,88.22,848,Fusobacterium,0
+test_file_new,41df7091-a449-4550-8289-5da9eb3b805c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,89.18,848,Fusobacterium,0
+test_file_new,4b31b0a3-cf77-43ff-87c0-96c98a293844,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,815,470145,Phocaeicola coprocola DSM 17136,93.63,-1,NA,1
+test_file_new,4ef67e1c-24b1-48f6-8ed3-e7452dadb8ad,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,86.48,848,Fusobacterium,0
+test_file_new,5ad84a35-edd4-4f7e-8948-a237e995e71a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,815,470145,Phocaeicola coprocola DSM 17136,90.8,-1,NA,1
+test_file_new,5d1037c1-fdc2-4cf7-9d91-8f69d78497ec,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,186803,411470,[Ruminococcus] gnavus ATCC 29149,89.17,-1,NA,1
+test_file_new,8a5829ae-c1eb-4b56-81d8-855c7303b534,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,91.41,848,Fusobacterium,0
+test_file_new,8f432a01-cafd-4749-9f64-e077af505ae6,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,90.59,848,Fusobacterium,0
+test_file_new,91dddb4a-cd93-4a81-a5f0-7f92f1085e8e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,90.07,848,Fusobacterium,0
+test_file_new,a23b310c-8aa6-4545-a39b-8638f74febc4,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,856,856,Fusobacterium varium,86.66,848,Fusobacterium,0
+test_file_new,a612448f-fee2-44b0-a84f-efe61714fdce,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,93.05,848,Fusobacterium,0
+test_file_new,b3d13c10-5aea-486c-995f-d349ced36a6f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,92.23,848,Fusobacterium,0
+test_file_new,b70368ba-25a1-4699-95d8-bd915ae0a0cc,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,88.66,848,Fusobacterium,0
+test_file_new,c3aad2d0-23e2-4936-ba9b-c73d76046bea,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,815,470145,Phocaeicola coprocola DSM 17136,92.53,-1,NA,1
+test_file_new,c587eb0c-a5c2-42be-9b8e-edab9b8dbf81,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,90.51,848,Fusobacterium,0
+test_file_new,c7892655-4ee4-4e61-80ea-3a5f66b51234,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,856,856,Fusobacterium varium,90.64,848,Fusobacterium,0
+test_file_new,c9fbb3cf-2ba5-45d7-a30e-fc3d743503a0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,90.19,848,Fusobacterium,0
+test_file_new,d5283bf4-8d9d-4e78-b633-7f3d36fd081c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,203492,852,Fusobacterium perfoetens,86.04,-1,NA,1
+test_file_new,e2be5276-e531-4f0a-a34e-6cc9390e5808,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,92.77,848,Fusobacterium,0
+test_file_new,f6651b00-697e-47f5-98f9-aa39ba56a094,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode11,Classification successful,852,852,Fusobacterium perfoetens,88.26,848,Fusobacterium,0
+test_file_new,10870caa-5b71-47f6-b094-cfbe3764de05,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,852,852,Fusobacterium perfoetens,93.42,848,Fusobacterium,0
+test_file_new,12ac441a-1f6e-49d5-bff4-fd315a4679c0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,852,852,Fusobacterium perfoetens,92.23,848,Fusobacterium,0
+test_file_new,27e77038-a0c7-44f6-9a0a-da149f1dbb6c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,83763,13335,Anaerobiospirillum succiniciproducens,89.52,-1,NA,1
+test_file_new,2bff2f6a-314a-4346-ba8c-fe3536a409bc,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,203492,167643,Ilyobacter insuetus,87.89,-1,NA,1
+test_file_new,444822e5-0f75-47bb-a15b-542ddd7cba5c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,856,856,Fusobacterium varium,93.67,848,Fusobacterium,0
+test_file_new,595c4f8b-a688-45cb-b7ed-b6bba08cbb7c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,821,821,Phocaeicola vulgatus,94.97,909656,Phocaeicola,0
+test_file_new,7c2713a2-7759-4115-a620-a3b90583b509,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,128827,1050201,Allobaculum stercoricanis DSM 13633,88.98,-1,NA,1
+test_file_new,83565ff8-869c-4707-bfa5-09868b501f9e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,821,821,Phocaeicola vulgatus,95.56,909656,Phocaeicola,0
+test_file_new,965f5154-4ec3-48d1-9f1d-dff9340c0200,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,850,850,Fusobacterium mortiferum,83.61,848,Fusobacterium,0
+test_file_new,9afec2ac-e6ee-4c85-bf6e-66a139736d07,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,815,484018,Phocaeicola plebeius DSM 17135,89.18,-1,NA,1
+test_file_new,9b545385-f4dc-41f0-819c-4481b068a4f8,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,39492,39492,[Eubacterium] siraeum,84.43,-1,Unknown,0
+test_file_new,9b7847b3-0df0-40e1-ac74-67459464b16a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,852,852,Fusobacterium perfoetens,90.09,848,Fusobacterium,0
+test_file_new,aad91fd2-5c15-4e05-96cb-53c63e946747,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,852,852,Fusobacterium perfoetens,85.63,848,Fusobacterium,0
+test_file_new,b681be22-3b49-4211-95bc-57f9a8378fe7,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,37372,37372,Helicobacter bilis,94.02,209,Helicobacter,0
+test_file_new,f2e5e90e-10f9-483a-85dc-268290b3fb74,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode15,Classification successful,815,470145,Phocaeicola coprocola DSM 17136,92.62,-1,NA,1
+test_file_new,41e6a31d-dcda-47c4-99f7-b793b6d93d6b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,153493,153493,Conchiformibius steedae,93.52,334107,Conchiformibius,0
+test_file_new,564adbeb-b09b-4f3c-b5e5-3a64158c5a49,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,743974,743974,Moraxella bovoculi 237,94.67,475,Moraxella,0
+test_file_new,740e8e94-e4ec-4e6f-8236-2c37779197a9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,7e68a16d-fa83-44fb-9423-ba2691649f5a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,667128,667128,Pasteurella dagmatis ATCC 43325,91.54,745,Pasteurella,0
+test_file_new,aac54823-a4ec-412d-8576-2f0b27a88b77,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,719,719,Actinobacillus hominis,86.55,713,Actinobacillus,0
+test_file_new,be6632f8-63d1-4132-b056-87a3453933a0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,137732,137732,Granulicatella elegans,90.52,117563,Granulicatella,0
+test_file_new,d7beef87-823a-44a5-a938-932a330ba244,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,543,585054,Escherichia fergusonii ATCC 35469,94.11,-1,NA,1
+test_file_new,de88eb58-3ebf-49a4-b0e6-7b1fddca0d8a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,266762,266762,Porphyromonas gingivicanis,91.64,836,Porphyromonas,0
+test_file_new,f380b7d0-1b96-490d-a44c-6bd16c09333f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode10,Classification successful,712,733,Canicola haemoglobinophilus,91.03,-1,NA,1
+test_file_new,082a72a5-ee41-4c8a-bc50-cf7f915a3874,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,856,856,Fusobacterium varium,87.44,848,Fusobacterium,0
+test_file_new,19c45527-0f07-44d6-81fc-a47c29777aea,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,1843491,491921,Megamonas rupellensis,89.11,-1,NA,1
+test_file_new,2e8f8f68-509d-4181-b987-b20c1f502ede,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,585394,585394,Roseburia hominis A2-183,88.42,841,Roseburia,0
+test_file_new,397f1b84-5d8a-456b-ab9b-9c4aeb3a5319,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,815,484018,Phocaeicola plebeius DSM 17135,91.77,-1,NA,1
+test_file_new,6a840de8-a6f2-485c-8b4d-087410c0aa9c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,186804,89152,Peptacetobacter hiranonis,92.95,-1,NA,1
+test_file_new,8c0f295f-a7be-4e75-8d39-0866ad9d513d,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,856,856,Fusobacterium varium,92.28,848,Fusobacterium,0
+test_file_new,9f6906de-44d1-4358-bf18-35859363ee1e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,852,852,Fusobacterium perfoetens,91.12,848,Fusobacterium,0
+test_file_new,a4c3b868-17ff-4b18-afbf-7b8e3f25720d,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,171549,820,Bacteroides uniformis,88.46,-1,NA,1
+test_file_new,a943d766-a933-4c74-9094-f10e4093be87,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,852,852,Fusobacterium perfoetens,87.4,848,Fusobacterium,0
+test_file_new,b3c2b945-9b84-4a27-b385-cb2648474808,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,856,856,Fusobacterium varium,94.04,848,Fusobacterium,0
+test_file_new,cb916c6b-5cfa-4573-94bd-ab9764d8d7eb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode03,Classification successful,852,852,Fusobacterium perfoetens,91.11,848,Fusobacterium,0
+test_file_new,7f45704c-0c93-4e7d-afc5-2f09b523d7b2,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode14,Classification successful,720,720,Actinobacillus lignieresii,88.07,713,Actinobacillus,0
+test_file_new,958c40ae-b1f3-48d3-bd4b-78503976351e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode14,Classification successful,29555,29555,Mycoplasmopsis canis,91.3,2767358,Mycoplasmopsis,0
+test_file_new,b035ea01-825d-45aa-a578-af140655a4ea,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode14,Classification successful,153493,153493,Conchiformibius steedae,91.48,334107,Conchiformibius,0
+test_file_new,1abcc74e-39e1-4598-b218-fcd99ef0c941,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode13,Classification successful,491921,491921,Megamonas rupellensis,93.7,158846,Megamonas,0
+test_file_new,39c646c9-a8e0-4d96-a81d-4c0f7e354f05,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode13,Classification successful,815,821,Phocaeicola vulgatus,82.11,-1,NA,1
+test_file_new,3a32780b-13b7-48af-8e8c-b322296716bb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode13,Classification successful,491921,491921,Megamonas rupellensis,92.9,158846,Megamonas,0
+test_file_new,52887ba5-a378-44ff-b4ef-e45c24150cf9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode13,Classification successful,852,852,Fusobacterium perfoetens,89.78,848,Fusobacterium,0
+test_file_new,83376306-7f04-4923-b407-cfe8c669e39b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode13,Classification successful,234908,234908,Sutterella stercoricanis,93.03,40544,Sutterella,0
+test_file_new,ab6c7de3-103e-4fbc-83bd-016813a9dcb3,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode13,Classification successful,815,470145,Phocaeicola coprocola DSM 17136,93.55,-1,NA,1
+test_file_new,fb7b09c2-bf4a-4578-a2e8-8b6f37afd84f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode13,Classification successful,856,856,Fusobacterium varium,86.32,848,Fusobacterium,0
+test_file_new,0b45657d-72b3-4710-b062-90ba51a61a24,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,712,735,Haemophilus parahaemolyticus,92.17,-1,NA,1
+test_file_new,111f47a9-e42d-462a-9ad7-5a0658b3d513,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,36874,36874,Porphyromonas cangingivalis,87.69,836,Porphyromonas,0
+test_file_new,277cd8c3-18ac-4084-b1b7-3b8bfd077809,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,203,203,Campylobacter rectus,86.27,194,Campylobacter,0
+test_file_new,47f0e966-e5ba-4c93-a9d8-08b7d45eb367,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,266762,266762,Porphyromonas gingivicanis,94.91,836,Porphyromonas,0
+test_file_new,87e54f2c-1435-4be6-87f3-c01d33617d13,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,712,51048,Actinobacillus porcinus,92.35,-1,NA,1
+test_file_new,8f08db02-8711-483b-aace-544d1574ba5b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,1755100,1755100,Fusobacterium gastrosuis,93.23,848,Fusobacterium,0
+test_file_new,a00e0755-f746-482b-b3b8-0ab5bf0e1e70,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,715,715,Actinobacillus pleuropneumoniae,89.83,713,Actinobacillus,0
+test_file_new,aa098010-0544-46ef-8184-18f56996a5e2,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,186802,682400,Natranaerovirga pectinivora,84.21,-1,NA,1
+test_file_new,c79b4a73-f6a2-4df2-b0f9-b087dd7bad7f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,712,719,Actinobacillus hominis,88.26,-1,NA,1
+test_file_new,c99adc32-7501-4610-b983-78ea7a8bbeaf,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,644282,644282,Desulfarculus baarsii DSM 2075,78.43,453229,Desulfarculus,0
+test_file_new,d8a43daf-c494-436d-9bd7-a111a23f6fc7,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,481,153491,Alysiella crassa,89.41,-1,NA,1
+test_file_new,e8f7ef81-8ade-414d-bc1e-4fe72014bfcf,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,153493,153493,Conchiformibius steedae,95.77,334107,Conchiformibius,0
+test_file_new,eadcddc4-2e46-4394-b871-63654f31ba59,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,29374,29374,Filifactor villosus,94.84,44259,Filifactor,0
+test_file_new,f2d6fa4e-3d07-426d-a0f0-c674b223b58d,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,667128,667128,Pasteurella dagmatis ATCC 43325,92.97,745,Pasteurella,0
+test_file_new,f60a733e-b0c6-4736-9b0e-2f4645a6fcc9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode06,Classification successful,753,753,Pasteurella canis,94.15,745,Pasteurella,0
+test_file_new,2f5d0bc2-5b20-4bfb-8017-c046ff45db5c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,190,190,Aquaspirillum serpens,87.83,187,Aquaspirillum,0
+test_file_new,3fde70ff-c79d-42cd-8bd6-ea9876720f14,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,712,733,Canicola haemoglobinophilus,90.36,-1,NA,1
+test_file_new,531b2e81-b5d5-478b-a74b-5511635e023a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,34062,34062,Moraxella osloensis,92.22,475,Moraxella,0
+test_file_new,5c1481b2-b0d5-410d-ac2d-cd29216ddb14,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,712,53417,Lonepinella koalarum,93.91,-1,NA,1
+test_file_new,6e6393e4-c780-4b22-adee-b5c2e9c89cca,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,49546,2488728,Flavobacterium tangerinum,89.55,-1,NA,1
+test_file_new,889c871c-4e12-41f9-af18-2d0a3b2d5535,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,478,478,Moraxella nonliquefaciens,92.97,475,Moraxella,0
+test_file_new,a6944487-6112-42c6-932e-7c4a796ceabb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,715,715,Actinobacillus pleuropneumoniae,88.19,713,Actinobacillus,0
+test_file_new,ace10740-8ad5-4582-8469-1c876b988cdb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,712,123822,[Haemophilus] felis,89.12,-1,NA,1
+test_file_new,b6d91905-bc60-490f-b8d6-b9021d65bc20,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,712,123824,Frederiksenia canicola,90.44,-1,NA,1
+test_file_new,d091683c-3298-49e8-ba1d-77a287d69bbb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,90239,90239,Moraxella canis,90.89,475,Moraxella,0
+test_file_new,dd69a282-f51f-4981-804a-7b5425dcf3ac,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,712,123822,[Haemophilus] felis,89.31,-1,NA,1
+test_file_new,fa9fe24f-7b7f-4946-a558-bc55daa1b1b0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode08,Classification successful,478,478,Moraxella nonliquefaciens,91.2,475,Moraxella,0
+test_file_new,0f3b7023-0fee-412c-b3ee-0ac859815d2e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,153493,153493,Conchiformibius steedae,88.21,334107,Conchiformibius,0
+test_file_new,39e26d56-24f2-40a6-979c-2e8e17bf08e6,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,712,719,Actinobacillus hominis,89.22,-1,NA,1
+test_file_new,4f14b1c1-4135-48c1-8a67-4134a61c4f74,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,712,715,Actinobacillus pleuropneumoniae,87.7,-1,NA,1
+test_file_new,5770c0f6-8dba-4140-8545-7c6186036d8f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,153493,153493,Conchiformibius steedae,93.41,334107,Conchiformibius,0
+test_file_new,a34d3b89-96a6-4468-b1b5-848c5e174074,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,266762,266762,Porphyromonas gingivicanis,93.91,836,Porphyromonas,0
+test_file_new,abea0a84-b0e2-4543-b205-26bf07ab7c1d,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,712,733,Canicola haemoglobinophilus,94.14,-1,NA,1
+test_file_new,d6f939e6-fd54-4da4-ae19-a62e92300ebe,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,153493,153493,Conchiformibius steedae,93,334107,Conchiformibius,0
+test_file_new,e4c2e716-f0d2-4a95-9383-eddae158e500,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,712,123822,[Haemophilus] felis,86.49,-1,NA,1
+test_file_new,fc13b2e0-2ef7-45f0-8a5a-0b280b1fc376,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode04,Classification successful,661498,661498,Streptococcus fryi,91.13,1301,Streptococcus,0
+test_file_new,10c03496-bcc4-48d8-974b-40f184f52e37,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,241555,241555,Helcococcus sueciensis,88.07,31983,Helcococcus,0
+test_file_new,1767e934-a32d-4fb1-84ca-0860804ac309,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,72293,844,Wolinella succinogenes,92.62,-1,NA,1
+test_file_new,1a55c00e-18af-4c62-8802-b4c0e72fcc68,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,468,90241,Moraxella lincolnii,88.27,-1,NA,1
+test_file_new,24526ca8-41d7-45d5-9549-73e72d3609e7,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,543314,2818044,Sinanaerobacter chloroacetimidivorans,83.66,-1,NA,1
+test_file_new,3b7823f0-f1e3-4fc8-bb30-6deda12910ba,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,1583331,1583331,Porphyromonas pasteri,91.62,836,Porphyromonas,0
+test_file_new,46a1addf-96c3-41c3-9f56-ba55c16d6363,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,49d7358b-7ed0-445a-a420-05a39577d33e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,753,753,Pasteurella canis,95.02,745,Pasteurella,0
+test_file_new,552eb905-2cc1-424f-9fa3-d3c9304498e9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,1755100,1755100,Fusobacterium gastrosuis,90.33,848,Fusobacterium,0
+test_file_new,5c1356ae-7588-445e-b51f-91683bcbec55,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,72293,844,Wolinella succinogenes,90.66,-1,NA,1
+test_file_new,5f71bcb8-75c7-4fdb-950c-35173c02b77b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,261164,261164,Psychrobacter alimentarius,85.04,497,Psychrobacter,0
+test_file_new,76d61ac2-e30b-4bd5-b602-06cad8880a6e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,171549,671218,Alloprevotella rava,82.78,-1,NA,1
+test_file_new,8e643f99-5361-42ec-bea4-f7bf7c350b9f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,80864,491919,Brachymonas chironomi,91.55,-1,NA,1
+test_file_new,8f9b383d-e851-40f2-aaa4-5c89266f727f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,1931275,1931275,Neisseria dumasiana,92.53,482,Neisseria,0
+test_file_new,93e37a7e-cc17-4a12-9661-24d88e8fd862,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,335284,335284,Psychrobacter cryohalolentis K5,86.31,497,Psychrobacter,0
+test_file_new,9c7aa94c-c94a-4122-8cad-918a7cdc8d91,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,171552,671218,Alloprevotella rava,82.76,-1,NA,1
+test_file_new,a65153a1-ed30-4f3c-afb5-c318b7b80c7a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,186827,87650,Facklamia sourekii,87.76,-1,NA,1
+test_file_new,bffa751b-2021-4835-a7fe-04e35d8db9ae,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,261164,261164,Psychrobacter alimentarius,88.1,497,Psychrobacter,0
+test_file_new,c3302a2f-63f3-4175-8fa2-77487945e43c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,753,753,Pasteurella canis,92.15,745,Pasteurella,0
+test_file_new,cce9cb72-6054-439d-b242-8b887b243c60,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,1441821,1441821,Helcococcus seattlensis,84.03,31983,Helcococcus,0
+test_file_new,ecb8fd32-21ff-45f8-8832-e9e1a549267a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,200413,200413,Moraxella oblonga,86.56,475,Moraxella,0
+test_file_new,ed20d7be-635a-45b8-91e5-a6b5a044dc29,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,1737405,1441821,Helcococcus seattlensis,83.76,-1,NA,1
+test_file_new,f26fe8a6-fc32-48c4-89bd-71594e7560a6,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode16,Classification successful,203,203,Campylobacter rectus,89.14,194,Campylobacter,0
+test_file_new,00d7ebaa-cfd1-40ab-9d1a-8e639900de37,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode02,Classification successful,712,733,Canicola haemoglobinophilus,89.77,-1,NA,1
+test_file_new,3c0921de-4785-4bb2-8981-1ee97b1b8a20,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode02,Classification successful,661498,661498,Streptococcus fryi,92.88,1301,Streptococcus,0
+test_file_new,8c310462-3c47-4c53-b51a-02d7b31b377e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode02,Classification successful,153493,153493,Conchiformibius steedae,93.38,334107,Conchiformibius,0
+test_file_new,d35fd6f3-be00-46c1-960e-102a7fa42c45,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode02,Classification successful,59310,59310,Streptococcus macedonicus,86.24,1301,Streptococcus,0
+test_file_new,07746960-c44f-48c1-8acb-bdcd36c3a823,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,90.09,909656,Phocaeicola,0
+test_file_new,09c85dd4-c813-4894-98a6-cb94eb9edf60,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,95.67,909656,Phocaeicola,0
+test_file_new,0d5df364-26f0-4a3f-bc62-51d88b9f526f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,90.29,909656,Phocaeicola,0
+test_file_new,121e692e-6d5c-47c8-89b5-ebd9a4778e4e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,93.83,909656,Phocaeicola,0
+test_file_new,13fcf899-52a5-44f8-816a-f83292cd80c4,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,94.16,909656,Phocaeicola,0
+test_file_new,2a29e246-b165-4cc2-9a82-50e89a009eed,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,449673,449673,Bacteroides stercoris ATCC 43183,92.55,816,Bacteroides,0
+test_file_new,31d6877b-9a3b-496c-b36f-52f96a9e80ac,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,203492,852,Fusobacterium perfoetens,94.12,-1,NA,1
+test_file_new,434881e7-2f49-4915-a6de-949d8476fe35,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,852,852,Fusobacterium perfoetens,91.86,848,Fusobacterium,0
+test_file_new,64203b73-bedb-4399-9e5e-76c8e44ffad0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,216572,292800,Flavonifractor plautii,89.63,-1,NA,1
+test_file_new,a2457f37-55da-4c52-ab1e-4a5810fbb7c2,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,95.4,909656,Phocaeicola,0
+test_file_new,a9843d89-cb56-4ad7-a9f8-741aa026c009,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,90.13,909656,Phocaeicola,0
+test_file_new,ca752f81-17a0-4d4f-be26-66e43b978f37,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,852,852,Fusobacterium perfoetens,87.91,848,Fusobacterium,0
+test_file_new,d9d482e8-11bc-4869-aeda-c9da1ede4eef,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,86.54,909656,Phocaeicola,0
+test_file_new,dc53cb9f-1ca8-4b82-a5e3-d3149ddeaa09,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,186803,411470,[Ruminococcus] gnavus ATCC 29149,90.23,-1,NA,1
+test_file_new,e2ca18cf-3296-4687-8fe3-df1fd7d4bb60,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,95.09,909656,Phocaeicola,0
+test_file_new,ebc3352c-2373-4996-9c98-263b3883fe4e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,90.74,909656,Phocaeicola,0
+test_file_new,fb76408b-e17f-4c93-8aee-f8a6ba95d899,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode01,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,95.21,909656,Phocaeicola,0
+test_file_new,207b2b62-d8cf-4098-9c1e-e5709a4b8f41,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,90239,90239,Moraxella canis,92.56,475,Moraxella,0
+test_file_new,318427e0-a413-4106-93c1-13e9357030a1,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,712,733,Canicola haemoglobinophilus,88.75,-1,NA,1
+test_file_new,37ea4a17-97c1-4e25-b065-4c11744ef1dc,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,186802,76009,Fusibacter paucivorans,81.76,-1,NA,1
+test_file_new,67694bd0-edd8-4e24-becd-86241e1887ea,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,36875,36875,Porphyromonas canoris,94.58,836,Porphyromonas,0
+test_file_new,6e592b36-0b19-48ac-8489-cc71b6b3076a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,1931275,1931275,Neisseria dumasiana,95.52,482,Neisseria,0
+test_file_new,7a7b694d-495c-430f-8353-cb4052cd25d5,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,153493,153493,Conchiformibius steedae,86.83,334107,Conchiformibius,0
+test_file_new,86d1c203-67de-4705-922e-7834eab2807e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,153493,153493,Conchiformibius steedae,91.9,334107,Conchiformibius,0
+test_file_new,b05dc681-f2f8-4512-b7ed-c1bc9da83eba,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,868,194702,Cardiobacterium valvarum,88.23,-1,NA,1
+test_file_new,b098f34a-e612-4431-b5dd-c62d770f4834,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,186828,137732,Granulicatella elegans,92.96,-1,NA,1
+test_file_new,b5712a7b-224e-42eb-b552-eb0597927372,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,153493,153493,Conchiformibius steedae,93.66,334107,Conchiformibius,0
+test_file_new,bf1157c2-c32b-484b-a38b-d2d70e25dede,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode18,Classification successful,51160,51160,Treponema maltophilum,91.45,157,Treponema,0
+test_file_new,095283be-637a-4704-9492-468d6eb0e829,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,93.3,848,Fusobacterium,0
+test_file_new,1c0c851e-a14a-481c-868f-8c9451fe186c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,86.4,848,Fusobacterium,0
+test_file_new,2305328f-5a40-49c3-8cdf-ee6fde77d297,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,91.9,848,Fusobacterium,0
+test_file_new,40d827d2-2267-40a0-817d-07dcb661e275,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,850,850,Fusobacterium mortiferum,88.48,848,Fusobacterium,0
+test_file_new,40d944ba-3131-456e-b1aa-20df3bab76d9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,93.64,848,Fusobacterium,0
+test_file_new,4be3d960-b62d-4983-96ba-3284b5dfe573,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,84.24,848,Fusobacterium,0
+test_file_new,54e804a7-f958-4f80-a579-8defa7cd05ef,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,815,1841856,Bacteroides mediterraneensis,90.38,-1,NA,1
+test_file_new,6114db45-7de2-4f29-8f49-c299c643ff71,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,93.67,848,Fusobacterium,0
+test_file_new,687977a9-bc4c-4bde-bbc0-35aae225b273,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,84.31,848,Fusobacterium,0
+test_file_new,764baa13-3e04-45fe-8d7f-258bbd5b6377,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,87.58,848,Fusobacterium,0
+test_file_new,7d4451b2-10ee-48db-97e4-245c1fb24081,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,91.62,848,Fusobacterium,0
+test_file_new,89d1c834-bc74-4a72-a51b-2250543133c6,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,234908,234908,Sutterella stercoricanis,93.5,40544,Sutterella,0
+test_file_new,94e0d9e0-1654-4c80-b755-630f828a860c,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,85.54,848,Fusobacterium,0
+test_file_new,9d3afd64-3dda-46f8-a3a5-4f2eea5f971d,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,91.66,848,Fusobacterium,0
+test_file_new,a2a0809e-3bd8-45bb-81b5-d6cc637a017f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,87.07,848,Fusobacterium,0
+test_file_new,a85a8ae9-7068-4bc5-b458-25137e9605c0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,91.35,848,Fusobacterium,0
+test_file_new,ab18ab32-891a-4bfe-93c0-541b1ebd5135,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,815,1841856,Bacteroides mediterraneensis,89.29,-1,NA,1
+test_file_new,ba548192-8cdf-47e3-a2cc-526147a7e3c5,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,89.25,848,Fusobacterium,0
+test_file_new,bac9bc7f-2aa3-4026-b4e5-9a37dd4e90a2,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,850,850,Fusobacterium mortiferum,85.94,848,Fusobacterium,0
+test_file_new,bc9e54ee-9330-4421-8d13-ed0ba83b6e8a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,186802,501571,Butyricicoccus pullicaecorum,93.21,-1,NA,1
+test_file_new,c92343ea-e6ba-4eed-bf91-1b05b0fccf87,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,90.61,848,Fusobacterium,0
+test_file_new,cce590d8-f9ce-4d6f-847a-3237fcddf677,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,234908,234908,Sutterella stercoricanis,90.5,40544,Sutterella,0
+test_file_new,d268a3f9-2470-4f74-883a-6733dc6d7212,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,1121114,1121114,Blautia producta ATCC 27340 = DSM 2950,90.11,572511,Blautia,0
+test_file_new,d48727dd-ad91-42f3-8bfa-d3acf36b5a8a,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,856,856,Fusobacterium varium,88.73,848,Fusobacterium,0
+test_file_new,dc3d5a95-48aa-4276-a824-0419a245bc1b,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,91.67,848,Fusobacterium,0
+test_file_new,e59a856b-9396-4ffe-ae32-b7107974b614,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,815,484018,Phocaeicola plebeius DSM 17135,88.99,-1,NA,1
+test_file_new,e5b10f23-4eb2-4c74-b775-a4d305cf1755,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,91.96,848,Fusobacterium,0
+test_file_new,e6da93ce-66fb-473f-b483-ff633d3ec769,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,87.73,848,Fusobacterium,0
+test_file_new,e77d1fd5-3b85-4b22-a0b4-870ff5234034,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,82.75,848,Fusobacterium,0
+test_file_new,ed337620-1463-48d8-ab58-c6f46af8e1d6,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,1236513,1236513,Bacteroides faecichinchillae JCM 17102,91,816,Bacteroides,0
+test_file_new,f05bda37-8382-4038-a112-0d29114803d1,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode19,Classification successful,852,852,Fusobacterium perfoetens,90.52,848,Fusobacterium,0
+test_file_new,291d8fd5-5859-4f1e-a010-bea9eb5eeec5,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,87.17,909656,Phocaeicola,0
+test_file_new,2c346ad6-754d-46a5-8fb9-15bb63a787ea,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,454154,454154,Paraprevotella clara,88.74,577309,Paraprevotella,0
+test_file_new,60a3bd72-75b2-407c-8191-0d1379352f93,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,87.13,909656,Phocaeicola,0
+test_file_new,6242d2f4-4502-4394-9a63-a31f8cb4d263,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,46503,46503,Parabacteroides merdae,95.08,375288,Parabacteroides,0
+test_file_new,68426ff9-244a-412c-bed8-d2b25cf2bced,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,46503,46503,Parabacteroides merdae,94.61,375288,Parabacteroides,0
+test_file_new,6c635d5a-e2ea-428f-87aa-ac058876c075,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,821,821,Phocaeicola vulgatus,93.56,909656,Phocaeicola,0
+test_file_new,6f84caa5-a98d-4077-a7ad-2a7b16b3106f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,435590,435590,Phocaeicola vulgatus ATCC 8482,91.43,909656,Phocaeicola,0
+test_file_new,79dbab48-01c3-4220-aafd-05859cebe606,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,46503,46503,Parabacteroides merdae,92.14,375288,Parabacteroides,0
+test_file_new,97660b18-533a-454f-b474-befcf7cd3ad7,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,449673,449673,Bacteroides stercoris ATCC 43183,93.32,816,Bacteroides,0
+test_file_new,b83db9ec-645a-4268-b748-888c658cb396,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,850,850,Fusobacterium mortiferum,88.12,848,Fusobacterium,0
+test_file_new,df3f800f-b816-4c40-b0a6-6b46ac0a97c8,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,1816689,1816689,Sutterella massiliensis,94.38,40544,Sutterella,0
+test_file_new,ef30cded-65a0-4feb-9c65-c592d6235844,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode09,Classification successful,1816689,1816689,Sutterella massiliensis,95.26,40544,Sutterella,0
+test_file_new,08852554-fd98-4d21-a6c3-ff9b19863fc8,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,2762318,1015,Bergeyella zoohelcum,95.11,-1,NA,1
+test_file_new,095e9af6-8ac5-4b2c-af7d-cc49fff72f15,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,153493,153493,Conchiformibius steedae,89.97,334107,Conchiformibius,0
+test_file_new,0adc75d3-c5b7-49aa-8002-fe748a5f93e9,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,90239,90239,Moraxella canis,87.49,475,Moraxella,0
+test_file_new,132fe4a3-1f5c-4269-b0af-cf503d613a94,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,715,715,Actinobacillus pleuropneumoniae,91.56,713,Actinobacillus,0
+test_file_new,3f1b35ab-f0a4-440b-8ef7-9ab337ec8bc0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,49546,1317122,Aquimarina atlantica,90.81,-1,NA,1
+test_file_new,4085acad-9a06-45b1-b828-a1f8282bdcc8,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,712,733,Canicola haemoglobinophilus,90.64,-1,NA,1
+test_file_new,41dd877b-5648-4c6c-b381-1be5e9c0bdfd,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,111105,111105,Porphyromonas gulae,86.71,836,Porphyromonas,0
+test_file_new,440d6f8b-c77c-4edc-9e54-517b30698ccb,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,712,715,Actinobacillus pleuropneumoniae,87.95,-1,NA,1
+test_file_new,472c41a3-20bb-408f-805e-b711b58a8d83,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,326522,326522,Neisseria animaloris,85.73,482,Neisseria,0
+test_file_new,4ac6db66-2775-4c40-8338-0f38489d3a9e,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,715,715,Actinobacillus pleuropneumoniae,90.59,713,Actinobacillus,0
+test_file_new,537b3770-da61-4f2f-9c1d-dcc3e7b5d87d,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,158,158,Treponema denticola,88.82,157,Treponema,0
+test_file_new,682199ac-9354-40d2-bb17-db6645125883,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,153493,153493,Conchiformibius steedae,89.95,334107,Conchiformibius,0
+test_file_new,85de361e-9eb3-4cf2-9ae9-faa55cc8c6f0,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,712,123822,[Haemophilus] felis,86.16,-1,NA,1
+test_file_new,86dfa842-6ca2-4ab8-bb41-a59907a8a144,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,90239,90239,Moraxella canis,87.08,475,Moraxella,0
+test_file_new,8a7d2bb8-f3b7-4fb7-831d-17e065c4eeaa,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,1032488,1032488,Neisseria shayeganii 871,86.72,482,Neisseria,0
+test_file_new,c455f365-2bf5-4740-a1df-e830ce50ff3f,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,153493,153493,Conchiformibius steedae,92.87,334107,Conchiformibius,0
+test_file_new,d49880e0-bf15-42c0-b0c7-67c3e9b751db,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,1236,2718,Cardiobacterium hominis,84.8,-1,NA,1
+test_file_new,dd016b65-d910-447b-aed1-943f018e58c6,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,868,194702,Cardiobacterium valvarum,89.31,-1,NA,1
+test_file_new,e247c4e6-eb4f-4ade-948a-d206d0179a00,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,712,718,Actinobacillus equuli,88.92,-1,NA,1
+test_file_new,e3ab4ed2-4148-49a7-bc5f-ffc7d221c6f2,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,712,123824,Frederiksenia canicola,88.4,-1,NA,1
+test_file_new,eb4a346d-3137-40c5-aea4-22055fb535db,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,ee5f5c61-de78-45f2-b0b7-48aa4ae370f5,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,712,733,Canicola haemoglobinophilus,91.68,-1,NA,1
+test_file_new,f420efdb-4857-4f91-a29c-a113304fe7f8,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Unclassified,-1,-1,,-1,-1,,-1
+test_file_new,fa05c1f3-e58e-415b-b35f-ef056f513954,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,478,478,Moraxella nonliquefaciens,93.24,475,Moraxella,0
+test_file_new,fea17869-2d9c-49e8-a1d2-6a2b28192b0d,f13b8cd00baaa91429c8dd49640ad0c25fc330c0,barcode12,Classification successful,712,719,Actinobacillus hominis,80.29,-1,NA,1
