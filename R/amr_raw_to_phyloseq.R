@@ -67,7 +67,7 @@ amr_raw_to_phyloseq <- function(path.to.amr.files, metadata,
 
   #quick metadata
   metadata <- as.data.frame(metadata)
-  rownames(metadata) <- metadata$sampleID
+  rownames(metadata) <- metadata$sampleid
   #put it together
   OTU = otu_table(amr_count_table, taxa_are_rows = TRUE)
   TAX = tax_table(as.matrix(taxa_short))
