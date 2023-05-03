@@ -43,15 +43,15 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
 
   #remove barcodes not in metadata
   mb.metadata <- metadata
-  mb.metadata$sampleID <- paste(mb.metadata$wimp_filename,
+  mb.metadata$sampleid <- paste(mb.metadata$wimp_filename,
                                 mb.metadata$wimp_barcode, sep = "_")
-  sampleID_names <- as.data.frame(mb.metadata$sampleID)
-  colnames(sampleID_names) <- "sampleID"
+  sampleID_names <- as.data.frame(mb.metadata$sampleid)
+  colnames(sampleID_names) <- "sampleid"
   mb_count_table.t <- as.data.table(t(as.matrix(wimp_count_table,
-                                                rownames = "taxID")),
-                                    keep.rownames = "sampleID")
+                                                rownames = "taxid")),
+                                    keep.rownames = "sampleid")
   dropped_mis_barcode.t <- merge(x = sampleID_names, mb_count_table.t,
-                                 by = "sampleID", all.x = TRUE)
+                                 by = "sampleid", all.x = TRUE)
   #entire section because I could not get the df to be numeric in count data
   dropped_mis_barcode <- as.data.frame(t(dropped_mis_barcode.t))
   dropped_col_names <- as.character(dropped_mis_barcode[1,])
@@ -64,19 +64,19 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
   #taxonomy now
   message("Starting taxonomic table building (long...)")
   mb.taxonIDneeded <- as.data.frame(row.names(mb_table_numeric))
-  setnames(mb.taxonIDneeded, "row.names(mb_table_numeric)", "taxID")
-  mb.taxonIDneeded <- as.numeric(mb.taxonIDneeded$taxID)
+  setnames(mb.taxonIDneeded, "row.names(mb_table_numeric)", "taxid")
+  mb.taxonIDneeded <- as.numeric(mb.taxonIDneeded$taxid)
   message("Now downloading and putting together the NCBI database. This might take a while...")
   prepareDatabase(getAccessions=FALSE, indexTaxa=TRUE)
   message("Assigning all taxID in count matrix to fill taxonomy. You might want to take a break...")
   full.taxon.wimp <- getTaxonomy(mb.taxonIDneeded,'nameNode.sqlite')
-  full.taxon.wimp.dt <- as.data.table(full.taxon.wimp, keep.rownames = "taxID")
-  full.taxon.wimp.dt$taxID <- as.numeric(full.taxon.wimp.dt$taxID)
-  full.taxon.wimp.dt$taxID <- as.numeric(full.taxon.wimp.dt$taxID)
-  mb.dt <- as.data.table(mb_table_numeric, keep.rownames = "taxID")
-  mb.dt$taxID <- as.numeric(mb.dt$taxID)
+  full.taxon.wimp.dt <- as.data.table(full.taxon.wimp, keep.rownames = "taxid")
+  full.taxon.wimp.dt$taxid <- as.numeric(full.taxon.wimp.dt$taxid)
+  full.taxon.wimp.dt$taxid <- as.numeric(full.taxon.wimp.dt$taxid)
+  mb.dt <- as.data.table(mb_table_numeric, keep.rownames = "taxid")
+  mb.dt$taxid <- as.numeric(mb.dt$taxid)
   merged.wimp.data <- merge(x = mb.dt, y = full.taxon.wimp.dt,
-                            by = "taxID", all.x = TRUE)
+                            by = "taxid", all.x = TRUE)
   message("Done with taxa assignments. It should not be too much longer...")
 
   #get rid of unclassified
@@ -91,17 +91,17 @@ wimp_raw_to_phyloseq <- function(path.to.wimp.files, metadata,
   if (keep.human) {
     wimp.data.filtered <- wimp.data.unclass.flag
   } else {
-    wimp.data.filtered <- wimp.data.unclass.flag[taxID != "9606"]
+    wimp.data.filtered <- wimp.data.unclass.flag[taxid != "9606"]
   }
 
   #prepare for phyloseq
-  taxa_long <- wimp.data.filtered[, c("taxID", "superkingdom", "phylum", "class",
+  taxa_long <- wimp.data.filtered[, c("taxid", "superkingdom", "phylum", "class",
                                       "order", "family", "genus", "species")]
   count_table_mb <- wimp.data.filtered[, !c("superkingdom", "phylum", "class",
                                             "order", "family", "genus",
                                             "species")]
   mb.metadata <- as.data.frame(mb.metadata)
-  rownames(mb.metadata) <- mb.metadata$sampleID
+  rownames(mb.metadata) <- mb.metadata$sampleid
 
   OTU = otu_table(count_table_mb, taxa_are_rows = TRUE)
   TAX = tax_table(as.matrix(taxa_long))

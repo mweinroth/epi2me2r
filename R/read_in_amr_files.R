@@ -34,15 +34,15 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
   amr.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
     amr.dataframe <- fread(file.path(path.to.amr.files, file_name))
-    #rows to lower to compare
-    rownames(amr.dataframe) <- tolower(rownames(amr.dataframe))
+    #colnames to lower to compare
+    colnames(amr.dataframe) <- tolower(colnames(amr.dataframe))
     cbind(amr.dataframe, csvname = Sample_IDs[i])
   })
 
   amr.rawdata <- do.call(rbind, amr.rawdata)
 
   amr.rawdata.reduced <- amr.rawdata[, list(csvname, barcode,
-                                            coverage, URL)]
+                                            coverage, url)]
   sampleidinfo <- amr.rawdata.reduced[, .(sampleid=
                                             amr.rawdata.reduced[["sampleid"]],
                                           sampleid=
@@ -50,7 +50,7 @@ read_in_amr_files <- function(path.to.amr.files, coveragenumber=80,
                                       .SDcols= csvname:barcode]
   amr.rawdata.reduced <- cbind(sampleidinfo, amr.rawdata.reduced)
   amr.rawdata.reduced[, c('1','2', '3', '4', 'CVTERMID') :=
-                        do.call(Map, c(f = c, strsplit(URL, '/'))) ]
+                        do.call(Map, c(f = c, strsplit(url, '/'))) ]
   amr.rawdata.reduced.subset <-
     amr.rawdata.reduced[coverage %between% c(coveragenumber, 100),
                         list(sampleid, CVTERMID)]

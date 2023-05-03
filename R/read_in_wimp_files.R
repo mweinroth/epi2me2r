@@ -20,7 +20,11 @@ read_in_wimp_files <- function(path.to.wimp.files) {
   mb.rawdata <- lapply(1:length(parsed_files), function(i) {
     file_name <- paste0(parsed_files[i])
     mb.dataframe <- fread(file.path(path.to.wimp.files,file_name))
-    rownames(mb.dataframe) <- tolower(rownames(mb.dataframe))
+    # Colnames to lower to avoid mismatches
+    colnames(mb.dataframe) <- tolower(colnames(mb.dataframe))
+    # get only necessary information for wimp
+    # new reports generate other columns like species_ID and genus_ID
+    mb.dataframe =  dplyr:::select(mb.dataframe,filename,readid,runid,exit_status,barcode,taxid)
     cbind(mb.dataframe, csvname = Sample_IDs[i])
   })
 
@@ -28,7 +32,8 @@ read_in_wimp_files <- function(path.to.wimp.files) {
 
   total.reads <- nrow(mb.rawdata)
   # Some outputs include 'Classification successful'
-  mb.classified <- mb.rawdata[mb.rawdata$exit_status %in% c("Classified", "Classification successful"),]
+  # again to lower to avoid mismatches
+  mb.classified <- mb.rawdata[tolower(mb.rawdata$exit_status) %in% c("classified", "classification successful"),]
   classified.reads <- nrow(mb.classified)
   percentage.classified <- round((classified.reads/total.reads*100),
                                 digits = 2)
